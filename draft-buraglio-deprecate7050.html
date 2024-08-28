@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Deprication of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</title>
+<title>Deprecation of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</title>
 <meta content="Nick Buraglio" name="author">
 <meta content="Tommy Jensen" name="author">
+<meta content="Jen Linkova" name="author">
 <meta content='
-        describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation ( ). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using   is deprecated to legacy status. 
+       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 is deprecated to legacy status. 
     ' name="description">
-<meta content="xml2rfc 3.22.0" name="generator">
+<meta content="xml2rfc 3.23.0" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="DNS64" name="keyword">
 <meta content="draft-buraglio-deprecate7050-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.22.0
+  xml2rfc 3.23.0
     Python 3.12.3
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
@@ -1025,12 +1026,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">Deprication of DNS64 for Discovery of IP</td>
+<td class="center">Deprecate RFC7050</td>
 <td class="right">August 2024</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Buraglio &amp; Jensen</td>
-<td class="center">Expires 27 February 2025</td>
+<td class="left">Buraglio, et al.</td>
+<td class="center">Expires 1 March 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1038,17 +1039,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">Network Working Group</dd>
+<dd class="workgroup">dnsop</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
 <dd class="internet-draft">draft-buraglio-deprecate7050-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-08-26" class="published">26 August 2024</time>
+<time datetime="2024-08-28" class="published">28 August 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Informational</dd>
+<dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-02-27">27 February 2025</time></dd>
+<dd class="expires"><time datetime="2025-03-01">1 March 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1059,13 +1060,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <div class="author-name">T. Jensen</div>
 <div class="org">Microsoft</div>
 </div>
+<div class="author">
+      <div class="author-name">J. Linkova</div>
+<div class="org">Google</div>
+</div>
 </dd>
 </dl>
 </div>
-<h1 id="title">Deprication of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
+<h1 id="title">Deprecation of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (<span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is deprecated to legacy status.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 is deprecated to legacy status.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1102,7 +1107,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 February 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 1 March 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1141,13 +1146,27 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-existing-issues-with-rfc-70" class="internal xref">Existing issues with RFC 7050</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of secure channel {secure-channel-def}</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-dependency-on-network-provi" class="internal xref">Dependency on Network-Provided Recursive Resolvers</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure channel example of IPsec</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-network-stack-initializatio" class="internal xref">Network Stack Initialization Delay</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-secure-channel-example-of-l" class="internal xref">Secure channel example of link layer encryption</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-inflexibility" class="internal xref">Inflexibility</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-security-implications" class="internal xref">Security Implications</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.1">
+                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="auto internal xref">3.4.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of secure channel</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.2">
+                    <p id="section-toc.1-1.3.2.4.2.2.1"><a href="#section-3.4.2" class="auto internal xref">3.4.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure channel example of IPsec</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.3">
+                    <p id="section-toc.1-1.3.2.4.2.3.1"><a href="#section-3.4.3" class="auto internal xref">3.4.3</a>.  <a href="#name-secure-channel-example-of-l" class="internal xref">Secure channel example of link layer encryption</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1186,7 +1205,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1"><span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use to discover other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations IPv6 requires using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">The DNS-based mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> was the very first mechanism available for nodes to discover the PREF64 information.
+However since the publication of RFC7050 other methods have been developed, to address some of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">For example, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use to discover other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations IPv6 requires using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Taking into account some fundamental flaws of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it seems desirable to deprecate it and recommend new deployments and implementations to use better methods to obtain PREF64 information.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1194,10 +1216,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-conventions-and-definitions">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
       </h2>
-<p id="section-2-1">NAT64<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">DNS64<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">Router Advertisement<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">pref64<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertize the presence of the routers, togther with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">pref64(or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
@@ -1209,29 +1231,83 @@ appear in all capitals, as shown here.<a href="#section-2-5" class="pilcrow">¶<
       <h2 id="name-existing-issues-with-rfc-70">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-existing-issues-with-rfc-70" class="section-name selfRef">Existing issues with RFC 7050</a>
       </h2>
-<p id="section-3-1">In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has additional challenges worth noting to justify declaring it legacy.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="definition-of-secure-channel-secure-channel-def">
+<p id="section-3-1">DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than most recently developed alternatives (such as PREF64 RA option, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>).
+This section outlines the key issues, associated with <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<div id="dependency-on-network-provided-recursive-resolvers">
 <section id="section-3.1">
-        <h3 id="name-definition-of-secure-channe">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of secure channel {secure-channel-def}</a>
+        <h3 id="name-dependency-on-network-provi">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-dependency-on-network-provi" class="section-name selfRef">Dependency on Network-Provided Recursive Resolvers</a>
         </h3>
-<p id="section-3.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering." This need is redundant when another communication mechanism of IPv6-related configuration, specific Router Advertisements, can already be defended against tampering by RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>. Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">Fundamentally, the presence of the NAT64 and the exact value of the prefix used for the translation are network-specific attributes.
+Therefore, to discover the PREF64 the device needs to use the DNS resolvers provided by the network.
+If the device is configured to use other recursive resolvers, its name resolution APIs and libraries are required to recognize 'ipv4only.arpa' as a special name and give it special treatment.
+This issue and remediation approach are discussed in <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span>.
+However it's been observed that not all <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implementations support <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span> requirements for special treatment of 'ipv4only.arpa'.
+As a result, configuring such systems to use resolvers other than the one provided by the network might break the PREF64 discovery, leading to degraded usser experience.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="network-stack-initialization-delay">
+<section id="section-3.2">
+        <h3 id="name-network-stack-initializatio">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-stack-initializatio" class="section-name selfRef">Network Stack Initialization Delay</a>
+        </h3>
+<p id="section-3.2-1">When using SLAAC (<span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>), an IPv6 host usually needs just one Router Advertisement (RA, <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) packet to obtains all information required to complete the host's network configuration.
+For an IPv6-only host the PREF64 information is essential, especially if the host implements the customer-side translator (CLAT) (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
+The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implies that the PREF64 information is not bundled with all other network configuration parameters provided by RAs, and can only be obtained after the host has configured the rest of its IPv6 stack.
+Therefore until the process described in Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is completed, the CLAT process can not start, which negatively impacts IPv4-only applications which have alrady started.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="inflexibility">
+<section id="section-3.3">
+        <h3 id="name-inflexibility">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-inflexibility" class="section-name selfRef">Inflexibility</a>
+        </h3>
+<p id="section-3.3-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires that the node <span class="bcp14">SHALL</span> cache the replies received during the PREF64 discovery and <span class="bcp14">SHOULD</span> repeat the discovery process ten seconds before the TTL of the Well-Known Name's synthetic AAAA resource record expires.
+As a result, once the PREF64 is discovered, it will be used until the TTL expired, or until the node disconnects from the network.
+There is no mechanims for an operator to force the PREF64 rediscovery on the node without disconnecting the node from the network.
+If the operator needs to change the PREF64 value used in the network, they need to proactively reduce the TTL value returned by the DNS64 server.
+This method has two significant drawbacks:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-2.1">
+            <p id="section-3.3-2.1.1">many networks utilize external DNS64 servers and therefore have no control over the TTL value.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-2.2">
+            <p id="section-3.3-2.2.1">the PREF64 changes need to be planned and executed at least TTL seconds in advance. If the operator needs to notify nodes that a particular prefix must not be used (e.g. during a network outage or if the nodes learnt a rogue PREF64 as a result of an attack), it might not be possible without interrupting the network connectivity for the affected nodes.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+<div id="security-implications">
+<section id="section-3.4">
+        <h3 id="name-security-implications">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-security-implications" class="section-name selfRef">Security Implications</a>
+        </h3>
+<p id="section-3.4-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attack.
+In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<div id="secure-channel-def">
+<section id="section-3.4.1">
+          <h4 id="name-definition-of-secure-channe">
+<a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of secure channel</a>
+          </h4>
+<p id="section-3.4.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering." This need is redundant when another communication mechanism of IPv6-related configuration, specific Router Advertisements, can already be defended against tampering by RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>. Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-ipsec">
-<section id="section-3.2">
-        <h3 id="name-secure-channel-example-of-i">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-secure-channel-example-of-i" class="section-name selfRef">Secure channel example of IPsec</a>
-        </h3>
-<p id="section-3.2-1">One of the two examples <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> defines to qualify a communication channel with a DNS64 server is the use of an "IPsec-based virtual private network (VPN) tunnel". As of the time of this writing, this is not supported as a practice by any common operating system DNS client. While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in <span>[<a href="#RFC9499" class="cite xref">RFC9499</a>]</span> that would be more appropriately scoped to the applicable DNS traffic. These are also compatible with encrypted DNS advertisement by the network using Discovery of Network-designated Resolvers <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> that would ensure the clients know in advance that the DNS64 server supported the encryption mechanism.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<section id="section-3.4.2">
+          <h4 id="name-secure-channel-example-of-i">
+<a href="#section-3.4.2" class="section-number selfRef">3.4.2. </a><a href="#name-secure-channel-example-of-i" class="section-name selfRef">Secure channel example of IPsec</a>
+          </h4>
+<p id="section-3.4.2-1">One of the two examples <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> defines to qualify a communication channel with a DNS64 server is the use of an "IPsec-based virtual private network (VPN) tunnel". As of the time of this writing, this is not supported as a practice by any common operating system DNS client. While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in <span>[<a href="#RFC9499" class="cite xref">RFC9499</a>]</span> that would be more appropriately scoped to the applicable DNS traffic. These are also compatible with encrypted DNS advertisement by the network using Discovery of Network-designated Resolvers <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> that would ensure the clients know in advance that the DNS64 server supported the encryption mechanism.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-link-layer-encryption">
-<section id="section-3.3">
-        <h3 id="name-secure-channel-example-of-l">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-secure-channel-example-of-l" class="section-name selfRef">Secure channel example of link layer encryption</a>
-        </h3>
-<p id="section-3.3-1">The other example given by <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> that would allow a communication channel with a DNS64 server to qualify as a "secure channel" is the use of a "link layer utilizing data encryption technologies". As of the time of this writing, most common link layer implementations use data encryption already with no extra effort needed on the part of network nodes. While this appears to be a trivial way to satisfy this requirement, it also renders the requirement meaningless since any node along the path can still read the higher-layer DNS traffic containing the translation prefix. This seems to be at odds with the definition of "secure channel" as explained in <span><a href="https://rfc-editor.org/rfc/rfc7050#section-2.2" class="relref">Section 2.2</a> of [<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<section id="section-3.4.3">
+          <h4 id="name-secure-channel-example-of-l">
+<a href="#section-3.4.3" class="section-number selfRef">3.4.3. </a><a href="#name-secure-channel-example-of-l" class="section-name selfRef">Secure channel example of link layer encryption</a>
+          </h4>
+<p id="section-3.4.3-1">The other example given by <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> that would allow a communication channel with a DNS64 server to qualify as a "secure channel" is the use of a "link layer utilizing data encryption technologies". As of the time of this writing, most common link layer implementations use data encryption already with no extra effort needed on the part of network nodes. While this appears to be a trivial way to satisfy this requirement, it also renders the requirement meaningless since any node along the path can still read the higher-layer DNS traffic containing the translation prefix. This seems to be at odds with the definition of "secure channel" as explained in <span><a href="https://rfc-editor.org/rfc/rfc7050#section-2.2" class="relref">Section 2.2</a> of [<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>
@@ -1275,6 +1351,10 @@ appear in all capitals, as shown here.<a href="#section-2-5" class="pilcrow">¶<
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC7050">[RFC7050]</dt>
+        <dd>
+<span class="refAuthor">Savolainen, T.</span>, <span class="refAuthor">Korhonen, J.</span>, and <span class="refAuthor">D. Wing</span>, <span class="refTitle">"Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis"</span>, <span class="seriesInfo">RFC 7050</span>, <span class="seriesInfo">DOI 10.17487/RFC7050</span>, <time datetime="2013-11" class="refDate">November 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7050">https://www.rfc-editor.org/rfc/rfc7050</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
       <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
@@ -1288,6 +1368,14 @@ appear in all capitals, as shown here.<a href="#section-2-5" class="pilcrow">¶<
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="RFC4861">[RFC4861]</dt>
+        <dd>
+<span class="refAuthor">Narten, T.</span>, <span class="refAuthor">Nordmark, E.</span>, <span class="refAuthor">Simpson, W.</span>, and <span class="refAuthor">H. Soliman</span>, <span class="refTitle">"Neighbor Discovery for IP version 6 (IPv6)"</span>, <span class="seriesInfo">RFC 4861</span>, <span class="seriesInfo">DOI 10.17487/RFC4861</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4861">https://www.rfc-editor.org/rfc/rfc4861</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4862">[RFC4862]</dt>
+        <dd>
+<span class="refAuthor">Thomson, S.</span>, <span class="refAuthor">Narten, T.</span>, and <span class="refAuthor">T. Jinmei</span>, <span class="refTitle">"IPv6 Stateless Address Autoconfiguration"</span>, <span class="seriesInfo">RFC 4862</span>, <span class="seriesInfo">DOI 10.17487/RFC4862</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4862">https://www.rfc-editor.org/rfc/rfc4862</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC6105">[RFC6105]</dt>
         <dd>
 <span class="refAuthor">Levy-Abegnoli, E.</span>, <span class="refAuthor">Van de Velde, G.</span>, <span class="refAuthor">Popoviciu, C.</span>, and <span class="refAuthor">J. Mohacsi</span>, <span class="refTitle">"IPv6 Router Advertisement Guard"</span>, <span class="seriesInfo">RFC 6105</span>, <span class="seriesInfo">DOI 10.17487/RFC6105</span>, <time datetime="2011-02" class="refDate">February 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6105">https://www.rfc-editor.org/rfc/rfc6105</a>&gt;</span>. </dd>
@@ -1296,13 +1384,25 @@ appear in all capitals, as shown here.<a href="#section-2-5" class="pilcrow">¶<
         <dd>
 <span class="refAuthor">Li, X.</span>, <span class="refAuthor">Bao, C.</span>, and <span class="refAuthor">F. Baker</span>, <span class="refTitle">"IP/ICMP Translation Algorithm"</span>, <span class="seriesInfo">RFC 6145</span>, <span class="seriesInfo">DOI 10.17487/RFC6145</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6145">https://www.rfc-editor.org/rfc/rfc6145</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC7050">[RFC7050]</dt>
+<dt id="RFC6146">[RFC6146]</dt>
         <dd>
-<span class="refAuthor">Savolainen, T.</span>, <span class="refAuthor">Korhonen, J.</span>, and <span class="refAuthor">D. Wing</span>, <span class="refTitle">"Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis"</span>, <span class="seriesInfo">RFC 7050</span>, <span class="seriesInfo">DOI 10.17487/RFC7050</span>, <time datetime="2013-11" class="refDate">November 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7050">https://www.rfc-editor.org/rfc/rfc7050</a>&gt;</span>. </dd>
+<span class="refAuthor">Bagnulo, M.</span>, <span class="refAuthor">Matthews, P.</span>, and <span class="refAuthor">I. van Beijnum</span>, <span class="refTitle">"Stateful NAT64: Network Address and Protocol Translation from IPv6 Clients to IPv4 Servers"</span>, <span class="seriesInfo">RFC 6146</span>, <span class="seriesInfo">DOI 10.17487/RFC6146</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6146">https://www.rfc-editor.org/rfc/rfc6146</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6147">[RFC6147]</dt>
+        <dd>
+<span class="refAuthor">Bagnulo, M.</span>, <span class="refAuthor">Sullivan, A.</span>, <span class="refAuthor">Matthews, P.</span>, and <span class="refAuthor">I. van Beijnum</span>, <span class="refTitle">"DNS64: DNS Extensions for Network Address Translation from IPv6 Clients to IPv4 Servers"</span>, <span class="seriesInfo">RFC 6147</span>, <span class="seriesInfo">DOI 10.17487/RFC6147</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6147">https://www.rfc-editor.org/rfc/rfc6147</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6877">[RFC6877]</dt>
+        <dd>
+<span class="refAuthor">Mawatari, M.</span>, <span class="refAuthor">Kawashima, M.</span>, and <span class="refAuthor">C. Byrne</span>, <span class="refTitle">"464XLAT: Combination of Stateful and Stateless Translation"</span>, <span class="seriesInfo">RFC 6877</span>, <span class="seriesInfo">DOI 10.17487/RFC6877</span>, <time datetime="2013-04" class="refDate">April 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6877">https://www.rfc-editor.org/rfc/rfc6877</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8781">[RFC8781]</dt>
         <dd>
 <span class="refAuthor">Colitti, L.</span> and <span class="refAuthor">J. Linkova</span>, <span class="refTitle">"Discovering PREF64 in Router Advertisements"</span>, <span class="seriesInfo">RFC 8781</span>, <span class="seriesInfo">DOI 10.17487/RFC8781</span>, <time datetime="2020-04" class="refDate">April 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8781">https://www.rfc-editor.org/rfc/rfc8781</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8880">[RFC8880]</dt>
+        <dd>
+<span class="refAuthor">Cheshire, S.</span> and <span class="refAuthor">D. Schinazi</span>, <span class="refTitle">"Special Use Domain Name 'ipv4only.arpa'"</span>, <span class="seriesInfo">RFC 8880</span>, <span class="seriesInfo">DOI 10.17487/RFC8880</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8880">https://www.rfc-editor.org/rfc/rfc8880</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9463">[RFC9463]</dt>
         <dd>
@@ -1344,6 +1444,14 @@ appear in all capitals, as shown here.<a href="#section-2-5" class="pilcrow">¶<
 <div class="email">
 <span>Email:</span>
 <a href="mailto:tojens.ietf@gmail.com" class="email">tojens.ietf@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jen Linkova</span></div>
+<div dir="auto" class="left"><span class="org">Google</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:furry13@gmail.com" class="email">furry13@gmail.com</a>
 </div>
 </address>
 </section>
