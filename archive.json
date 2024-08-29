@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-27T01:18:56.120165+00:00",
+  "timestamp": "2024-08-29T01:20:06.036756+00:00",
   "repo": "buraglio/draft-buraglio-deprecate7050",
   "labels": [
     {
@@ -58,7 +58,7 @@
       "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/1",
       "state": "MERGED",
       "author": "mstojens",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
@@ -79,7 +79,7 @@
       "comments": [
         {
           "author": "mstojens",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Sounds great -- your suggestions are appreciated and merged! ",
           "createdAt": "2024-08-26T13:32:15Z",
           "updatedAt": "2024-08-26T13:32:15Z"
@@ -92,7 +92,7 @@
             "abbreviatedOid": "831fb36"
           },
           "author": "furry13",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-08-26T11:33:47Z",
@@ -112,7 +112,7 @@
             "abbreviatedOid": "831fb36"
           },
           "author": "furry13",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-08-26T11:34:43Z",
@@ -132,7 +132,7 @@
             "abbreviatedOid": "831fb36"
           },
           "author": "furry13",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "LGTM , with some minor nits - when this gets merged, I'll add more text ;)",
           "createdAt": "2024-08-26T11:41:44Z",
@@ -192,6 +192,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOMjLqms55mdr3",
+      "title": "Adding more reasons to deprecate 7050",
+      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/2",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Additional reasons to deprecate:\r\n- using 3rd-party resolevrs\r\n- updating the PREF64 info\r\n- delays\r\n\r\nAlso adding more text into the INtro, removing the citation in the Abstract and adding myself as a co-author",
+      "createdAt": "2024-08-27T16:37:03Z",
+      "updatedAt": "2024-08-28T17:56:16Z",
+      "baseRepository": "buraglio/draft-buraglio-deprecate7050",
+      "baseRefName": "main",
+      "baseRefOid": "ba1eae0834d4c4c35a94172288c7ccabb27073e3",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "jen-aug27",
+      "headRefOid": "48413323139cc014f14f766316591796917d6bc2",
+      "closedAt": "2024-08-28T17:56:16Z",
+      "mergedAt": "2024-08-28T17:56:16Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "61fb6f8b93c400757c28cf4ae673303b2b596b6e"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
