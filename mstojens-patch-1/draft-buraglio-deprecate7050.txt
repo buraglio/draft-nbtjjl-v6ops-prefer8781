@@ -218,7 +218,7 @@ Table of Contents
    channel a node has between itself and a DNS64 server protecting DNS
    protocol-related messages from interception and tampering."  This
    need is redundant when another communication mechanism of
-   IPv6-related configuration, specificly Router Advertisements, can
+   IPv6-related configuration, specifically Router Advertisements, can
    already be defended against tampering by RA Guard [RFC6105].
    Requiring nodes to implement two defense mechanisms when only one is
    necessary when [RFC8781] is used in place of [RFC7050] creates
