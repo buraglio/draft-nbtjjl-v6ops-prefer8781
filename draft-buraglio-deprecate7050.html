@@ -1214,7 +1214,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">The DNS-based mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> was the very first mechanism available for nodes to discover the PREF64 information.
-However since the publication of RFC7050 other methods have been developed, to address some of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-1" class="pilcrow">¶</a></p>
+However since the publication of RFC7050, other methods have been developed to address some of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">For example, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use to discover other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations IPv6 requires using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Taking into account some fundamental flaws of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it seems desirable to deprecate it and recommend new deployments and implementations to use better methods to obtain PREF64 information.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
@@ -1227,7 +1227,7 @@ However since the publication of RFC7050 other methods have been developed, to a
 <p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertize the presence of the routers, togther with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">pref64(or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-4">PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
@@ -1248,10 +1248,10 @@ This section outlines the key issues, associated with <span>[<a href="#RFC7050" 
         </h3>
 <p id="section-3.1-1">Fundamentally, the presence of the NAT64 and the exact value of the prefix used for the translation are network-specific attributes.
 Therefore, to discover the PREF64 the device needs to use the DNS resolvers provided by the network.
-If the device is configured to use other recursive resolvers, its name resolution APIs and libraries are required to recognize 'ipv4only.arpa' as a special name and give it special treatment.
+If the device is configured to use other recursive resolvers, its name resolution APIs and libraries are required to recognize 'ipv4only.arpa.' as a special name and give it special treatment.
 This issue and remediation approach are discussed in <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span>.
-However it's been observed that not all <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implementations support <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span> requirements for special treatment of 'ipv4only.arpa'.
-As a result, configuring such systems to use resolvers other than the one provided by the network might break the PREF64 discovery, leading to degraded usser experience.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+However, it has been observed that not all <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implementations support <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span> requirements for special treatment of 'ipv4only.arpa.'.
+As a result, configuring such systems to use resolvers other than the one provided by the network might break the PREF64 discovery, leading to degraded user experience.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-stack-initialization-delay">
@@ -1259,10 +1259,10 @@ As a result, configuring such systems to use resolvers other than the one provid
         <h3 id="name-network-stack-initializatio">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-stack-initializatio" class="section-name selfRef">Network Stack Initialization Delay</a>
         </h3>
-<p id="section-3.2-1">When using SLAAC (<span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>), an IPv6 host usually needs just one Router Advertisement (RA, <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) packet to obtains all information required to complete the host's network configuration.
-For an IPv6-only host the PREF64 information is essential, especially if the host implements the customer-side translator (CLAT) (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
+<p id="section-3.2-1">When using SLAAC (<span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>), an IPv6 host usually needs just one Router Advertisement (RA, <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) packet to obtain all information required to complete the host's network configuration.
+For an IPv6-only host, the PREF64 information is essential, especially if the host implements the customer-side translator (CLAT) (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
 The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implies that the PREF64 information is not bundled with all other network configuration parameters provided by RAs, and can only be obtained after the host has configured the rest of its IPv6 stack.
-Therefore until the process described in Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is completed, the CLAT process can not start, which negatively impacts IPv4-only applications which have alrady started.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+Therefore, until the process described in Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is completed, the CLAT process can not start, which negatively impacts IPv4-only applications which have alrady started.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="inflexibility">
@@ -1272,7 +1272,7 @@ Therefore until the process described in Section 3 of <span>[<a href="#RFC7050" 
         </h3>
 <p id="section-3.3-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires that the node <span class="bcp14">SHALL</span> cache the replies received during the PREF64 discovery and <span class="bcp14">SHOULD</span> repeat the discovery process ten seconds before the TTL of the Well-Known Name's synthetic AAAA resource record expires.
 As a result, once the PREF64 is discovered, it will be used until the TTL expired, or until the node disconnects from the network.
-There is no mechanims for an operator to force the PREF64 rediscovery on the node without disconnecting the node from the network.
+There is no mechanism for an operator to force the PREF64 rediscovery on the node without disconnecting the node from the network.
 If the operator needs to change the PREF64 value used in the network, they need to proactively reduce the TTL value returned by the DNS64 server.
 This method has two significant drawbacks:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1290,14 +1290,14 @@ This method has two significant drawbacks:<a href="#section-3.3-1" class="pilcro
         <h3 id="name-security-implications">
 <a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-security-implications" class="section-name selfRef">Security Implications</a>
         </h3>
-<p id="section-3.4-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attack.
+<p id="section-3.4-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attacks.
 In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 <div id="secure-channel-def">
 <section id="section-3.4.1">
           <h4 id="name-definition-of-secure-channe">
 <a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of secure channel</a>
           </h4>
-<p id="section-3.4.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering." This need is redundant when another communication mechanism of IPv6-related configuration, specific Router Advertisements, can already be defended against tampering by RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>. Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.4.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering." This need is redundant when another communication mechanism of IPv6-related configuration, specifically Router Advertisements, can already be defended against tampering by RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>. Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-ipsec">
