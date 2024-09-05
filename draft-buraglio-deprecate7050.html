@@ -1171,15 +1171,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-recommendations-for-pref64-" class="internal xref">Recommendations for PREF64 Discovery</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-deployment-recommendations" class="internal xref">Deployment Recommendations</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-clients-implementation-reco" class="internal xref">Clients Implementation Recommendations</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-preferred-approach" class="internal xref">Preferred approach</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
@@ -1320,28 +1312,12 @@ In addition to creating a wider attack surface for IPv6 deployments, <span>[<a h
 </div>
 </section>
 </div>
-<div id="recommendations-for-pref64-discovery">
+<div id="preferred-approach">
 <section id="section-4">
-      <h2 id="name-recommendations-for-pref64-">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-recommendations-for-pref64-" class="section-name selfRef">Recommendations for PREF64 Discovery</a>
+      <h2 id="name-preferred-approach">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-preferred-approach" class="section-name selfRef">Preferred approach</a>
       </h2>
-<div id="deployment-recommendations">
-<section id="section-4.1">
-        <h3 id="name-deployment-recommendations">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-deployment-recommendations" class="section-name selfRef">Deployment Recommendations</a>
-        </h3>
-<p id="section-4.1-1">Operators deploying NAT64 networks <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="clients-implementation-recommendations">
-<section id="section-4.2">
-        <h3 id="name-clients-implementation-reco">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-clients-implementation-reco" class="section-name selfRef">Clients Implementation Recommendations</a>
-        </h3>
-<p id="section-4.2-1">Clients <span class="bcp14">SHOULD</span> obtain PREF64 information from Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
-In the absense of the PREF64 information in RAs, a client <span class="bcp14">MAY</span> choose to fall back to RFC7050.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
+<p id="section-4-1">The prefix discovery mechanism defined in <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is preferred to use over <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1349,8 +1325,7 @@ In the absense of the PREF64 information in RAs, a client <span class="bcp14">MA
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">Obtaining PREF64 information from Router Advertisements improves the overall security of an IPv6-only client as it mitigates all attack vectors related to spoofed or rogue DNS response, as discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.
-Security considerations related to obtaining PREF64 information from RAs are discussed in Section 7 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">TODO Security<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1358,8 +1333,7 @@ Security considerations related to obtaining PREF64 information from RAs are dis
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">It is expected that there will be a long tail of both clients and networks  still relying on <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> as a sole mechanism to discover PREF64 information.
-Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> and this document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
