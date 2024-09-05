@@ -1031,7 +1031,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 8 March 2025</td>
+<td class="center">Expires 9 March 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1044,12 +1044,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-buraglio-deprecate7050-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-09-04" class="published">4 September 2024</time>
+<time datetime="2024-09-05" class="published">5 September 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-03-08">8 March 2025</time></dd>
+<dd class="expires"><time datetime="2025-03-09">9 March 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1107,7 +1107,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 March 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 March 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1171,7 +1171,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-preferred-approach" class="internal xref">Preferred approach</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-recommendations-for-pref64-" class="internal xref">Recommendations for PREF64 Discovery</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-deployment-recommendations" class="internal xref">Deployment Recommendations</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-clients-implementation-reco" class="internal xref">Clients Implementation Recommendations</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
@@ -1312,12 +1320,28 @@ In addition to creating a wider attack surface for IPv6 deployments, <span>[<a h
 </div>
 </section>
 </div>
-<div id="preferred-approach">
+<div id="recommendations-for-pref64-discovery">
 <section id="section-4">
-      <h2 id="name-preferred-approach">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-preferred-approach" class="section-name selfRef">Preferred approach</a>
+      <h2 id="name-recommendations-for-pref64-">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-recommendations-for-pref64-" class="section-name selfRef">Recommendations for PREF64 Discovery</a>
       </h2>
-<p id="section-4-1">The use of the prefix discovery mechanism defined in <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is preferred over the mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="deployment-recommendations">
+<section id="section-4.1">
+        <h3 id="name-deployment-recommendations">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-deployment-recommendations" class="section-name selfRef">Deployment Recommendations</a>
+        </h3>
+<p id="section-4.1-1">Operators deploying NAT64 networks <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="clients-implementation-recommendations">
+<section id="section-4.2">
+        <h3 id="name-clients-implementation-reco">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-clients-implementation-reco" class="section-name selfRef">Clients Implementation Recommendations</a>
+        </h3>
+<p id="section-4.2-1">Clients <span class="bcp14">SHOULD</span> obtain PREF64 information from Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
+In the absense of the PREF64 information in RAs, a client <span class="bcp14">MAY</span> choose to fall back to RFC7050.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">
@@ -1325,7 +1349,8 @@ In addition to creating a wider attack surface for IPv6 deployments, <span>[<a h
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">TODO Security<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">Obtaining PREF64 information from Router Advertisements improves the overall security of an IPv6-only client as it mitigates all attack vectors related to spoofed or rogue DNS response, as discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.
+Security considerations related to obtaining PREF64 information from RAs are discussed in Section 7 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1333,7 +1358,8 @@ In addition to creating a wider attack surface for IPv6 deployments, <span>[<a h
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">It is expected that there will be a long tail of both clients and networks  still relying on <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> as a sole mechanism to discover PREF64 information.
+Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> and this document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">

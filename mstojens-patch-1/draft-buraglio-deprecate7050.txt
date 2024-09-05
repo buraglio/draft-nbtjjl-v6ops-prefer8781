@@ -5,10 +5,10 @@
 dnsop                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Standards Track                               T. Jensen
-Expires: 8 March 2025                                          Microsoft
+Expires: 9 March 2025                                          Microsoft
                                                               J. Linkova
                                                                   Google
-                                                        4 September 2024
+                                                        5 September 2024
 
 
 Deprecation of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 March 2025.
+   This Internet-Draft will expire on 9 March 2025.
 
 Copyright Notice
 
@@ -87,7 +87,9 @@ Table of Contents
        3.4.1.  Definition of secure channel
        3.4.2.  Secure channel example of IPsec
        3.4.3.  Secure channel example of link layer encryption
-   4.  Preferred approach
+   4.  Recommendations for PREF64 Discovery
+     4.1.  Deployment Recommendations
+     4.2.  Clients Implementation Recommendations
    5.  Security Considerations
    6.  IANA Considerations
    7.  References
@@ -252,18 +254,35 @@ Table of Contents
    definition of "secure channel" as explained in Section 2.2 of
    [RFC7050].
 
-4.  Preferred approach
+4.  Recommendations for PREF64 Discovery
 
-   The use of the prefix discovery mechanism defined in [RFC8781] is
-   preferred over the mechanism defined in [RFC7050].
+4.1.  Deployment Recommendations
+
+   Operators deploying NAT64 networks SHOULD provide PREF64 information
+   in Router Advertisements as per [RFC8781].
+
+4.2.  Clients Implementation Recommendations
+
+   Clients SHOULD obtain PREF64 information from Router Advertisements
+   as per [RFC8781] instead of using [RFC7050] method.  In the absense
+   of the PREF64 information in RAs, a client MAY choose to fall back to
+   RFC7050.
 
 5.  Security Considerations
 
-   TODO Security
+   Obtaining PREF64 information from Router Advertisements improves the
+   overall security of an IPv6-only client as it mitigates all attack
+   vectors related to spoofed or rogue DNS response, as discussed in
+   Section 7 of [RFC7050].  Security considerations related to obtaining
+   PREF64 information from RAs are discussed in Section 7 of [RFC8781].
 
 6.  IANA Considerations
 
-   This document has no IANA actions.
+   It is expected that there will be a long tail of both clients and
+   networks still relying on [RFC7050] as a sole mechanism to discover
+   PREF64 information.  Therefore IANA still need to maintain
+   "ipv4only.arpa." as described in [RFC7050] and this document has no
+   IANA actions.
 
 7.  References
 
