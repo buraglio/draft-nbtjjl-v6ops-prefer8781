@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-09-05T01:20:51.782762+00:00",
+  "timestamp": "2024-09-08T01:26:51.318749+00:00",
   "repo": "buraglio/draft-buraglio-deprecate7050",
   "labels": [
     {
@@ -226,24 +226,26 @@
       "id": "PR_kwDOMjLqms56cYdG",
       "title": "minor typos and phrasing",
       "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/3",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-09-04T20:42:22Z",
-      "updatedAt": "2024-09-04T20:44:10Z",
+      "updatedAt": "2024-09-05T14:53:19Z",
       "baseRepository": "buraglio/draft-buraglio-deprecate7050",
       "baseRefName": "main",
-      "baseRefOid": "61fb6f8b93c400757c28cf4ae673303b2b596b6e",
+      "baseRefOid": "056559f959a996524a267d34b25f7ff7dc2a3249",
       "headRepository": "buraglio/draft-buraglio-deprecate7050",
       "headRefName": "mstojens-patch-1",
-      "headRefOid": "534e0f90235e706be9e64c5812c4218e09c6e8fa",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "feb62bf8d113c80f35d767c896a2f757a543c50a",
+      "closedAt": "2024-09-05T14:53:14Z",
+      "mergedAt": "2024-09-05T14:53:14Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "f1b4b10724b0978a124e7fda1e094c10b252c321"
+      },
       "comments": [],
       "reviews": [
         {
@@ -265,6 +267,61 @@
               "updatedAt": "2024-09-04T20:43:50Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6IGIm7",
+          "commit": {
+            "abbreviatedOid": "feb62bf"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "There was one conflict in the Recommendations for PREF64 Discovery which I think I resolved. ",
+          "createdAt": "2024-09-05T14:49:16Z",
+          "updatedAt": "2024-09-05T14:49:16Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOMjLqms56hR_7",
+      "title": "Updating security and IANA section",
+      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/4",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Also expanding preferred approach",
+      "createdAt": "2024-09-05T12:38:29Z",
+      "updatedAt": "2024-09-05T14:13:19Z",
+      "baseRepository": "buraglio/draft-buraglio-deprecate7050",
+      "baseRefName": "main",
+      "baseRefOid": "fef813e15470c7428783e9d03895ba1b67434c8b",
+      "headRepository": "buraglio/draft-buraglio-deprecate7050",
+      "headRefName": "sep05",
+      "headRefOid": "560ac2bb55c3acba5ca0b39a8973475691693032",
+      "closedAt": "2024-09-05T14:13:19Z",
+      "mergedAt": "2024-09-05T14:13:19Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "056559f959a996524a267d34b25f7ff7dc2a3249"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6IFt44",
+          "commit": {
+            "abbreviatedOid": "560ac2b"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "These look great, thanks",
+          "createdAt": "2024-09-05T14:13:13Z",
+          "updatedAt": "2024-09-05T14:13:13Z",
+          "comments": []
         }
       ]
     }
