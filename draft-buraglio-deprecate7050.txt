@@ -5,10 +5,10 @@
 dnsop                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Standards Track                               T. Jensen
-Expires: 9 March 2025                                          Microsoft
+Expires: 13 March 2025                                         Microsoft
                                                               J. Linkova
                                                                   Google
-                                                        5 September 2024
+                                                        9 September 2024
 
 
 Deprecation of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -38,7 +38,7 @@ About This Document
 
    Discussion of this document takes place on the dnsop Working Group
    mailing list (mailto:dnsop@ietf.org), which is archived at
-   https://datatracker.ietf.org/wg/6man/about/.  Subscribe at
+   https://datatracker.ietf.org/wg/dnsop/about/.  Subscribe at
    https://www.ietf.org/mailman/listinfo/dnsop/.
 
    Source for this draft and an issue tracker can be found at
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 March 2025.
+   This Internet-Draft will expire on 13 March 2025.
 
 Copyright Notice
 
