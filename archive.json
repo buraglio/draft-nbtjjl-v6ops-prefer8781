@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-05T01:24:00.743095+00:00",
+  "timestamp": "2024-11-07T01:24:19.834429+00:00",
   "repo": "buraglio/draft-buraglio-deprecate7050",
   "labels": [
     {
@@ -49,7 +49,60 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 5,
+      "id": "I_kwDOMjLqms6dDX1r",
+      "title": "Make an exception for mobile networks",
+      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/issues/5",
+      "state": "OPEN",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "furry13"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-05T09:30:01Z",
+      "updatedAt": "2024-11-05T09:30:01Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOMjLqms6dF4hi",
+      "title": "New terminology to replace \"deprecation\" term",
+      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/issues/6",
+      "state": "OPEN",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "There are some requirements tied to the term \"deprecation\" that we may want to avoid. Perhaps a new title such as \"Encourage use of pref64 over RFC7050/DNS64/DNS for IPv6-only prefix discovery\" may assuage the formality. ",
+      "createdAt": "2024-11-05T14:05:54Z",
+      "updatedAt": "2024-11-05T14:05:54Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOMjLqms6dGMm0",
+      "title": "One more reason to NOT use 7050",
+      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/issues/7",
+      "state": "OPEN",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "furry13"
+      ],
+      "labels": [],
+      "body": "Multihoming with different prefixes - never going to work.",
+      "createdAt": "2024-11-05T14:37:33Z",
+      "updatedAt": "2024-11-05T14:37:37Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
