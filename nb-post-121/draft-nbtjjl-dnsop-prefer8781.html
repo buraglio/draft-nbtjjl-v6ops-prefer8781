@@ -4,33 +4,33 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Deprecation of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</title>
+<title>Preference of pref64 over DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</title>
 <meta content="Nick Buraglio" name="author">
 <meta content="Tommy Jensen" name="author">
 <meta content="Jen Linkova" name="author">
 <meta content='
-       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 is deprecated to legacy status. 
+       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be demoted to legacy status and used only in the absence or inability to offer RFC 8781 compliant pref64 within a router advertisement. 
     ' name="description">
-<meta content="xml2rfc 3.23.0" name="generator">
+<meta content="xml2rfc 3.24.0" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="DNS64" name="keyword">
-<meta content="draft-buraglio-deprecate7050-latest" name="ietf.draft">
+<meta content="draft-nbtjjl-dnsop-prefer8781-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.23.0
-    Python 3.12.3
+  xml2rfc 3.24.0
+    Python 3.12.7
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.4
-    lxml 4.9.4
-    platformdirs 4.2.2
+    lxml 5.3.0
+    platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.32.3
     setuptools 70.3.0
     wcwidth 0.2.13
 -->
-<link href="draft-buraglio-deprecate7050.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-nbtjjl-dnsop-prefer8781.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -164,31 +164,6 @@
 }
 
 @font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-vietnamese.woff2') format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Cabin Condensed';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Cabin Condensed SemiBold'), local('CabinCondensed-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/cabincondensed-semibold-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
   font-family: 'Oxygen Mono';
   font-style: normal;
   font-weight: 400;
@@ -205,6 +180,77 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light dark;
   --background-color: #fff;
@@ -217,6 +263,7 @@
   --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
   --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
   scrollbar-color: #bbb #eee;
 }
 body {
@@ -235,8 +282,8 @@ body {
 
 /* headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Cabin Condensed", sans-serif;
-  font-weight: 600;
+  font-family: var(--font-title);
+  font-weight: 680;
   margin: 0.8em 0 0.3em;
   font-size-adjust: 0.5;
   color: var(--title-color);
@@ -644,6 +691,12 @@ sub, sup {
   padding: 0.75em 0 2em 0;
   margin-bottom: 1em;
 }
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+  }
+}
 #toc nav ul {
   margin: 0 0.5em 0 0;
   padding: 0;
@@ -1026,12 +1079,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">Deprecate RFC7050</td>
-<td class="right">September 2024</td>
+<td class="center">Prefer RFC8781</td>
+<td class="right">November 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 9 March 2025</td>
+<td class="center">Expires 15 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1041,15 +1094,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">dnsop</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-buraglio-deprecate7050-latest</dd>
+<dd class="internet-draft">draft-nbtjjl-dnsop-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-09-05" class="published">5 September 2024</time>
+<time datetime="2024-11-11" class="published">11 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-03-09">9 March 2025</time></dd>
+<dd class="expires"><time datetime="2025-05-15">15 May 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1067,10 +1120,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Deprecation of DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
+<h1 id="title">Preference of pref64 over DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 is deprecated to legacy status.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be demoted to legacy status and used only in the absence or inability to offer RFC 8781 compliant pref64 within a router advertisement.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1078,15 +1131,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://buraglio.github.io/draft-buraglio-deprecate7050/draft-buraglio-deprecate7050.html">https://buraglio.github.io/draft-buraglio-deprecate7050/draft-buraglio-deprecate7050.html</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-buraglio-deprecate7050/">https://datatracker.ietf.org/doc/draft-buraglio-deprecate7050/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        The latest revision of this draft can be found at <span><a href="https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781">https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-nbtjjl-dnsop-prefer8781/">https://datatracker.ietf.org/doc/draft-nbtjjl-dnsop-prefer8781/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         dnsop Working Group mailing list (<span><a href="mailto:dnsop@ietf.org">mailto:dnsop@ietf.org</a></span>),
-        which is archived at <span><a href="https://datatracker.ietf.org/wg/6man/about/">https://datatracker.ietf.org/wg/6man/about/</a></span>.
+        which is archived at <span><a href="https://datatracker.ietf.org/wg/dnsop/about/">https://datatracker.ietf.org/wg/dnsop/about/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/dnsop/">https://www.ietf.org/mailman/listinfo/dnsop/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/buraglio/draft-buraglio-deprecate7050">https://github.com/buraglio/draft-buraglio-deprecate7050</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781">https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1107,7 +1160,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 March 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1216,7 +1269,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1">The DNS-based mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> was the very first mechanism available for nodes to discover the PREF64 information.
 However since the publication of RFC7050, other methods have been developed to address some of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">For example, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use to discover other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations IPv6 requires using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Taking into account some fundamental flaws of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it seems desirable to deprecate it and recommend new deployments and implementations to use better methods to obtain PREF64 information.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-3">Taking into account some fundamental flaws of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it seems desirable to prefer <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> for all new deployments and for implementations to use consistent methods to obtain PREF64 information. RFC 7050 should be used only in cases where there is an inability to offer PREF64 information with a router advertisement, and as a fallback for legacy systems incapable of processing those RA options.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1226,7 +1279,7 @@ However since the publication of RFC7050, other methods have been developed to a
       </h2>
 <p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertize the presence of the routers, togther with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertize the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
@@ -1262,7 +1315,7 @@ As a result, configuring such systems to use resolvers other than the one provid
 <p id="section-3.2-1">When using SLAAC (<span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>), an IPv6 host usually needs just one Router Advertisement (RA, <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) packet to obtain all information required to complete the host's network configuration.
 For an IPv6-only host, the PREF64 information is essential, especially if the host implements the customer-side translator (CLAT) (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
 The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implies that the PREF64 information is not bundled with all other network configuration parameters provided by RAs, and can only be obtained after the host has configured the rest of its IPv6 stack.
-Therefore, until the process described in Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is completed, the CLAT process can not start, which negatively impacts IPv4-only applications which have alrady started.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+Therefore, until the process described in Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is completed, the CLAT process can not start, which negatively impacts IPv4-only applications which have already started.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="inflexibility">
@@ -1277,10 +1330,10 @@ If the operator needs to change the PREF64 value used in the network, they need 
 This method has two significant drawbacks:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.3-2.1">
-            <p id="section-3.3-2.1.1">many networks utilize external DNS64 servers and therefore have no control over the TTL value.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
+            <p id="section-3.3-2.1.1">Many networks utilize external DNS64 servers and therefore have no control over the TTL value.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-3.3-2.2">
-            <p id="section-3.3-2.2.1">the PREF64 changes need to be planned and executed at least TTL seconds in advance. If the operator needs to notify nodes that a particular prefix must not be used (e.g. during a network outage or if the nodes learnt a rogue PREF64 as a result of an attack), it might not be possible without interrupting the network connectivity for the affected nodes.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
+            <p id="section-3.3-2.2.1">The PREF64 changes need to be planned and executed at least TTL seconds in advance. If the operator needs to notify nodes that a particular prefix must not be used (e.g. during a network outage or if the nodes learnt a rogue PREF64 as a result of an attack), it might not be possible without interrupting the network connectivity for the affected nodes.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
