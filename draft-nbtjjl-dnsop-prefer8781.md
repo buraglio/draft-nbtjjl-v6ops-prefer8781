@@ -1,5 +1,5 @@
 ---
-title: "Discouraging using RFC7050 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis"
+title: "Discouraging use of RFC7050 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis"
 abbrev: "Discouraging RFC7050"
 category: std
 
