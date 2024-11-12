@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-10T01:35:55.427342+00:00",
-  "repo": "buraglio/draft-buraglio-deprecate7050",
+  "timestamp": "2024-11-12T01:23:20.444795+00:00",
+  "repo": "buraglio/draft-nbtjjl-dnsop-prefer8781",
   "labels": [
     {
       "name": "bug",
@@ -54,7 +54,7 @@
       "number": 5,
       "id": "I_kwDOMjLqms6dDX1r",
       "title": "Make an exception for mobile networks",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/issues/5",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/issues/5",
       "state": "OPEN",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
@@ -64,31 +64,47 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-11-05T09:30:01Z",
-      "updatedAt": "2024-11-05T09:30:01Z",
+      "updatedAt": "2024-11-11T21:21:42Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "body": "I think we should not exempt mobile carriers. 7050 may need to exist for a long time even in enterprise cases, but we should make clear that the preferred method is 8781. ",
+          "createdAt": "2024-11-11T21:21:41Z",
+          "updatedAt": "2024-11-11T21:21:41Z"
+        }
+      ]
     },
     {
       "number": 6,
       "id": "I_kwDOMjLqms6dF4hi",
       "title": "New terminology to replace \"deprecation\" term",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/issues/6",
-      "state": "OPEN",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/issues/6",
+      "state": "CLOSED",
       "author": "buraglio",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "There are some requirements tied to the term \"deprecation\" that we may want to avoid. Perhaps a new title such as \"Encourage use of pref64 over RFC7050/DNS64/DNS for IPv6-only prefix discovery\" may assuage the formality. ",
       "createdAt": "2024-11-05T14:05:54Z",
-      "updatedAt": "2024-11-05T14:05:54Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-11-11T21:23:32Z",
+      "closedAt": "2024-11-11T21:23:32Z",
+      "comments": [
+        {
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "body": "changed to \"Preference of pref64 over DNS64 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis\"",
+          "createdAt": "2024-11-11T21:23:25Z",
+          "updatedAt": "2024-11-11T21:23:25Z"
+        }
+      ]
     },
     {
       "number": 7,
       "id": "I_kwDOMjLqms6dGMm0",
       "title": "One more reason to NOT use 7050",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/issues/7",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/issues/7",
       "state": "OPEN",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
@@ -108,7 +124,7 @@
       "number": 1,
       "id": "PR_kwDOMjLqms55XkFe",
       "title": "Add justification for deprecating 7050",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/1",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/1",
       "state": "MERGED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
@@ -117,7 +133,7 @@
       "body": "",
       "createdAt": "2024-08-25T23:34:32Z",
       "updatedAt": "2024-08-26T16:03:07Z",
-      "baseRepository": "buraglio/draft-buraglio-deprecate7050",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "c6d38c093ba15c0518a9ce18061ed5b4d8200874",
       "headRepository": "mstojens/draft-buraglio-deprecate7050",
@@ -250,7 +266,7 @@
       "number": 2,
       "id": "PR_kwDOMjLqms55mdr3",
       "title": "Adding more reasons to deprecate 7050",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/2",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/2",
       "state": "MERGED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
@@ -259,7 +275,7 @@
       "body": "- Additional reasons to deprecate:\r\n- using 3rd-party resolevrs\r\n- updating the PREF64 info\r\n- delays\r\n\r\nAlso adding more text into the INtro, removing the citation in the Abstract and adding myself as a co-author",
       "createdAt": "2024-08-27T16:37:03Z",
       "updatedAt": "2024-08-28T17:56:16Z",
-      "baseRepository": "buraglio/draft-buraglio-deprecate7050",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "ba1eae0834d4c4c35a94172288c7ccabb27073e3",
       "headRepository": "furry13/draft-buraglio-deprecate7050",
@@ -278,7 +294,7 @@
       "number": 3,
       "id": "PR_kwDOMjLqms56cYdG",
       "title": "minor typos and phrasing",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/3",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/3",
       "state": "MERGED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
@@ -287,10 +303,10 @@
       "body": "",
       "createdAt": "2024-09-04T20:42:22Z",
       "updatedAt": "2024-09-05T14:53:19Z",
-      "baseRepository": "buraglio/draft-buraglio-deprecate7050",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "056559f959a996524a267d34b25f7ff7dc2a3249",
-      "headRepository": "buraglio/draft-buraglio-deprecate7050",
+      "headRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "headRefName": "mstojens-patch-1",
       "headRefOid": "feb62bf8d113c80f35d767c896a2f757a543c50a",
       "closedAt": "2024-09-05T14:53:14Z",
@@ -340,7 +356,7 @@
       "number": 4,
       "id": "PR_kwDOMjLqms56hR_7",
       "title": "Updating security and IANA section",
-      "url": "https://github.com/buraglio/draft-buraglio-deprecate7050/pull/4",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/4",
       "state": "MERGED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
@@ -349,10 +365,10 @@
       "body": "Also expanding preferred approach",
       "createdAt": "2024-09-05T12:38:29Z",
       "updatedAt": "2024-09-05T14:13:19Z",
-      "baseRepository": "buraglio/draft-buraglio-deprecate7050",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "fef813e15470c7428783e9d03895ba1b67434c8b",
-      "headRepository": "buraglio/draft-buraglio-deprecate7050",
+      "headRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "headRefName": "sep05",
       "headRefOid": "560ac2bb55c3acba5ca0b39a8973475691693032",
       "closedAt": "2024-09-05T14:13:19Z",
@@ -375,6 +391,73 @@
           "createdAt": "2024-09-05T14:13:13Z",
           "updatedAt": "2024-09-05T14:13:13Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOMjLqms6BjuVJ",
+      "title": "Change name, title, remove deprecate as a term, and minor spelling fixes",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/8",
+      "state": "OPEN",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-11T21:19:22Z",
+      "updatedAt": "2024-11-11T21:47:06Z",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "df035058d9a6b1d96db9555f23760d31faafc325",
+      "headRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
+      "headRefName": "nb-post-121",
+      "headRefOid": "69533706aa3b040f4e1d7f9bf0f3ce234fc12060",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6Qu8UJ",
+          "commit": {
+            "abbreviatedOid": "6953370"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-11-11T21:44:24Z",
+          "updatedAt": "2024-11-11T21:44:24Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Maybe we shall phrase it as 'discouraging using RFC7050' - that way it would be:\r\n- more in scope of dnsops\r\n- stay generic (in the unlikely event of a new NAT64 prefix detection method is invented, or people want to use PCP)\r\n\r\nWDYT?",
+              "createdAt": "2024-11-11T21:44:24Z",
+              "updatedAt": "2024-11-11T21:44:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6Qu9C9",
+          "commit": {
+            "abbreviatedOid": "6953370"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-11-11T21:47:06Z",
+          "updatedAt": "2024-11-11T21:47:06Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "```suggestion\r\nRFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name \"ipv4only.arpa.\". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050 MAY only be used if other methods (such as RFC8781]) can not be used.\r\n```",
+              "createdAt": "2024-11-11T21:47:06Z",
+              "updatedAt": "2024-11-11T21:47:07Z"
+            }
+          ]
         }
       ]
     }
