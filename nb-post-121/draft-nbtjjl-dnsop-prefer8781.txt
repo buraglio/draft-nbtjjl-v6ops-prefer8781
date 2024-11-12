@@ -5,10 +5,10 @@
 dnsop                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Standards Track                               T. Jensen
-Expires: 15 May 2025                                           Microsoft
+Expires: 16 May 2025                                           Microsoft
                                                               J. Linkova
                                                                   Google
-                                                        11 November 2024
+                                                        12 November 2024
 
 
  Preference of pref64 over DNS64 for Discovery of IPv6 Prefix Used for
@@ -24,9 +24,8 @@ Abstract
    exist that lack the requirement of a higher level protocol, instead
    using existing operations in the form of native router
    advertisements, discovery of the IPv6 prefix used for protocol
-   translation using RFC7050 should be demoted to legacy status and used
-   only in the absence or inability to offer RFC 8781 compliant pref64
-   within a router advertisement.
+   translation using RFC7050 should be discouraged.  RFC7050 MAY only be
+   used if other methods (such as RFC8781]) can not be used.
 
 About This Document
 
@@ -60,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 May 2025.
+   This Internet-Draft will expire on 16 May 2025.
 
 Copyright Notice
 
