@@ -5,10 +5,10 @@
 dnsop                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Standards Track                               T. Jensen
-Expires: 16 May 2025                                           Microsoft
+Expires: 18 May 2025                                           Microsoft
                                                               J. Linkova
                                                                   Google
-                                                        12 November 2024
+                                                        14 November 2024
 
 
  Discouraging use of RFC7050 for Discovery of IPv6 Prefix Used for IPv6
@@ -18,7 +18,7 @@ Expires: 16 May 2025                                           Microsoft
 Abstract
 
    RFC7050 describes a method for detecting the presence of DNS64 and
-   for learning the IPv6 prefix used for protocol translation (RFC6145).
+   for learning the IPv6 prefix used for protocol translation (RFC7915).
    This methodology depends on the existence of a well-known IPv4-only
    fully qualified domain name "ipv4only.arpa.".  Because newer methods
    exist that lack the requirement of a higher level protocol, instead
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 May 2025.
+   This Internet-Draft will expire on 18 May 2025.
 
 Copyright Notice
 
@@ -128,7 +128,7 @@ Table of Contents
    NAT64: a mechanism for translating IPv6 packets to IPv4 packets and
    vice versa.  The translation is done by translating the packet
    headers according to the IP/ICMP Translation Algorithm defined in
-   [RFC6145].
+   [RFC7915].
 
    DNS64: a mechanism for synthesizing AAAA records from A records,
    defined in [RFC6147].
@@ -268,7 +268,7 @@ Table of Contents
 4.2.  Clients Implementation Recommendations
 
    Clients SHOULD obtain PREF64 information from Router Advertisements
-   as per [RFC8781] instead of using [RFC7050] method.  In the absense
+   as per [RFC8781] instead of using [RFC7050] method.  In the absence
    of the PREF64 information in RAs, a client MAY choose to fall back to
    RFC7050.
 
@@ -323,10 +323,6 @@ Table of Contents
               DOI 10.17487/RFC6105, February 2011,
               <https://www.rfc-editor.org/rfc/rfc6105>.
 
-   [RFC6145]  Li, X., Bao, C., and F. Baker, "IP/ICMP Translation
-              Algorithm", RFC 6145, DOI 10.17487/RFC6145, April 2011,
-              <https://www.rfc-editor.org/rfc/rfc6145>.
-
    [RFC6146]  Bagnulo, M., Matthews, P., and I. van Beijnum, "Stateful
               NAT64: Network Address and Protocol Translation from IPv6
               Clients to IPv4 Servers", RFC 6146, DOI 10.17487/RFC6146,
@@ -342,6 +338,11 @@ Table of Contents
               Combination of Stateful and Stateless Translation",
               RFC 6877, DOI 10.17487/RFC6877, April 2013,
               <https://www.rfc-editor.org/rfc/rfc6877>.
+
+   [RFC7915]  Bao, C., Li, X., Baker, F., Anderson, T., and F. Gont,
+              "IP/ICMP Translation Algorithm", RFC 7915,
+              DOI 10.17487/RFC7915, June 2016,
+              <https://www.rfc-editor.org/rfc/rfc7915>.
 
    [RFC8781]  Colitti, L. and J. Linkova, "Discovering PREF64 in Router
               Advertisements", RFC 8781, DOI 10.17487/RFC8781, April
@@ -363,7 +364,8 @@ Table of Contents
 
 Acknowledgments
 
-   TODO acknowledge.
+   The authors would like to than the following people for their
+   valuable contributions: Lorenzo Colitti, Tom Costello.
 
 Authors' Addresses
 

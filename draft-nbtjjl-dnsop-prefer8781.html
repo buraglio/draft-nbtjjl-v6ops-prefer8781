@@ -9,7 +9,7 @@
 <meta content="Tommy Jensen" name="author">
 <meta content="Jen Linkova" name="author">
 <meta content='
-       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050  MAY  only be used if other methods (such as RFC8781]) can not be used. 
+       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC7915). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050  MAY  only be used if other methods (such as RFC8781]) can not be used. 
     ' name="description">
 <meta content="xml2rfc 3.24.0" name="generator">
 <meta content="IPv6" name="keyword">
@@ -1084,7 +1084,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 16 May 2025</td>
+<td class="center">Expires 18 May 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1097,12 +1097,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-nbtjjl-dnsop-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-11-12" class="published">12 November 2024</time>
+<time datetime="2024-11-14" class="published">14 November 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-16">16 May 2025</time></dd>
+<dd class="expires"><time datetime="2025-05-18">18 May 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1123,7 +1123,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Discouraging use of RFC7050 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050 <span class="bcp14">MAY</span> only be used if other methods (such as RFC8781]) can not be used.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC7915). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050 <span class="bcp14">MAY</span> only be used if other methods (such as RFC8781]) can not be used.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1160,7 +1160,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1277,7 +1277,7 @@ However since the publication of RFC7050, other methods have been developed to a
       <h2 id="name-conventions-and-definitions">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
       </h2>
-<p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertize the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
@@ -1392,7 +1392,7 @@ In addition to creating a wider attack surface for IPv6 deployments, <span>[<a h
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-clients-implementation-reco" class="section-name selfRef">Clients Implementation Recommendations</a>
         </h3>
 <p id="section-4.2-1">Clients <span class="bcp14">SHOULD</span> obtain PREF64 information from Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
-In the absense of the PREF64 information in RAs, a client <span class="bcp14">MAY</span> choose to fall back to RFC7050.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+In the absence of the PREF64 information in RAs, a client <span class="bcp14">MAY</span> choose to fall back to RFC7050.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1459,10 +1459,6 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
         <dd>
 <span class="refAuthor">Levy-Abegnoli, E.</span>, <span class="refAuthor">Van de Velde, G.</span>, <span class="refAuthor">Popoviciu, C.</span>, and <span class="refAuthor">J. Mohacsi</span>, <span class="refTitle">"IPv6 Router Advertisement Guard"</span>, <span class="seriesInfo">RFC 6105</span>, <span class="seriesInfo">DOI 10.17487/RFC6105</span>, <time datetime="2011-02" class="refDate">February 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6105">https://www.rfc-editor.org/rfc/rfc6105</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC6145">[RFC6145]</dt>
-        <dd>
-<span class="refAuthor">Li, X.</span>, <span class="refAuthor">Bao, C.</span>, and <span class="refAuthor">F. Baker</span>, <span class="refTitle">"IP/ICMP Translation Algorithm"</span>, <span class="seriesInfo">RFC 6145</span>, <span class="seriesInfo">DOI 10.17487/RFC6145</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6145">https://www.rfc-editor.org/rfc/rfc6145</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC6146">[RFC6146]</dt>
         <dd>
 <span class="refAuthor">Bagnulo, M.</span>, <span class="refAuthor">Matthews, P.</span>, and <span class="refAuthor">I. van Beijnum</span>, <span class="refTitle">"Stateful NAT64: Network Address and Protocol Translation from IPv6 Clients to IPv4 Servers"</span>, <span class="seriesInfo">RFC 6146</span>, <span class="seriesInfo">DOI 10.17487/RFC6146</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6146">https://www.rfc-editor.org/rfc/rfc6146</a>&gt;</span>. </dd>
@@ -1474,6 +1470,10 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
 <dt id="RFC6877">[RFC6877]</dt>
         <dd>
 <span class="refAuthor">Mawatari, M.</span>, <span class="refAuthor">Kawashima, M.</span>, and <span class="refAuthor">C. Byrne</span>, <span class="refTitle">"464XLAT: Combination of Stateful and Stateless Translation"</span>, <span class="seriesInfo">RFC 6877</span>, <span class="seriesInfo">DOI 10.17487/RFC6877</span>, <time datetime="2013-04" class="refDate">April 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6877">https://www.rfc-editor.org/rfc/rfc6877</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7915">[RFC7915]</dt>
+        <dd>
+<span class="refAuthor">Bao, C.</span>, <span class="refAuthor">Li, X.</span>, <span class="refAuthor">Baker, F.</span>, <span class="refAuthor">Anderson, T.</span>, and <span class="refAuthor">F. Gont</span>, <span class="refTitle">"IP/ICMP Translation Algorithm"</span>, <span class="seriesInfo">RFC 7915</span>, <span class="seriesInfo">DOI 10.17487/RFC7915</span>, <time datetime="2016-06" class="refDate">June 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7915">https://www.rfc-editor.org/rfc/rfc7915</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8781">[RFC8781]</dt>
         <dd>
@@ -1501,7 +1501,7 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The authors would like to than the following people for their valuable contributions: Lorenzo Colitti, Tom Costello.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
