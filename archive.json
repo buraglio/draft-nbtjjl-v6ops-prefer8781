@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-12T01:23:20.444795+00:00",
+  "timestamp": "2024-11-14T01:25:04.147587+00:00",
   "repo": "buraglio/draft-nbtjjl-dnsop-prefer8781",
   "labels": [
     {
@@ -399,24 +399,26 @@
       "id": "PR_kwDOMjLqms6BjuVJ",
       "title": "Change name, title, remove deprecate as a term, and minor spelling fixes",
       "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "buraglio",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-11-11T21:19:22Z",
-      "updatedAt": "2024-11-11T21:47:06Z",
+      "updatedAt": "2024-11-12T14:17:25Z",
       "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "df035058d9a6b1d96db9555f23760d31faafc325",
       "headRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
       "headRefName": "nb-post-121",
-      "headRefOid": "69533706aa3b040f4e1d7f9bf0f3ce234fc12060",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f24429f27b2ef7258b194b3abe2039a92fb30496",
+      "closedAt": "2024-11-12T14:17:25Z",
+      "mergedAt": "2024-11-12T14:17:25Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "ecb94df8d972e0c628e9ec21493693911011d606"
+      },
       "comments": [],
       "reviews": [
         {
