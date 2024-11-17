@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-14T01:25:04.147587+00:00",
+  "timestamp": "2024-11-17T01:41:39.630549+00:00",
   "repo": "buraglio/draft-nbtjjl-dnsop-prefer8781",
   "labels": [
     {
@@ -462,6 +462,34 @@
           ]
         }
       ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOMjLqms6B9_-k",
+      "title": "Add a few acks, change reference to rfc7915",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/9",
+      "state": "MERGED",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-11-14T20:10:54Z",
+      "updatedAt": "2024-11-14T23:26:08Z",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "f37e1b8f43664a4d22651c6acdabb6c38174cf85",
+      "headRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
+      "headRefName": "nb-pre-submission-tweaks",
+      "headRefOid": "e57a9780d840ac676f885d608b5e3f791f9da32d",
+      "closedAt": "2024-11-14T23:26:07Z",
+      "mergedAt": "2024-11-14T23:26:07Z",
+      "mergedBy": "furry13",
+      "mergeCommit": {
+        "oid": "d0cf8b6f4b86f1f89f7cdd667a0ecc983cf491ae"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
