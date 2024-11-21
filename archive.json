@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-19T01:38:07.464441+00:00",
+  "timestamp": "2024-11-21T01:36:38.876769+00:00",
   "repo": "buraglio/draft-nbtjjl-dnsop-prefer8781",
   "labels": [
     {
@@ -64,7 +64,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-11-05T09:30:01Z",
-      "updatedAt": "2024-11-11T21:21:42Z",
+      "updatedAt": "2024-11-19T15:59:08Z",
       "closedAt": null,
       "comments": [
         {
@@ -73,6 +73,13 @@
           "body": "I think we should not exempt mobile carriers. 7050 may need to exist for a long time even in enterprise cases, but we should make clear that the preferred method is 8781. ",
           "createdAt": "2024-11-11T21:21:41Z",
           "updatedAt": "2024-11-11T21:21:41Z"
+        },
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Apparently those networks do not use RAs to configure clients. So we can say that the recommendations in the draft do not apply to the networks which do not use SLAAC for client config.\r\n\r\nLong-term solution might be going to 3GPP ;)",
+          "createdAt": "2024-11-19T15:59:06Z",
+          "updatedAt": "2024-11-19T15:59:06Z"
         }
       ]
     },
@@ -115,6 +122,22 @@
       "body": "Multihoming with different prefixes - never going to work.",
       "createdAt": "2024-11-05T14:37:33Z",
       "updatedAt": "2024-11-05T14:37:37Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOMjLqms6fSSyI",
+      "title": "VPN DNS Override",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/issues/10",
+      "state": "OPEN",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Certain VPN clients, particularly mesh VPNs, may impose DNS servers for use that prevent prefix discovery via RFC 7050. This problem is solved by using pref64 per RFC 8781, but may present issues on systems which only support RFC 7050. ",
+      "createdAt": "2024-11-19T14:35:11Z",
+      "updatedAt": "2024-11-19T14:35:12Z",
       "closedAt": null,
       "comments": []
     }
