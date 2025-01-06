@@ -4,33 +4,33 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>Discouraging use of RFC7050 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</title>
+<title>Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</title>
 <meta content="Nick Buraglio" name="author">
 <meta content="Tommy Jensen" name="author">
 <meta content="Jen Linkova" name="author">
 <meta content='
-       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050  MAY  only be used if other methods (such as RFC8781]) can not be used. 
+       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC7915). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050  MAY  only be used if other methods (such as RFC8781]) can not be used. 
     ' name="description">
-<meta content="xml2rfc 3.24.0" name="generator">
+<meta content="xml2rfc 3.25.0" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="DNS64" name="keyword">
-<meta content="draft-nbtjjl-dnsop-prefer8781-latest" name="ietf.draft">
+<meta content="draft-v6ops-prefer8781-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.24.0
-    Python 3.12.7
+  xml2rfc 3.25.0
+    Python 3.12.8
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.4
+    Jinja2 3.1.5
     lxml 5.3.0
     platformdirs 4.3.6
-    pycountry 22.3.5
-    PyYAML 6.0.1
+    pycountry 24.6.1
+    PyYAML 6.0.2
     requests 2.32.3
     setuptools 70.3.0
     wcwidth 0.2.13
 -->
-<link href="draft-nbtjjl-dnsop-prefer8781.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-v6ops-prefer8781.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -281,6 +281,12 @@ body {
 }
 
 /* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-title);
   font-weight: 680;
@@ -312,6 +318,7 @@ h4, h5, h6 {
 /* general structure */
 .author {
   padding-bottom: 0.3em;
+  vertical-align: top;
 }
 #abstract+p {
   font-size: 18px;
@@ -389,25 +396,26 @@ svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
 ol, ul {
   padding: 0;
   margin: 0 0 0.5em 2em;
-}
-:is(ol, ul) :is(ol, ul) {
-  margin-left: 1em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
 }
 li {
   margin: 0 0 0.25em 0;
 }
-.ulCompact li {
-  margin: 0;
-}
 ul.empty, .ulEmpty {
   list-style-type: none;
-}
-ul.empty li, .ulEmpty li {
-  margin-top: 0.5em;
+  & li {
+    margin-top: 0.5em;
+  }
 }
 :is(ul, ol).compact, .ulCompact, .olCompact {
-  line-height: 1;
   margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
 }
 
 /* definition lists */
@@ -415,38 +423,39 @@ dl {
   clear: left;
   --indent: 3ch;
   /* --indent: attr(indent ch); not supported in any browser, but we can dream */
-}
-dl.olPercent {
-  --indent: 5ch;
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
 }
 dl > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
 }
-dl.dlNewline > dt {
-  float: none;
-}
 dl > dd {
   margin-bottom: .8em;
   margin-left: var(--indent) !important; /* stupid element overrides */
   min-height: 2ex;
 }
-dl.olPercent > dt {
-  min-width: calc(var(--indent) - 2ch);
-}
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
-}
-:is(dl.compact, .dlCompact) > dd > :is(:first-child, .break:first-child + *) {
-  margin-top: 0;
-}
-:is(dl.compact, .dlCompact) > dd > :is(:last-child) {
-  margin-bottom: 0;
-}
-dl > dd > dl {
-  margin-top: 0.5em;
-  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
 }
 :is(dd, span).break {
   display: none;
@@ -510,6 +519,7 @@ figcaption, caption {
   font-style: italic;
   margin: 0.5em 1.5em;
   text-align: left;
+  caption-side: bottom;
 }
 @media screen {
   /* Auto-collapse boilerplate. */
@@ -527,7 +537,11 @@ figcaption, caption {
   }
   pre, svg {
     display: inline-block;
-    overflow-x: auto;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
   }
   pre {
     max-width: 100%;
@@ -564,6 +578,7 @@ cite {
 
 /* tables */
 table {
+  width: auto;
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
@@ -578,6 +593,16 @@ table.center {
 table.left {
   margin-right: auto;
 }
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
 thead, tbody {
   border: 1px solid var(--line-color);
 }
@@ -608,9 +633,11 @@ a.pilcrow {
   margin-left: 3px;
   opacity: 0.2;
   user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
 }
-a.pilcrow[href] { color: var(--pilcrow-weak); }
-a.pilcrow[href]:hover { text-decoration: none; }
 @media not print {
   :hover > a.pilcrow {
     opacity: 1;
@@ -650,26 +677,28 @@ sub, sup {
   font-size: var(--small-font-size);
   line-height: 18px;
   --identifier-width: 15ch;
-}
-#identifiers dt {
-  width: var(--identifier-width);
-  min-width: var(--identifier-width);
-  clear: left;
-  float: left;
-  text-align: right;
-  margin-right: 1ch;
-}
-#identifiers dd {
-  margin: 0;
-  margin-left: calc(1em + var(--identifier-width)) !important;
-  min-width: 5em;
-}
-#identifiers .authors .author {
-  display: inline-block;
-  margin-right: 1.5em;
-}
-#identifiers .authors .org {
-  font-style: italic;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
 }
 
 /* The prepared/rendered info at the very bottom of the page */
@@ -680,9 +709,6 @@ sub, sup {
   margin-top: 2em;
 }
 .docInfo .prepared {
-  float: left;
-}
-.docInfo .prepared {
   float: right;
 }
 
@@ -690,53 +716,48 @@ sub, sup {
 #toc {
   padding: 0.75em 0 2em 0;
   margin-bottom: 1em;
-}
-@media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
   }
 }
-#toc nav ul {
-  margin: 0 0.5em 0 0;
-  padding: 0;
-  list-style: none;
-}
-#toc nav li {
-  line-height: 1.3em;
-  margin: 2px 0;
-  padding-left: 1.2em;
-  text-indent: -1.2em;
-}
-#toc a.xref {
-  white-space: normal;
-}
-/* references */
-.references dt {
-  text-align: right;
-  font-weight: bold;
-  min-width: 10ch;
-  margin-right: 1.5ch;
-}
-.references dt:target::before {
-  content: "⇒";
-  width: 15px;
-  margin: 0 10px 0 -25px;
-}
-.references dd {
-  margin-left: 12ch !important;
-  overflow: auto;
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
 }
 
-.refInstance {
-  margin-bottom: 1.25em;
-}
-
-.references .ascii {
-  margin-bottom: 0.25em;
-}
-
-/* index */
 #rfc\.index\.index + ul {
   margin-left: 0;
 }
@@ -744,21 +765,33 @@ sub, sup {
 /* authors */
 address.vcard {
   font-style: normal;
-  margin: 1em 0;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
 }
-address.vcard .nameRole {
-  font-weight: 700;
-  margin-left: 0;
-}
-address.vcard .label {
-  margin: 0.5em 0;
-}
-address.vcard .type {
-  display: none;
-}
-.alternative-contact {
-  margin: 1.5em 0 1em;
-}
+
 hr.addr {
   border-top: 1px dashed;
   margin: 0;
@@ -780,6 +813,7 @@ hr.addr {
   }
 }
 
+/* Comments */
 .rfcEditorRemove p:first-of-type {
   font-style: italic;
 }
@@ -790,7 +824,31 @@ hr.addr {
 .crefSource {
   font-style: italic;
 }
-/* alternative layout for smaller screens */
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
 @media screen and (max-width: 929px) {
   #toc {
     position: fixed;
@@ -801,9 +859,6 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc.active {
-      opacity: 1;
   }
   #toc h2 {
     margin: 0;
@@ -816,17 +871,17 @@ hr.addr {
     background-color: #444;
     color: white;
     cursor: pointer;
-  }
-  #toc h2::before { /* css hamburger */
-    float: right;
-    position: relative;
-    width: 1em;
-    height: 1px;
-    left: -164px;
-    margin: 8px 0 0 0;
-    background: white none repeat scroll 0 0;
-    box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-    content: "";
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
   }
   #toc nav {
     display: none;
@@ -837,14 +892,13 @@ hr.addr {
     height: calc(100vh - 48px);
     border-left: 1px solid #ddd;
   }
-  #toc.active nav {
-    display: block;
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
   }
   /* Make the collapsed ToC header render white on gray also when it's a link */
   #toc h2 a,
-  #toc h2 a:link,
-  #toc h2 a:focus,
-  #toc h2 a:hover,
+  #toc h2 a:is(:link, :focus, :hover),
   #toc a.toplink,
   #toc a.toplink:hover {
     color: white;
@@ -852,11 +906,11 @@ hr.addr {
     text-decoration: none;
   }
   #toc a.toplink {
-    margin-top: 2px;
+    margin: 2px 0.5em 0;
   }
 }
 
-/* alternative layout for wide screens */
+/* TOC layout for wide screens */
 @media screen and (min-width: 930px) {
   body {
     padding-right: 360px;
@@ -885,20 +939,12 @@ hr.addr {
     overscroll-behavior: contain;
     scrollbar-width: thin;
   }
-  #toc nav > ul  {
-    margin-bottom: 2em;
-  }
-  #toc ul {
-    margin: 0 0 0 4px;
-    font-size: var(--small-font-size);
-  }
-  #toc ul :is(p, li) {
-    margin: 2px 0;
-    line-height: 22px;
-  }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
   }
 }
 
@@ -941,9 +987,6 @@ hr.addr {
   td {
     border-top: 1px solid #ddd;
   }
-  .toplink {
-    display: none;
-  }
 }
 
 @page :first {
@@ -966,82 +1009,6 @@ hr.addr {
   size: A4;
   margin-bottom: 45mm;
   padding-top: 20px;
-}
-
-/* Changes introduced to fix issues found during implementation */
-
-/* Separate body from document info even without intervening H1 */
-section {
-  clear: both;
-}
-
-/* Top align author divs, to avoid names without organization dropping level with org names */
-.author {
-  vertical-align: top;
-}
-
-/* Style section numbers with more space between number and title */
-.section-number {
-  padding-right: 0.5em;
-}
-
-/* Add styling for a link in the ToC that points to the top of the document */
-a.toplink {
-  float: right;
-  margin: 8px 0.5em 0;
-}
-
-/* Provide styling for table cell text alignment */
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
-}
-
-/* Make the alternative author contact information look less like just another
-   author, and group it closer with the primary author contact information */
-.alternative-contact {
-  margin: 0.5em 0 0.25em 0;
-}
-address .non-ascii {
-  margin: 0 0 0 2em;
-}
-
-/* With it being possible to set tables with alignment
-  left, center, and right, { width: 100%; } does not make sense */
-table {
-  width: auto;
-}
-
-/* Avoid reference text that sits in a block with very wide left margin,
-   because of a long floating dt label.*/
-.references dd {
-  overflow: visible;
-}
-
-/* Control caption placement */
-caption {
-  caption-side: bottom;
-}
-
-/* Limit the width of the author address vcard, so names in right-to-left
-   script don't end up on the other side of the page. */
-
-address.vcard {
-  max-width: 20em;
-  margin-right: auto;
-}
-
-/* For address alignment dependent on LTR or RTL scripts */
-address div.left {
-  text-align: left;
-}
-address div.right {
-  text-align: right;
 }
 
 /* Dark mode. */
@@ -1079,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">Discouraging RFC7050</td>
-<td class="right">November 2024</td>
+<td class="center">Prefer RFC8781</td>
+<td class="right">January 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 16 May 2025</td>
+<td class="center">Expires 10 July 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1092,17 +1059,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">dnsop</dd>
+<dd class="workgroup">v6ops</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-nbtjjl-dnsop-prefer8781-latest</dd>
+<dd class="internet-draft">draft-v6ops-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-11-12" class="published">12 November 2024</time>
+<time datetime="2025-01-06" class="published">6 January 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-16">16 May 2025</time></dd>
+<dd class="expires"><time datetime="2025-07-10">10 July 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,10 +1087,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">Discouraging use of RFC7050 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
+<h1 id="title">Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC6145). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050 <span class="bcp14">MAY</span> only be used if other methods (such as RFC8781]) can not be used.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC7915). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050 <span class="bcp14">MAY</span> only be used if other methods (such as RFC8781]) can not be used.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1132,11 +1099,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
         The latest revision of this draft can be found at <span><a href="https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781">https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-nbtjjl-dnsop-prefer8781/">https://datatracker.ietf.org/doc/draft-nbtjjl-dnsop-prefer8781/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-v6ops-prefer8781/">https://datatracker.ietf.org/doc/draft-v6ops-prefer8781/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
-        dnsop Working Group mailing list (<span><a href="mailto:dnsop@ietf.org">mailto:dnsop@ietf.org</a></span>),
-        which is archived at <span><a href="https://datatracker.ietf.org/wg/dnsop/about/">https://datatracker.ietf.org/wg/dnsop/about/</a></span>.
+        v6ops Working Group mailing list (<span><a href="mailto:dnsop@ietf.org">mailto:dnsop@ietf.org</a></span>),
+        which is archived at <span><a href="https://datatracker.ietf.org/wg/v6ops/about/">https://datatracker.ietf.org/wg/v6ops/about/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/dnsop/">https://www.ietf.org/mailman/listinfo/dnsop/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
         <span><a href="https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781">https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
@@ -1160,7 +1127,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 July 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1169,7 +1136,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2024 IETF Trust and the persons identified as the
+            Copyright (c) 2025 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1230,7 +1197,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-deployment-recommendations" class="internal xref">Deployment Recommendations</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-clients-implementation-reco" class="internal xref">Clients Implementation Recommendations</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-mobile-network-consideratio" class="internal xref">Mobile network considerations</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-clients-implementation-reco" class="internal xref">Clients Implementation Recommendations</a></p>
 </li>
             </ul>
 </li>
@@ -1268,8 +1238,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-1-1">The DNS-based mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> was the very first mechanism available for nodes to discover the PREF64 information.
 However since the publication of RFC7050, other methods have been developed to address some of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">For example, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use to discover other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations IPv6 requires using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Taking into account some fundamental flaws of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it seems desirable to prefer <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> for all new deployments and for implementations to use consistent methods to obtain PREF64 information. RFC 7050 should be used only in cases where there is an inability to offer PREF64 information with a router advertisement, and as a fallback for legacy systems incapable of processing those RA options.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-2">For example, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use for discovery of other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations which are required by IPv6 using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Taking into account some fundamental flaws of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it is desirable to prefer <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> for all new deployments and for implementations to use consistent methods to obtain PREF64 information. RFC 7050 should be used only in cases where there is an inability to offer PREF64 information with a router advertisement, and as a fallback for legacy systems incapable of processing those RA options.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1277,14 +1247,15 @@ However since the publication of RFC7050, other methods have been developed to a
       <h2 id="name-conventions-and-definitions">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
       </h2>
-<p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertize the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertise the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+<p id="section-2-5">CLAT: A customer-side translator (XLAT) that complies with <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-2-5" class="pilcrow">¶</a></p>
+appear in all capitals, as shown here.<a href="#section-2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="existing-issues-with-rfc-7050">
@@ -1386,13 +1357,21 @@ In addition to creating a wider attack surface for IPv6 deployments, <span>[<a h
 <p id="section-4.1-1">Operators deploying NAT64 networks <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="clients-implementation-recommendations">
+<div id="mobile-network-considerations">
 <section id="section-4.2">
-        <h3 id="name-clients-implementation-reco">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-clients-implementation-reco" class="section-name selfRef">Clients Implementation Recommendations</a>
+        <h3 id="name-mobile-network-consideratio">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-mobile-network-consideratio" class="section-name selfRef">Mobile network considerations</a>
         </h3>
-<p id="section-4.2-1">Clients <span class="bcp14">SHOULD</span> obtain PREF64 information from Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
-In the absense of the PREF64 information in RAs, a client <span class="bcp14">MAY</span> choose to fall back to RFC7050.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">Due to the more involved and controlled signaling of most mobile, non-WiFi networks, on these closed networks where the mobile network facing network stack of user equipment (UE) is controlled by the provider, use of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> may not be practical to implement. These environments may choose to incorporate <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> at some point when practical such as when infrastructure upgrades occur, or software stack features are implemented.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="clients-implementation-recommendations">
+<section id="section-4.3">
+        <h3 id="name-clients-implementation-reco">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-clients-implementation-reco" class="section-name selfRef">Clients Implementation Recommendations</a>
+        </h3>
+<p id="section-4.3-1">Clients <span class="bcp14">SHOULD</span> obtain PREF64 information from Router Advertisements as per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
+In the absence of the PREF64 information in RAs, a client <span class="bcp14">MAY</span> choose to fall back to RFC7050.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1411,7 +1390,7 @@ Security considerations related to obtaining PREF64 information from RAs are dis
       <h2 id="name-iana-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-6-1">It is expected that there will be a long tail of both clients and networks  still relying on <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> as a sole mechanism to discover PREF64 information.
+<p id="section-6-1">It is expected that there will be a long tail of both clients and networks still relying on <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> as a sole mechanism to discover PREF64 information.
 Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> and this document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1475,6 +1454,10 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
         <dd>
 <span class="refAuthor">Mawatari, M.</span>, <span class="refAuthor">Kawashima, M.</span>, and <span class="refAuthor">C. Byrne</span>, <span class="refTitle">"464XLAT: Combination of Stateful and Stateless Translation"</span>, <span class="seriesInfo">RFC 6877</span>, <span class="seriesInfo">DOI 10.17487/RFC6877</span>, <time datetime="2013-04" class="refDate">April 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6877">https://www.rfc-editor.org/rfc/rfc6877</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC7915">[RFC7915]</dt>
+        <dd>
+<span class="refAuthor">Bao, C.</span>, <span class="refAuthor">Li, X.</span>, <span class="refAuthor">Baker, F.</span>, <span class="refAuthor">Anderson, T.</span>, and <span class="refAuthor">F. Gont</span>, <span class="refTitle">"IP/ICMP Translation Algorithm"</span>, <span class="seriesInfo">RFC 7915</span>, <span class="seriesInfo">DOI 10.17487/RFC7915</span>, <time datetime="2016-06" class="refDate">June 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7915">https://www.rfc-editor.org/rfc/rfc7915</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8781">[RFC8781]</dt>
         <dd>
 <span class="refAuthor">Colitti, L.</span> and <span class="refAuthor">J. Linkova</span>, <span class="refTitle">"Discovering PREF64 in Router Advertisements"</span>, <span class="seriesInfo">RFC 8781</span>, <span class="seriesInfo">DOI 10.17487/RFC8781</span>, <time datetime="2020-04" class="refDate">April 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8781">https://www.rfc-editor.org/rfc/rfc8781</a>&gt;</span>. </dd>
@@ -1501,7 +1484,7 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The authors would like to than the following people for their valuable contributions: Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, and Peter Schmitt.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
