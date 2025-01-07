@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-05T01:39:14.268000+00:00",
+  "timestamp": "2025-01-07T01:26:24.029955+00:00",
   "repo": "buraglio/draft-nbtjjl-dnsop-prefer8781",
   "labels": [
     {
@@ -511,6 +511,35 @@
       "mergeCommit": {
         "oid": "d0cf8b6f4b86f1f89f7cdd667a0ecc983cf491ae"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOMjLqms6G3IiP",
+      "title": "Rename, create mobile section, other housekeeping tasks",
+      "url": "https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781/pull/11",
+      "state": "OPEN",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "furry13",
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "Rename to reflect v6ops, create mobile section to address last comment thread, add more acks, clean up a few typos and language. ",
+      "createdAt": "2025-01-06T20:23:43Z",
+      "updatedAt": "2025-01-06T20:24:56Z",
+      "baseRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "d0cf8b6f4b86f1f89f7cdd667a0ecc983cf491ae",
+      "headRepository": "buraglio/draft-nbtjjl-dnsop-prefer8781",
+      "headRefName": "nb-post-adoption",
+      "headRefOid": "317f9cd64f097f23177a17bd53d2aa9341292974",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
