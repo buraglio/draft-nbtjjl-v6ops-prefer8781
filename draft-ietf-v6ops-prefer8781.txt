@@ -4,7 +4,7 @@
 
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
-Intended status: Standards Track                               T. Jensen
+Intended status: Informational                                 T. Jensen
 Expires: 17 July 2025                                          Microsoft
                                                               J. Linkova
                                                                   Google
