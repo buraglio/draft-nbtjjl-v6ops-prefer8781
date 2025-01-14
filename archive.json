@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-12T01:40:43.290586+00:00",
+  "timestamp": "2025-01-14T01:22:15.551960+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -55,7 +55,7 @@
       "id": "I_kwDOMjLqms6dDX1r",
       "title": "Make an exception for mobile networks",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -64,8 +64,8 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-11-05T09:30:01Z",
-      "updatedAt": "2024-11-19T15:59:08Z",
-      "closedAt": null,
+      "updatedAt": "2025-01-13T13:40:32Z",
+      "closedAt": "2025-01-13T13:40:32Z",
       "comments": [
         {
           "author": "buraglio",
@@ -80,6 +80,13 @@
           "body": "Apparently those networks do not use RAs to configure clients. So we can say that the recommendations in the draft do not apply to the networks which do not use SLAAC for client config.\r\n\r\nLong-term solution might be going to 3GPP ;)",
           "createdAt": "2024-11-19T15:59:06Z",
           "updatedAt": "2024-11-19T15:59:06Z"
+        },
+        {
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "body": "Text added in adopted draft -00",
+          "createdAt": "2025-01-13T13:40:32Z",
+          "updatedAt": "2025-01-13T13:40:32Z"
         }
       ]
     },
