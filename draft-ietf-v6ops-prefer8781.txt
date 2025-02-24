@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 8 August 2025                                         Microsoft
+Expires: 28 August 2025                                        Microsoft
                                                               J. Linkova
                                                                   Google
-                                                         4 February 2025
+                                                        24 February 2025
 
 
 Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -17,15 +17,13 @@ Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
 
 Abstract
 
-   RFC7050 describes a method for detecting the presence of DNS64 and
-   for learning the IPv6 prefix used for protocol translation (RFC7915).
-   This methodology depends on the existence of a well-known IPv4-only
-   fully qualified domain name "ipv4only.arpa.".  Because newer methods
-   exist that lack the requirement of a higher level protocol, instead
-   using existing operations in the form of native router
-   advertisements, discovery of the IPv6 prefix used for protocol
-   translation using RFC7050 should be discouraged.  RFC7050 MAY only be
-   used if other methods (such as RFC8781]) can not be used.
+   On networks providing IPv4-IPv6 translation (NAT64, RFC7915), hosts
+   and other endpoints might need to know the IPv6 prefix used for
+   translation (the NAT64 prefix).  While RFC7050 defined a DNS64-based
+   prefix discovery mechanism, more robust methods have since emerged.
+   This document provides updated guidelines for NAT64 prefix discovery,
+   deprecating the RFC7050 approach in favor of modern alternatives
+   (e.g., RFC8781) except where those are unavailable.
 
 About This Document
 
@@ -59,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 August 2025.
+   This Internet-Draft will expire on 28 August 2025.
 
 Copyright Notice
 
@@ -89,8 +87,8 @@ Table of Contents
        3.4.3.  Secure channel example of link layer encryption
    4.  Recommendations for PREF64 Discovery
      4.1.  Deployment Recommendations
-     4.2.  Mobile network considerations
-     4.3.  Clients Implementation Recommendations
+       4.1.1.  Mobile network considerations
+     4.2.  Clients Implementation Recommendations
    5.  Security Considerations
    6.  IANA Considerations
    7.  References
@@ -101,49 +99,62 @@ Table of Contents
 
 1.  Introduction
 
-   The DNS-based mechanism defined in [RFC7050] was the very first
-   mechanism available for nodes to discover the PREF64 information.
-   However since the publication of RFC7050, other methods have been
-   developed to address some of [RFC7050] limitations.
+   NAT64 devices translating between IPv4 and IPv6 packet headers
+   ([RFC7915]) employ a NAT64 prefix to map IPv4 addresses into the IPv6
+   address space, and vice versa.  When a network provides NAT64
+   services, it is advantageous for hosts and endpoints to acquire the
+   network's NAT64 prefix (PREF64).  Discovering the PREF64 enables
+   endpoints to:
 
-   For example, [RFC8781] describes a Neighbor Discovery option to be
-   used in Router Advertisements (RAs) to communicate prefixes of
-   Network Address and Protocol Translation from IPv6 clients to IPv4
-   servers (NAT64) to hosts.  This approach has the advantage of using
-   the same communication channel IPv6 clients use for discovery of
-   other network configurations such as the network's default route.
-   This means network administrators can secure this configuration along
-   with other configurations which are required by IPv6 using a single
-   approach such as RA Guard [RFC6105].
+   *  implement the customer-side translator (CLAT) functions of the
+      464XLAT architecture [RFC6877];
 
-   Taking into account some fundamental flaws of the [RFC7050]
-   mechanism, it is desirable to prefer [RFC8781] for all new
-   deployments and for implementations to use consistent methods to
-   obtain PREF64 information.  RFC 7050 should be used only in cases
-   where there is an inability to offer PREF64 information with a router
-   advertisement, and as a fallback for legacy systems incapable of
-   processing those RA options.
+   *  translate the IPv4 literal to an IPv6 literals (Section 7.1 of
+      [RFC8305]);
+
+   *  perform local DNS64 ([RFC6147]) functions.
+
+   Dynamic PREF64 discovery is often essential, particularly for
+   unmanaged or mobile endpoints, where static configuration is
+   impractical.  While [RFC7050] introduced the first DNS64-based
+   mechanism for PREF64 discovery, subsequent methods have been
+   developed to address its limitations.
+
+   For instance, [RFC8781] defines a Neighbor Discovery ([RFC4861])
+   option for Router Advertisements (RAs) to convey PREF64 information
+   to hosts.  This approach offers several advantages (Section 3 of
+   [RFC8781]), including fate sharing with other host network
+   configuration parameterss.
+
+   Due to fundamental shortcomings of the [RFC7050] mechanism
+   (Section 3), [RFC8781] is the preferred solution for new deployments.
+   Implementations should strive for consistent PREF64 acquisition
+   methods.  The DNS64-based mechanism of [RFC7050] should be employed
+   only when RA-based PREF64 delivery is unavailable, or as a fallback
+   for legacy systems incapable of processing the PREF64 RA option.
 
 2.  Conventions and Definitions
 
-   NAT64: a mechanism for translating IPv6 packets to IPv4 packets and
-   vice versa.  The translation is done by translating the packet
-   headers according to the IP/ICMP Translation Algorithm defined in
-   [RFC7915].
+   CLAT: A customer-side translator (XLAT) that complies with [RFC6145].
 
    DNS64: a mechanism for synthesizing AAAA records from A records,
    defined in [RFC6147].
 
-   Router Advertisement: A packet used by Neighbor Discovery [RFC4861]
-   and StateLess Address AutoConfiguration (SLAAC, [RFC4862]) to
-   advertise the presence of the routers, together with other IPv6
-   configuration information.
+   NAT64: a mechanism for translating IPv6 packets to IPv4 packets and
+   vice versa.  The translation is done by translating the packet
+   headers according to the IP/ICMP Translation Algorithm defined in
+   [RFC7915].  NAT64 translators can operate in stateless or stateful
+   mode ([RFC6144]).
 
    PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address
    synthesis and for network addresses and protocols translation from
    IPv6 clients to IPv4 servers, [RFC6146].
 
-   CLAT: A customer-side translator (XLAT) that complies with [RFC6145].
+   Router Advertisement (RA): A packet used by Neighbor Discovery
+   [RFC4861] and SLAAC to advertise the presence of the routers,
+   together with other IPv6 configuration information.
+
+   SLAAC: StateLess Address AutoConfiguration, [RFC4862]
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -163,31 +174,28 @@ Table of Contents
 
    Fundamentally, the presence of the NAT64 and the exact value of the
    prefix used for the translation are network-specific attributes.
-   Therefore, to discover the PREF64 the device needs to use the DNS
-   resolvers provided by the network.  If the device is configured to
-   use other recursive resolvers, its name resolution APIs and libraries
-   are required to recognize 'ipv4only.arpa.' as a special name and give
-   it special treatment.  This issue and remediation approach are
-   discussed in [RFC8880].  However, it has been observed that not all
-   [RFC7050] implementations support [RFC8880] requirements for special
-   treatment of 'ipv4only.arpa.'.  As a result, configuring such systems
-   to use resolvers other than the one provided by the network might
-   break the PREF64 discovery, leading to degraded user experience.
+   Therefore, [RFC7050] requires the device to use the DNS64 resolvers
+   provided by the network.  If the device is configured to use other
+   recursive resolvers or runs a local recursive resolver, the device's
+   name resolution APIs and libraries are required to recognize
+   'ipv4only.arpa.' as a special name and give it special treatment.
+   This issue and remediation approach are discussed in [RFC8880].
+   However, it has been observed that very few [RFC7050] implementations
+   support [RFC8880] requirements for special treatment of
+   'ipv4only.arpa.'.  As a result, configuring such systems to use
+   resolvers other than the one provided by the network breaks the
+   PREF64 discovery, leading to degraded user experience.
 
 3.2.  Network Stack Initialization Delay
 
-   When using SLAAC ([RFC4862]), an IPv6 host usually needs just one
-   Router Advertisement (RA, [RFC4861]) packet to obtain all information
-   required to complete the host's network configuration.  For an
-   IPv6-only host, the PREF64 information is essential, especially if
-   the host implements the customer-side translator (CLAT) ([RFC6877]).
-   The mechanism defined in [RFC7050] implies that the PREF64
-   information is not bundled with all other network configuration
-   parameters provided by RAs, and can only be obtained after the host
-   has configured the rest of its IPv6 stack.  Therefore, until the
-   process described in Section 3 of [RFC7050] is completed, the CLAT
-   process can not start, which negatively impacts IPv4-only
-   applications which have already started.
+   When using SLAAC, an IPv6 host typically requires a single RA to
+   acquire its network configuration.  For IPv6-only hosts, timely
+   PREF64 discovery is critical, particularly for those performing local
+   DNS64 or NAT64 functions, such as CLAT.  Until the PREF64 is
+   obtained, the host's IPv4-only applications and communication to
+   IPv4-only destinations are impaired.  The mechanism defined in
+   [RFC7050] does not bundle PREF64 information with other network
+   configuration parameters.
 
 3.3.  Inflexibility
 
@@ -268,7 +276,7 @@ Table of Contents
    Operators deploying NAT64 networks SHOULD provide PREF64 information
    in Router Advertisements as per [RFC8781].
 
-4.2.  Mobile network considerations
+4.1.1.  Mobile network considerations
 
    Use of [RFC8781] may not be currently practical for networks that
    have more complex network control signaling or rely on slower network
@@ -277,7 +285,7 @@ Table of Contents
    practical by infrastructure upgrades or software stack feature
    additions.
 
-4.3.  Clients Implementation Recommendations
+4.2.  Clients Implementation Recommendations
 
    Clients SHOULD obtain PREF64 information from Router Advertisements
    as per [RFC8781] instead of using [RFC7050] method.  In the absence
@@ -318,6 +326,10 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+   [RFC8781]  Colitti, L. and J. Linkova, "Discovering PREF64 in Router
+              Advertisements", RFC 8781, DOI 10.17487/RFC8781, April
+              2020, <https://www.rfc-editor.org/rfc/rfc8781>.
+
 7.2.  Informative References
 
    [RFC4861]  Narten, T., Nordmark, E., Simpson, W., and H. Soliman,
@@ -334,6 +346,10 @@ Table of Contents
               Mohacsi, "IPv6 Router Advertisement Guard", RFC 6105,
               DOI 10.17487/RFC6105, February 2011,
               <https://www.rfc-editor.org/rfc/rfc6105>.
+
+   [RFC6144]  Baker, F., Li, X., Bao, C., and K. Yin, "Framework for
+              IPv4/IPv6 Translation", RFC 6144, DOI 10.17487/RFC6144,
+              April 2011, <https://www.rfc-editor.org/rfc/rfc6144>.
 
    [RFC6145]  Li, X., Bao, C., and F. Baker, "IP/ICMP Translation
               Algorithm", RFC 6145, DOI 10.17487/RFC6145, April 2011,
@@ -360,10 +376,6 @@ Table of Contents
               DOI 10.17487/RFC7915, June 2016,
               <https://www.rfc-editor.org/rfc/rfc7915>.
 
-   [RFC8781]  Colitti, L. and J. Linkova, "Discovering PREF64 in Router
-              Advertisements", RFC 8781, DOI 10.17487/RFC8781, April
-              2020, <https://www.rfc-editor.org/rfc/rfc8781>.
-
    [RFC8880]  Cheshire, S. and D. Schinazi, "Special Use Domain Name
               'ipv4only.arpa'", RFC 8880, DOI 10.17487/RFC8880, August
               2020, <https://www.rfc-editor.org/rfc/rfc8880>.
@@ -382,7 +394,7 @@ Acknowledgments
 
    The authors would like to than the following people for their
    valuable contributions: Lorenzo Colitti, Tom Costello, Charles Eckel,
-   Nick Heatley, and Peter Schmitt.
+   Nick Heatley, Gabor Lencse and Peter Schmitt.
 
 Authors' Addresses
 
