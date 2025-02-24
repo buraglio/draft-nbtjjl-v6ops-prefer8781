@@ -1271,15 +1271,16 @@ The DNS64-based mechanism of <span>[<a href="#RFC7050" class="cite xref">RFC7050
       <h2 id="name-conventions-and-definitions">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
       </h2>
-<p id="section-2-1">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">CLAT: A customer-side translator (XLAT) that complies with <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">Router Advertisement: A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and StateLess Address AutoConfiguration (SLAAC, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>) to advertise the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-3">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">CLAT: A customer-side translator (XLAT) that complies with <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+<p id="section-2-5">Router Advertisement (RA): A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and SLAAC to advertise the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">SLAAC:  StateLess Address AutoConfiguration, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span><a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-2-6" class="pilcrow">¶</a></p>
+appear in all capitals, as shown here.<a href="#section-2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="issues">
@@ -1307,10 +1308,10 @@ As a result, configuring such systems to use resolvers other than the one provid
         <h3 id="name-network-stack-initializatio">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-stack-initializatio" class="section-name selfRef">Network Stack Initialization Delay</a>
         </h3>
-<p id="section-3.2-1">When using SLAAC (<span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span>), an IPv6 host usually needs just one Router Advertisement (RA, <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) packet to obtain all information required to complete the host's network configuration.
-For an IPv6-only host, the PREF64 information is essential, especially if the host implements the customer-side translator (CLAT) (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
-The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implies that the PREF64 information is not bundled with all other network configuration parameters provided by RAs, and can only be obtained after the host has configured the rest of its IPv6 stack.
-Therefore, until the process described in Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is completed, the CLAT process can not start, which negatively impacts IPv4-only applications which have already started.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">When using SLAAC, an IPv6 host typically requires a single RA to acquire its network configuration.
+For IPv6-only hosts, timely PREF64 discovery is critical, particularly for those performing local DNS64 or NAT64 functions, such as CLAT.
+Until the PREF64 is obtained, the host's IPv4-only applications and communication to IPv4-only destinations are impaired.
+The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> does not bundle PREF64 information with other network configuration parameters.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="inflexibility">

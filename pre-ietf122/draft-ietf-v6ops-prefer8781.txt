@@ -135,24 +135,25 @@ Table of Contents
 
 2.  Conventions and Definitions
 
+   CLAT: A customer-side translator (XLAT) that complies with [RFC6145].
+
+   DNS64: a mechanism for synthesizing AAAA records from A records,
+   defined in [RFC6147].
+
    NAT64: a mechanism for translating IPv6 packets to IPv4 packets and
    vice versa.  The translation is done by translating the packet
    headers according to the IP/ICMP Translation Algorithm defined in
    [RFC7915].
 
-   DNS64: a mechanism for synthesizing AAAA records from A records,
-   defined in [RFC6147].
-
-   Router Advertisement: A packet used by Neighbor Discovery [RFC4861]
-   and StateLess Address AutoConfiguration (SLAAC, [RFC4862]) to
-   advertise the presence of the routers, together with other IPv6
-   configuration information.
-
    PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address
    synthesis and for network addresses and protocols translation from
    IPv6 clients to IPv4 servers, [RFC6146].
 
-   CLAT: A customer-side translator (XLAT) that complies with [RFC6145].
+   Router Advertisement (RA): A packet used by Neighbor Discovery
+   [RFC4861] and SLAAC to advertise the presence of the routers,
+   together with other IPv6 configuration information.
+
+   SLAAC: StateLess Address AutoConfiguration, [RFC4862]
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -186,18 +187,14 @@ Table of Contents
 
 3.2.  Network Stack Initialization Delay
 
-   When using SLAAC ([RFC4862]), an IPv6 host usually needs just one
-   Router Advertisement (RA, [RFC4861]) packet to obtain all information
-   required to complete the host's network configuration.  For an
-   IPv6-only host, the PREF64 information is essential, especially if
-   the host implements the customer-side translator (CLAT) ([RFC6877]).
-   The mechanism defined in [RFC7050] implies that the PREF64
-   information is not bundled with all other network configuration
-   parameters provided by RAs, and can only be obtained after the host
-   has configured the rest of its IPv6 stack.  Therefore, until the
-   process described in Section 3 of [RFC7050] is completed, the CLAT
-   process can not start, which negatively impacts IPv4-only
-   applications which have already started.
+   When using SLAAC, an IPv6 host typically requires a single RA to
+   acquire its network configuration.  For IPv6-only hosts, timely
+   PREF64 discovery is critical, particularly for those performing local
+   DNS64 or NAT64 functions, such as CLAT.  Until the PREF64 is
+   obtained, the host's IPv4-only applications and communication to
+   IPv4-only destinations are impaired.  The mechanism defined in
+   [RFC7050] does not bundle PREF64 information with other network
+   configuration parameters.
 
 3.3.  Inflexibility
 
