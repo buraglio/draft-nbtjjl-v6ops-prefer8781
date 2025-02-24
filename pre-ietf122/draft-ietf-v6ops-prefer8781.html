@@ -8,9 +8,11 @@
 <meta content="Nick Buraglio" name="author">
 <meta content="Tommy Jensen" name="author">
 <meta content="Jen Linkova" name="author">
-<meta content='
-       RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC7915). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050  MAY  only be used if other methods (such as RFC8781]) can not be used. 
-    ' name="description">
+<meta content="
+       Devices performing IPv4-IPv6 translation (NAT64, RFC7915) require knowledge of the IPv6 prefix used for translation (the NAT64 prefix).
+While RFC7050 defined a DNS64-based prefix discovery mechanism, more robust methods have since emerged.
+This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) except where those are unavailable. 
+    " name="description">
 <meta content="xml2rfc 3.27.0" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="DNS64" name="keyword">
@@ -1093,7 +1095,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">RFC7050 describes a method for detecting the presence of DNS64 and for learning the IPv6 prefix used for protocol translation (RFC7915). This methodology depends on the existence of a well-known IPv4-only fully qualified domain name "ipv4only.arpa.". Because newer methods exist that lack the requirement of a higher level protocol, instead using existing operations in the form of native router advertisements, discovery of the IPv6 prefix used for protocol translation using RFC7050 should be discouraged. RFC7050 <span class="bcp14">MAY</span> only be used if other methods (such as RFC8781]) can not be used.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Devices performing IPv4-IPv6 translation (NAT64, RFC7915) require knowledge of the IPv6 prefix used for translation (the NAT64 prefix).
+While RFC7050 defined a DNS64-based prefix discovery mechanism, more robust methods have since emerged.
+This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) except where those are unavailable.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
