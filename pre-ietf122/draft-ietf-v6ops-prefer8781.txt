@@ -143,7 +143,8 @@ Table of Contents
    NAT64: a mechanism for translating IPv6 packets to IPv4 packets and
    vice versa.  The translation is done by translating the packet
    headers according to the IP/ICMP Translation Algorithm defined in
-   [RFC7915].
+   [RFC7915].  NAT64 translators can operate in stateless or stateful
+   mode ([RFC6144]).
 
    PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address
    synthesis and for network addresses and protocols translation from
@@ -346,6 +347,10 @@ Table of Contents
               DOI 10.17487/RFC6105, February 2011,
               <https://www.rfc-editor.org/rfc/rfc6105>.
 
+   [RFC6144]  Baker, F., Li, X., Bao, C., and K. Yin, "Framework for
+              IPv4/IPv6 Translation", RFC 6144, DOI 10.17487/RFC6144,
+              April 2011, <https://www.rfc-editor.org/rfc/rfc6144>.
+
    [RFC6145]  Li, X., Bao, C., and F. Baker, "IP/ICMP Translation
               Algorithm", RFC 6145, DOI 10.17487/RFC6145, April 2011,
               <https://www.rfc-editor.org/rfc/rfc6145>.
@@ -389,7 +394,7 @@ Acknowledgments
 
    The authors would like to than the following people for their
    valuable contributions: Lorenzo Colitti, Tom Costello, Charles Eckel,
-   Nick Heatley, and Peter Schmitt.
+   Nick Heatley, Gabor Lencse and Peter Schmitt.
 
 Authors' Addresses
 

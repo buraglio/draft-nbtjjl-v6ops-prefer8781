@@ -1275,7 +1275,7 @@ The DNS64-based mechanism of <span>[<a href="#RFC7050" class="cite xref">RFC7050
       </h2>
 <p id="section-2-1">CLAT: A customer-side translator (XLAT) that complies with <span>[<a href="#RFC6145" class="cite xref">RFC6145</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">DNS64: a mechanism for synthesizing AAAA records from A records, defined in <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-3">NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in <span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>. NAT64 translators can operate in stateless or stateful mode (<span>[<a href="#RFC6144" class="cite xref">RFC6144</a>]</span>).<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">PREF64 (or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers, <span>[<a href="#RFC6146" class="cite xref">RFC6146</a>]</span>.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">Router Advertisement (RA): A packet used by Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> and SLAAC to advertise the presence of the routers, together with other IPv6 configuration information.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">SLAAC:  StateLess Address AutoConfiguration, <span>[<a href="#RFC4862" class="cite xref">RFC4862</a>]</span><a href="#section-2-6" class="pilcrow">¶</a></p>
@@ -1469,6 +1469,10 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
         <dd>
 <span class="refAuthor">Levy-Abegnoli, E.</span>, <span class="refAuthor">Van de Velde, G.</span>, <span class="refAuthor">Popoviciu, C.</span>, and <span class="refAuthor">J. Mohacsi</span>, <span class="refTitle">"IPv6 Router Advertisement Guard"</span>, <span class="seriesInfo">RFC 6105</span>, <span class="seriesInfo">DOI 10.17487/RFC6105</span>, <time datetime="2011-02" class="refDate">February 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6105">https://www.rfc-editor.org/rfc/rfc6105</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC6144">[RFC6144]</dt>
+        <dd>
+<span class="refAuthor">Baker, F.</span>, <span class="refAuthor">Li, X.</span>, <span class="refAuthor">Bao, C.</span>, and <span class="refAuthor">K. Yin</span>, <span class="refTitle">"Framework for IPv4/IPv6 Translation"</span>, <span class="seriesInfo">RFC 6144</span>, <span class="seriesInfo">DOI 10.17487/RFC6144</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6144">https://www.rfc-editor.org/rfc/rfc6144</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC6145">[RFC6145]</dt>
         <dd>
 <span class="refAuthor">Li, X.</span>, <span class="refAuthor">Bao, C.</span>, and <span class="refAuthor">F. Baker</span>, <span class="refTitle">"IP/ICMP Translation Algorithm"</span>, <span class="seriesInfo">RFC 6145</span>, <span class="seriesInfo">DOI 10.17487/RFC6145</span>, <time datetime="2011-04" class="refDate">April 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6145">https://www.rfc-editor.org/rfc/rfc6145</a>&gt;</span>. </dd>
@@ -1511,7 +1515,7 @@ Therefore IANA still need to maintain "ipv4only.arpa." as described in <span>[<a
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">The authors would like to than the following people for their valuable contributions: Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, and Peter Schmitt.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The authors would like to than the following people for their valuable contributions: Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, Gabor Lencse and Peter Schmitt.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
