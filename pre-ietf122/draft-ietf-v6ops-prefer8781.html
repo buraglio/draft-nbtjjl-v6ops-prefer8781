@@ -9,7 +9,7 @@
 <meta content="Tommy Jensen" name="author">
 <meta content="Jen Linkova" name="author">
 <meta content="
-       Devices performing IPv4-IPv6 translation (NAT64, RFC7915) require knowledge of the IPv6 prefix used for translation (the NAT64 prefix).
+       On networks providing IPv4-IPv6 translation (NAT64, RFC7915), hosts and other endpoints might need to know the IPv6 prefix used for translation (the NAT64 prefix).
 While RFC7050 defined a DNS64-based prefix discovery mechanism, more robust methods have since emerged.
 This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) except where those are unavailable. 
     " name="description">
@@ -1095,7 +1095,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Devices performing IPv4-IPv6 translation (NAT64, RFC7915) require knowledge of the IPv6 prefix used for translation (the NAT64 prefix).
+<p id="section-abstract-1">On networks providing IPv4-IPv6 translation (NAT64, RFC7915), hosts and other endpoints might need to know the IPv6 prefix used for translation (the NAT64 prefix).
 While RFC7050 defined a DNS64-based prefix discovery mechanism, more robust methods have since emerged.
 This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) except where those are unavailable.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
@@ -1243,10 +1243,27 @@ This document provides updated guidelines for NAT64 prefix discovery, deprecatin
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The DNS-based mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> was the very first mechanism available for nodes to discover the PREF64 information.
-However since the publication of RFC7050, other methods have been developed to address some of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">For example, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> describes a Neighbor Discovery option to be used in Router Advertisements (RAs) to communicate prefixes of Network Address and Protocol Translation from IPv6 clients to IPv4 servers (NAT64) to hosts. This approach has the advantage of using the same communication channel IPv6 clients use for discovery of other network configurations such as the network's default route. This means network administrators can secure this configuration along with other configurations which are required by IPv6 using a single approach such as RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Taking into account some fundamental flaws of the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism, it is desirable to prefer <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> for all new deployments and for implementations to use consistent methods to obtain PREF64 information. RFC 7050 should be used only in cases where there is an inability to offer PREF64 information with a router advertisement, and as a fallback for legacy systems incapable of processing those RA options.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-1">NAT64 devices translating between IPv4 and IPv6 packet headers (<span>[<a href="#RFC7915" class="cite xref">RFC7915</a>]</span>) employ a NAT64 prefix to map IPv4 addresses into the IPv6 address space, and vice versa.
+When a network provides NAT64 services, it is advantageous for hosts and endpoints to acquire the network's NAT64 prefix (PREF64).
+Discovering the PREF64 enables endpoints to:<a href="#section-1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1-2.1">
+          <p id="section-1-2.1.1">implement the customer-side translator (CLAT) functions of the 464XLAT architecture <span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>;<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-2.2">
+          <p id="section-1-2.2.1">translate the IPv4 literal to an IPv6 literals (Section 7.1 of [RFC8305]);<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-1-2.3">
+          <p id="section-1-2.3.1">perform local DNS64 (<span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>) functions.<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-1-3">Dynamic PREF64 discovery is often essential, particularly for unmanaged or mobile endpoints, where static configuration is impractical.
+While <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> introduced the first DNS64-based mechanism for PREF64 discovery, subsequent methods have been developed to address its limitations.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">For instance, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> defines a Neighbor Discovery (<span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) option for Router Advertisements (RAs) to convey PREF64 information to hosts.
+This approach offers several advantages (Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>), including fate sharing  with other host network configuration parameterss.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">Due to fundamental shortcomings of the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism (<a href="#issues" class="auto internal xref">Section 3</a>), <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is the preferred solution for new deployments.
+Implementations should strive for consistent PREF64 acquisition methods.
+The DNS64-based mechanism of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> should be employed only when RA-based PREF64 delivery is unavailable, or as a fallback for legacy systems incapable of processing the PREF64 RA option.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1265,7 +1282,7 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="existing-issues-with-rfc-7050">
+<div id="issues">
 <section id="section-3">
       <h2 id="name-existing-issues-with-rfc-70">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-existing-issues-with-rfc-70" class="section-name selfRef">Existing issues with RFC 7050</a>

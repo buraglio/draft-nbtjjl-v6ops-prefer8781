@@ -17,13 +17,13 @@ Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
 
 Abstract
 
-   Devices performing IPv4-IPv6 translation (NAT64, RFC7915) require
-   knowledge of the IPv6 prefix used for translation (the NAT64 prefix).
-   While RFC7050 defined a DNS64-based prefix discovery mechanism, more
-   robust methods have since emerged.  This document provides updated
-   guidelines for NAT64 prefix discovery, deprecating the RFC7050
-   approach in favor of modern alternatives (e.g., RFC8781) except where
-   those are unavailable.
+   On networks providing IPv4-IPv6 translation (NAT64, RFC7915), hosts
+   and other endpoints might need to know the IPv6 prefix used for
+   translation (the NAT64 prefix).  While RFC7050 defined a DNS64-based
+   prefix discovery mechanism, more robust methods have since emerged.
+   This document provides updated guidelines for NAT64 prefix discovery,
+   deprecating the RFC7050 approach in favor of modern alternatives
+   (e.g., RFC8781) except where those are unavailable.
 
 About This Document
 
@@ -99,28 +99,39 @@ Table of Contents
 
 1.  Introduction
 
-   The DNS-based mechanism defined in [RFC7050] was the very first
-   mechanism available for nodes to discover the PREF64 information.
-   However since the publication of RFC7050, other methods have been
-   developed to address some of [RFC7050] limitations.
+   NAT64 devices translating between IPv4 and IPv6 packet headers
+   ([RFC7915]) employ a NAT64 prefix to map IPv4 addresses into the IPv6
+   address space, and vice versa.  When a network provides NAT64
+   services, it is advantageous for hosts and endpoints to acquire the
+   network's NAT64 prefix (PREF64).  Discovering the PREF64 enables
+   endpoints to:
 
-   For example, [RFC8781] describes a Neighbor Discovery option to be
-   used in Router Advertisements (RAs) to communicate prefixes of
-   Network Address and Protocol Translation from IPv6 clients to IPv4
-   servers (NAT64) to hosts.  This approach has the advantage of using
-   the same communication channel IPv6 clients use for discovery of
-   other network configurations such as the network's default route.
-   This means network administrators can secure this configuration along
-   with other configurations which are required by IPv6 using a single
-   approach such as RA Guard [RFC6105].
+   *  implement the customer-side translator (CLAT) functions of the
+      464XLAT architecture [RFC6877];
 
-   Taking into account some fundamental flaws of the [RFC7050]
-   mechanism, it is desirable to prefer [RFC8781] for all new
-   deployments and for implementations to use consistent methods to
-   obtain PREF64 information.  RFC 7050 should be used only in cases
-   where there is an inability to offer PREF64 information with a router
-   advertisement, and as a fallback for legacy systems incapable of
-   processing those RA options.
+   *  translate the IPv4 literal to an IPv6 literals (Section 7.1 of
+      [RFC8305]);
+
+   *  perform local DNS64 ([RFC6147]) functions.
+
+   Dynamic PREF64 discovery is often essential, particularly for
+   unmanaged or mobile endpoints, where static configuration is
+   impractical.  While [RFC7050] introduced the first DNS64-based
+   mechanism for PREF64 discovery, subsequent methods have been
+   developed to address its limitations.
+
+   For instance, [RFC8781] defines a Neighbor Discovery ([RFC4861])
+   option for Router Advertisements (RAs) to convey PREF64 information
+   to hosts.  This approach offers several advantages (Section 3 of
+   [RFC8781]), including fate sharing with other host network
+   configuration parameterss.
+
+   Due to fundamental shortcomings of the [RFC7050] mechanism
+   (Section 3), [RFC8781] is the preferred solution for new deployments.
+   Implementations should strive for consistent PREF64 acquisition
+   methods.  The DNS64-based mechanism of [RFC7050] should be employed
+   only when RA-based PREF64 delivery is unavailable, or as a fallback
+   for legacy systems incapable of processing the PREF64 RA option.
 
 2.  Conventions and Definitions
 
