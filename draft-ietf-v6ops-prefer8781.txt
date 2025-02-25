@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 28 August 2025                                        Microsoft
+Expires: 29 August 2025                                        Microsoft
                                                               J. Linkova
                                                                   Google
-                                                        24 February 2025
+                                                        25 February 2025
 
 
 Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 August 2025.
+   This Internet-Draft will expire on 29 August 2025.
 
 Copyright Notice
 
@@ -80,11 +80,12 @@ Table of Contents
    3.  Existing issues with RFC 7050
      3.1.  Dependency on Network-Provided Recursive Resolvers
      3.2.  Network Stack Initialization Delay
-     3.3.  Inflexibility
-     3.4.  Security Implications
-       3.4.1.  Definition of secure channel
-       3.4.2.  Secure channel example of IPsec
-       3.4.3.  Secure channel example of link layer encryption
+     3.3.  Latency in Updates Propagation
+     3.4.  Multihoming Implications
+     3.5.  Security Implications
+       3.5.1.  Definition of secure channel
+       3.5.2.  Secure channel example of IPsec
+       3.5.3.  Secure channel example of link layer encryption
    4.  Recommendations for PREF64 Discovery
      4.1.  Deployment Recommendations
        4.1.1.  Mobile network considerations
@@ -187,6 +188,15 @@ Table of Contents
    network breaks the PREF64 discovery, leading to degraded user
    experience.
 
+   VPN clients often override the host's DNS configuration, for example,
+   by configuring enterprise DNS servers as the host's recursive
+   resolvers and forcing all name resolution through the VPN.  These
+   enterprise DNS servers typically lack DNS64 functionality and
+   therefore cannot provide information about the PREF64 used within the
+   local network.  Consequently, this prevents the host from discovering
+   the necessary PREF64, negatively impacting its connectivity on
+   IPv6-only networks
+
 3.2.  Network Stack Initialization Delay
 
    When using SLAAC, an IPv6 host typically requires a single RA to
@@ -198,7 +208,7 @@ Table of Contents
    [RFC7050] does not bundle PREF64 information with other network
    configuration parameters.
 
-3.3.  Inflexibility
+3.3.  Latency in Updates Propagation
 
    Section 3 of [RFC7050] requires that the node SHALL cache the replies
    received during the PREF64 discovery and SHOULD repeat the discovery
@@ -222,14 +232,32 @@ Table of Contents
       it might not be possible without interrupting the network
       connectivity for the affected nodes.
 
-3.4.  Security Implications
+3.4.  Multihoming Implications
+
+   According to Section 3 of [RFC7050], a node MUST examine all received
+   AAAA resource records to discover one or more PREF64s and MUST
+   utilize all learned prefixes.  However, this approach presents
+   challenges in some multihomed topologies where different DNS64
+   servers belonging to different ISPs might return different PREF64s.
+   In such cases, it is crucial that traffic destined for synthesized
+   addresses is routed to the correct NAT64 device and the source
+   address selected for those flows belongs to the prefix from that
+   ISP's address space.  In other words, the node needs to associate the
+   discovered PREF64 with upstream information, including the IPv6
+   prefix and default gateway.  Currently, there is no reliable way for
+   a node to map a DNS64 response (and the prefix learned from it) to a
+   specific upstream in a multihoming scenario.  Consequently, the node
+   might inadvertently select an incorrect source address for a given
+   PREF64 and/or send traffic to the incorrect uplink.
+
+3.5.  Security Implications
 
    As discussed in Section 7 of [RFC7050], the DNS-based PREF64
    discovery is prone to DNS spoofing attacks.  In addition to creating
    a wider attack surface for IPv6 deployments, [RFC7050] has other
    security challenges worth noting to justify declaring it legacy.
 
-3.4.1.  Definition of secure channel
+3.5.1.  Definition of secure channel
 
    [RFC7050] requires a node's communication channel with a DNS64 server
    to be a "secure channel" which it defines to mean "a communication
@@ -242,7 +270,7 @@ Table of Contents
    necessary when [RFC8781] is used in place of [RFC7050] creates
    unnecessary risk.
 
-3.4.2.  Secure channel example of IPsec
+3.5.2.  Secure channel example of IPsec
 
    One of the two examples [RFC7050] defines to qualify a communication
    channel with a DNS64 server is the use of an "IPsec-based virtual
@@ -256,7 +284,7 @@ Table of Contents
    designated Resolvers [RFC9463] that would ensure the clients know in
    advance that the DNS64 server supported the encryption mechanism.
 
-3.4.3.  Secure channel example of link layer encryption
+3.5.3.  Secure channel example of link layer encryption
 
    The other example given by [RFC7050] that would allow a communication
    channel with a DNS64 server to qualify as a "secure channel" is the

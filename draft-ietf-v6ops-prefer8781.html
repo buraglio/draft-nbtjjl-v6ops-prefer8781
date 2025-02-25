@@ -1056,7 +1056,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 28 August 2025</td>
+<td class="center">Expires 29 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-v6ops-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-24" class="published">24 February 2025</time>
+<time datetime="2025-02-25" class="published">25 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-28">28 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-29">29 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1134,7 +1134,7 @@ This document provides updated guidelines for NAT64 prefix discovery, deprecatin
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1179,19 +1179,22 @@ This document provides updated guidelines for NAT64 prefix discovery, deprecatin
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-network-stack-initializatio" class="internal xref">Network Stack Initialization Delay</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-inflexibility" class="internal xref">Inflexibility</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-latency-in-updates-propagat" class="internal xref">Latency in Updates Propagation</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-security-implications" class="internal xref">Security Implications</a></p>
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-multihoming-implications" class="internal xref">Multihoming Implications</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-security-implications" class="internal xref">Security Implications</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.1">
-                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="auto internal xref">3.4.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of secure channel</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.1">
+                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="auto internal xref">3.5.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of secure channel</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.2">
-                    <p id="section-toc.1-1.3.2.4.2.2.1"><a href="#section-3.4.2" class="auto internal xref">3.4.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure channel example of IPsec</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.2">
+                    <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="auto internal xref">3.5.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure channel example of IPsec</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4.2.3">
-                    <p id="section-toc.1-1.3.2.4.2.3.1"><a href="#section-3.4.3" class="auto internal xref">3.4.3</a>.  <a href="#name-secure-channel-example-of-l" class="internal xref">Secure channel example of link layer encryption</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.3">
+                    <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="auto internal xref">3.5.3</a>.  <a href="#name-secure-channel-example-of-l" class="internal xref">Secure channel example of link layer encryption</a></p>
 </li>
                 </ul>
 </li>
@@ -1303,6 +1306,9 @@ If the device or an application is configured to use other recursive resolvers o
 This issue and remediation approach are discussed in <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span>.
 However, it has been observed that very few <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implementations support <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span> requirements for special treatment of 'ipv4only.arpa.'.
 As a result, configuring such systems and applications to use resolvers other than the one provided by the network breaks the PREF64 discovery, leading to degraded user experience.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">VPN clients often override the host's DNS configuration, for example, by configuring enterprise DNS servers as the host's recursive resolvers and forcing all name resolution through the VPN.
+These enterprise DNS servers typically lack DNS64 functionality and therefore cannot provide information about the PREF64 used within the local network.
+Consequently, this prevents the host from discovering the necessary PREF64, negatively impacting its connectivity on IPv6-only networks<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-stack-initialization-delay">
@@ -1316,10 +1322,10 @@ Until the PREF64 is obtained, the host's IPv4-only applications and communicatio
 The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> does not bundle PREF64 information with other network configuration parameters.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="inflexibility">
+<div id="latency-in-updates-propagation">
 <section id="section-3.3">
-        <h3 id="name-inflexibility">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-inflexibility" class="section-name selfRef">Inflexibility</a>
+        <h3 id="name-latency-in-updates-propagat">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-latency-in-updates-propagat" class="section-name selfRef">Latency in Updates Propagation</a>
         </h3>
 <p id="section-3.3-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires that the node <span class="bcp14">SHALL</span> cache the replies received during the PREF64 discovery and <span class="bcp14">SHOULD</span> repeat the discovery process ten seconds before the TTL of the Well-Known Name's synthetic AAAA resource record expires.
 As a result, once the PREF64 is discovered, it will be used until the TTL expired, or until the node disconnects from the network.
@@ -1336,35 +1342,48 @@ This method has two significant drawbacks:<a href="#section-3.3-1" class="pilcro
         </ul>
 </section>
 </div>
-<div id="security-implications">
+<div id="multihoming-implications">
 <section id="section-3.4">
-        <h3 id="name-security-implications">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-security-implications" class="section-name selfRef">Security Implications</a>
+        <h3 id="name-multihoming-implications">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-multihoming-implications" class="section-name selfRef">Multihoming Implications</a>
         </h3>
-<p id="section-3.4-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attacks.
-In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-1">According to Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, a node <span class="bcp14">MUST</span> examine all received AAAA resource records to discover one or more PREF64s and <span class="bcp14">MUST</span> utilize all learned prefixes.
+However, this approach presents challenges in some multihomed topologies where different DNS64 servers belonging to different ISPs might return different PREF64s.
+In such cases, it is crucial that traffic destined for synthesized addresses is routed to the correct NAT64 device and the source address selected for those flows belongs to the prefix from that ISP's address space.
+In other words, the node needs to associate the discovered PREF64 with upstream information, including the IPv6 prefix and default gateway.
+Currently, there is no reliable way for a node to map a DNS64 response (and the prefix learned from it) to a specific upstream in a multihoming scenario.
+Consequently, the node might inadvertently select an incorrect source address for a given PREF64 and/or send traffic to the incorrect uplink.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-implications">
+<section id="section-3.5">
+        <h3 id="name-security-implications">
+<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-security-implications" class="section-name selfRef">Security Implications</a>
+        </h3>
+<p id="section-3.5-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attacks.
+In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <div id="secure-channel-def">
-<section id="section-3.4.1">
+<section id="section-3.5.1">
           <h4 id="name-definition-of-secure-channe">
-<a href="#section-3.4.1" class="section-number selfRef">3.4.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of secure channel</a>
+<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of secure channel</a>
           </h4>
-<p id="section-3.4.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering." This need is redundant when another communication mechanism of IPv6-related configuration, specifically Router Advertisements, can already be defended against tampering by RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>. Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering." This need is redundant when another communication mechanism of IPv6-related configuration, specifically Router Advertisements, can already be defended against tampering by RA Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>. Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-ipsec">
-<section id="section-3.4.2">
+<section id="section-3.5.2">
           <h4 id="name-secure-channel-example-of-i">
-<a href="#section-3.4.2" class="section-number selfRef">3.4.2. </a><a href="#name-secure-channel-example-of-i" class="section-name selfRef">Secure channel example of IPsec</a>
+<a href="#section-3.5.2" class="section-number selfRef">3.5.2. </a><a href="#name-secure-channel-example-of-i" class="section-name selfRef">Secure channel example of IPsec</a>
           </h4>
-<p id="section-3.4.2-1">One of the two examples <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> defines to qualify a communication channel with a DNS64 server is the use of an "IPsec-based virtual private network (VPN) tunnel". As of the time of this writing, this is not supported as a practice by any common operating system DNS client. While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in <span>[<a href="#RFC9499" class="cite xref">RFC9499</a>]</span> that would be more appropriately scoped to the applicable DNS traffic. These are also compatible with encrypted DNS advertisement by the network using Discovery of Network-designated Resolvers <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> that would ensure the clients know in advance that the DNS64 server supported the encryption mechanism.<a href="#section-3.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.2-1">One of the two examples <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> defines to qualify a communication channel with a DNS64 server is the use of an "IPsec-based virtual private network (VPN) tunnel". As of the time of this writing, this is not supported as a practice by any common operating system DNS client. While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in <span>[<a href="#RFC9499" class="cite xref">RFC9499</a>]</span> that would be more appropriately scoped to the applicable DNS traffic. These are also compatible with encrypted DNS advertisement by the network using Discovery of Network-designated Resolvers <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> that would ensure the clients know in advance that the DNS64 server supported the encryption mechanism.<a href="#section-3.5.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-link-layer-encryption">
-<section id="section-3.4.3">
+<section id="section-3.5.3">
           <h4 id="name-secure-channel-example-of-l">
-<a href="#section-3.4.3" class="section-number selfRef">3.4.3. </a><a href="#name-secure-channel-example-of-l" class="section-name selfRef">Secure channel example of link layer encryption</a>
+<a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-secure-channel-example-of-l" class="section-name selfRef">Secure channel example of link layer encryption</a>
           </h4>
-<p id="section-3.4.3-1">The other example given by <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> that would allow a communication channel with a DNS64 server to qualify as a "secure channel" is the use of a "link layer utilizing data encryption technologies". As of the time of this writing, most common link layer implementations use data encryption already with no extra effort needed on the part of network nodes. While this appears to be a trivial way to satisfy this requirement, it also renders the requirement meaningless since any node along the path can still read the higher-layer DNS traffic containing the translation prefix. This seems to be at odds with the definition of "secure channel" as explained in <span><a href="https://rfc-editor.org/rfc/rfc7050#section-2.2" class="relref">Section 2.2</a> of [<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-3.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.5.3-1">The other example given by <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> that would allow a communication channel with a DNS64 server to qualify as a "secure channel" is the use of a "link layer utilizing data encryption technologies". As of the time of this writing, most common link layer implementations use data encryption already with no extra effort needed on the part of network nodes. While this appears to be a trivial way to satisfy this requirement, it also renders the requirement meaningless since any node along the path can still read the higher-layer DNS traffic containing the translation prefix. This seems to be at odds with the definition of "secure channel" as explained in <span><a href="https://rfc-editor.org/rfc/rfc7050#section-2.2" class="relref">Section 2.2</a> of [<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
