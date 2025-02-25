@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-23T01:38:44.549881+00:00",
+  "timestamp": "2025-02-25T01:35:57.646373+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -128,9 +128,24 @@
       "labels": [],
       "body": "Multihoming with different prefixes - never going to work.",
       "createdAt": "2024-11-05T14:37:33Z",
-      "updatedAt": "2024-11-05T14:37:37Z",
+      "updatedAt": "2025-02-24T23:20:31Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Well isn't it obvious? You just limit the prefixes from a given query to use with the router that routed the DNS response ;) /s",
+          "createdAt": "2025-02-24T23:16:11Z",
+          "updatedAt": "2025-02-24T23:16:11Z"
+        },
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Well isn't it obvious? You just limit the prefixes from a given query to use with the router that routed the DNS response ;) /s\n\nAre we going to call it 'rule 5.55'. Or, better, Rule 6.66 - or just mPVD ;)\n\nOn a serious note, thanks for reminding me that we have issues opened!! Let me add a section about that, before submitting..",
+          "createdAt": "2025-02-24T23:20:29Z",
+          "updatedAt": "2025-02-24T23:20:29Z"
+        }
+      ]
     },
     {
       "number": 10,
@@ -578,6 +593,116 @@
           ]
         }
       ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOMjLqms6MOzF5",
+      "title": "Polishing some text before IETF122",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/12",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Updating keywords and normative reference;\r\n- Rewrite the abstract;\r\n- Updating \r\n   - the introduction (explaining why PREF64 discovery is needed);\r\n  - DNS dependency section\r\n  - Network Stack Initialization Delay\r\n- Reordering Terminology so items are in the alphabetic order\r\n- Mentioning stateful and stateless NAT64 as per G\u00e1bor LENCSE's comment on the list. The updated text implies that state[full|less] doesn't matter. \r\n\r\n",
+      "createdAt": "2025-02-24T05:18:07Z",
+      "updatedAt": "2025-02-24T16:00:24Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "c92f0acbeb8d5b1dc355af7dd5810cdcbc24e2d5",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "pre-ietf122",
+      "headRefOid": "1215e6aa340d0ce8b4cb669fa0aca4d96f761dd1",
+      "closedAt": "2025-02-24T16:00:24Z",
+      "mergedAt": "2025-02-24T16:00:24Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "2a1f546b390f00e8688204a19569b5d91f8d8fb4"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6dN2u8",
+          "commit": {
+            "abbreviatedOid": "1215e6a"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Looks good to me. ",
+          "createdAt": "2025-02-24T15:59:55Z",
+          "updatedAt": "2025-02-24T15:59:55Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDOMjLqms6MXUL2",
+      "title": "Explicitly mentioning applications using 3rdparty resolevrs",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/13",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "As per our email thread - making it explicit that some applications can have dedicated resolvers configured",
+      "createdAt": "2025-02-24T23:06:02Z",
+      "updatedAt": "2025-02-24T23:20:50Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "2a1f546b390f00e8688204a19569b5d91f8d8fb4",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "resolvers",
+      "headRefOid": "ad9147405dbe80e11b1a03eaeaab9aaebf34bd72",
+      "closedAt": "2025-02-24T23:20:50Z",
+      "mergedAt": "2025-02-24T23:20:50Z",
+      "mergedBy": "furry13",
+      "mergeCommit": {
+        "oid": "842d0d2b2ac574bb7e79a7ed6aa1ea696f8f5c69"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6dRtxe",
+          "commit": {
+            "abbreviatedOid": "ad91474"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-24T23:15:06Z",
+          "updatedAt": "2025-02-24T23:15:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOMjLqms6MXnxN",
+      "title": "Multihoming case and VPN DNS override",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/14",
+      "state": "OPEN",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Explaining issues in multihoming scenarios\r\n- Adding text about VPN clients messing up with DNS config on a host\r\n-  Renaming 'Inflexibility' to 'Latency in Updates Propagation' (I think it's cleaner)\r\n\r\ncloses #10 \r\ncloses #7 ",
+      "createdAt": "2025-02-24T23:57:41Z",
+      "updatedAt": "2025-02-24T23:57:56Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "842d0d2b2ac574bb7e79a7ed6aa1ea696f8f5c69",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "mhoming-preietf122",
+      "headRefOid": "29a5c6c1573c98405a4f59838aa5b6d88fd8cdeb",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
