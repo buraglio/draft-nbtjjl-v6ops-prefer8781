@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-25T01:35:57.646373+00:00",
+  "timestamp": "2025-02-27T01:35:43.238518+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -119,7 +119,7 @@
       "id": "I_kwDOMjLqms6dGMm0",
       "title": "One more reason to NOT use 7050",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -128,8 +128,8 @@
       "labels": [],
       "body": "Multihoming with different prefixes - never going to work.",
       "createdAt": "2024-11-05T14:37:33Z",
-      "updatedAt": "2025-02-24T23:20:31Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-25T14:13:51Z",
+      "closedAt": "2025-02-25T14:13:51Z",
       "comments": [
         {
           "author": "mstojens",
@@ -152,15 +152,15 @@
       "id": "I_kwDOMjLqms6fSSyI",
       "title": "VPN DNS Override",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "buraglio",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Certain VPN clients, particularly mesh VPNs, may impose DNS servers for use that prevent prefix discovery via RFC 7050. This problem is solved by using pref64 per RFC 8781, but may present issues on systems which only support RFC 7050. ",
       "createdAt": "2024-11-19T14:35:11Z",
-      "updatedAt": "2024-11-19T14:35:12Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-25T14:13:51Z",
+      "closedAt": "2025-02-25T14:13:51Z",
       "comments": []
     }
   ],
@@ -648,7 +648,7 @@
       "labels": [],
       "body": "As per our email thread - making it explicit that some applications can have dedicated resolvers configured",
       "createdAt": "2025-02-24T23:06:02Z",
-      "updatedAt": "2025-02-24T23:20:50Z",
+      "updatedAt": "2025-02-25T13:42:43Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "2a1f546b390f00e8688204a19569b5d91f8d8fb4",
@@ -661,7 +661,15 @@
       "mergeCommit": {
         "oid": "842d0d2b2ac574bb7e79a7ed6aa1ea696f8f5c69"
       },
-      "comments": [],
+      "comments": [
+        {
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "body": "This works for me. ",
+          "createdAt": "2025-02-25T13:42:40Z",
+          "updatedAt": "2025-02-25T13:42:40Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOMjLqms6dRtxe",
@@ -683,26 +691,42 @@
       "id": "PR_kwDOMjLqms6MXnxN",
       "title": "Multihoming case and VPN DNS override",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "- Explaining issues in multihoming scenarios\r\n- Adding text about VPN clients messing up with DNS config on a host\r\n-  Renaming 'Inflexibility' to 'Latency in Updates Propagation' (I think it's cleaner)\r\n\r\ncloses #10 \r\ncloses #7 ",
       "createdAt": "2025-02-24T23:57:41Z",
-      "updatedAt": "2025-02-24T23:57:56Z",
+      "updatedAt": "2025-02-25T14:13:50Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "842d0d2b2ac574bb7e79a7ed6aa1ea696f8f5c69",
       "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "headRefName": "mhoming-preietf122",
       "headRefOid": "29a5c6c1573c98405a4f59838aa5b6d88fd8cdeb",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-02-25T14:13:49Z",
+      "mergedAt": "2025-02-25T14:13:49Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "20e2830b1367e6e49f92bc78d593d6d0649138d2"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6dba-y",
+          "commit": {
+            "abbreviatedOid": "29a5c6c"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-25T14:13:39Z",
+          "updatedAt": "2025-02-25T14:13:39Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
