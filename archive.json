@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-30T01:46:28.433703+00:00",
+  "timestamp": "2025-05-11T01:51:48.026205+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -161,6 +161,58 @@
       "createdAt": "2024-11-19T14:35:11Z",
       "updatedAt": "2025-02-25T14:13:51Z",
       "closedAt": "2025-02-25T14:13:51Z",
+      "comments": []
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOMjLqms61_zKe",
+      "title": "[WGLC] Dan Wing: discuss why DoH or DoT still doesn't make 7050 better than 8781",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/15",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-09T23:42:12Z",
+      "updatedAt": "2025-05-09T23:42:27Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOMjLqms61_zzF",
+      "title": "[WGLC] Tim Wicinski: replace 6145 with 7915",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/16",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "I thought you must have reviewed an old version Tim, but alas: we managed to miss one :( thanks for catching this!",
+      "createdAt": "2025-05-09T23:44:21Z",
+      "updatedAt": "2025-05-09T23:44:25Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 18,
+      "id": "I_kwDOMjLqms61_04l",
+      "title": "[WGLC] Tom Petch: editorial nits",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/18",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "/where those are unavailable/where that is unavailable/\n/literal to an IPv6 literals/literal to an IPv6 literal/",
+      "createdAt": "2025-05-09T23:48:34Z",
+      "updatedAt": "2025-05-09T23:48:36Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -727,6 +779,58 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOMjLqms6VpwcQ",
+      "title": "Replace 6145 with 7915",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/17",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #16 ",
+      "createdAt": "2025-05-09T23:45:56Z",
+      "updatedAt": "2025-05-09T23:45:56Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "20e2830b1367e6e49f92bc78d593d6d0649138d2",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "mstojens-no-more-6145",
+      "headRefOid": "5379ef5104714f067da3e1511c74ef3c63fbcf1e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOMjLqms6Vp1w2",
+      "title": "Nits from WGLC feedback",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/19",
+      "state": "OPEN",
+      "author": "mstojens",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Closes #18 ",
+      "createdAt": "2025-05-10T00:07:47Z",
+      "updatedAt": "2025-05-10T00:07:47Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "20e2830b1367e6e49f92bc78d593d6d0649138d2",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "mstojens-editorials-from-tom",
+      "headRefOid": "9ab609084b036c89f382bdebb6a60f0017d32cca",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
