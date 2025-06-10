@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-11T01:51:48.026205+00:00",
+  "timestamp": "2025-06-10T01:51:27.849603+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -212,6 +212,22 @@
       "body": "/where those are unavailable/where that is unavailable/\n/literal to an IPv6 literals/literal to an IPv6 literal/",
       "createdAt": "2025-05-09T23:48:34Z",
       "updatedAt": "2025-05-09T23:48:36Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 20,
+      "id": "I_kwDOMjLqms66k6__",
+      "title": "Editorial Nit - spelling",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/20",
+      "state": "OPEN",
+      "author": "moonshiner",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "# Introduction\n\ns/configuration parameterss./configuration parameters./",
+      "createdAt": "2025-06-09T12:58:04Z",
+      "updatedAt": "2025-06-09T12:58:04Z",
       "closedAt": null,
       "comments": []
     }
@@ -792,7 +808,7 @@
       "labels": [],
       "body": "Closes #16 ",
       "createdAt": "2025-05-09T23:45:56Z",
-      "updatedAt": "2025-05-09T23:45:56Z",
+      "updatedAt": "2025-06-09T13:07:52Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "20e2830b1367e6e49f92bc78d593d6d0649138d2",
@@ -803,7 +819,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "moonshiner",
+          "authorAssociation": "NONE",
+          "body": "I suggest adding \", defined in [RFC6877]\" where CLAT is defined",
+          "createdAt": "2025-06-09T13:07:51Z",
+          "updatedAt": "2025-06-09T13:07:51Z"
+        }
+      ],
       "reviews": []
     },
     {
