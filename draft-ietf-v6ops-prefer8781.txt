@@ -136,7 +136,8 @@ Table of Contents
 
 2.  Conventions and Definitions
 
-   CLAT: A customer-side translator (XLAT) that complies with [RFC6145].
+   CLAT: A customer-side translator (XLAT), defined in [RFC6877], that
+   complies with [RFC7915].
 
    DNS64: a mechanism for synthesizing AAAA records from A records,
    defined in [RFC6147].
@@ -379,10 +380,6 @@ Table of Contents
    [RFC6144]  Baker, F., Li, X., Bao, C., and K. Yin, "Framework for
               IPv4/IPv6 Translation", RFC 6144, DOI 10.17487/RFC6144,
               April 2011, <https://www.rfc-editor.org/rfc/rfc6144>.
-
-   [RFC6145]  Li, X., Bao, C., and F. Baker, "IP/ICMP Translation
-              Algorithm", RFC 6145, DOI 10.17487/RFC6145, April 2011,
-              <https://www.rfc-editor.org/rfc/rfc6145>.
 
    [RFC6146]  Bagnulo, M., Matthews, P., and I. van Beijnum, "Stateful
               NAT64: Network Address and Protocol Translation from IPv6
