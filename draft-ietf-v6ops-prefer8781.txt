@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 29 August 2025                                        Microsoft
+Expires: 18 December 2025                                      Microsoft
                                                               J. Linkova
                                                                   Google
-                                                        25 February 2025
+                                                            16 June 2025
 
 
 Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -23,7 +23,7 @@ Abstract
    prefix discovery mechanism, more robust methods have since emerged.
    This document provides updated guidelines for NAT64 prefix discovery,
    deprecating the RFC7050 approach in favor of modern alternatives
-   (e.g., RFC8781) except where those are unavailable.
+   (e.g., RFC8781) whenever available.
 
 About This Document
 
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 August 2025.
+   This Internet-Draft will expire on 18 December 2025.
 
 Copyright Notice
 
@@ -110,7 +110,7 @@ Table of Contents
    *  implement the customer-side translator (CLAT) functions of the
       464XLAT architecture [RFC6877];
 
-   *  translate the IPv4 literal to an IPv6 literals (Section 7.1 of
+   *  translate the IPv4 literal to an IPv6 literal (Section 7.1 of
       [RFC8305]);
 
    *  perform local DNS64 ([RFC6147]) functions.
@@ -125,7 +125,7 @@ Table of Contents
    option for Router Advertisements (RAs) to convey PREF64 information
    to hosts.  This approach offers several advantages (Section 3 of
    [RFC8781]), including fate sharing with other host network
-   configuration parameterss.
+   configuration parameters.
 
    Due to fundamental shortcomings of the [RFC7050] mechanism
    (Section 3), [RFC8781] is the preferred solution for new deployments.

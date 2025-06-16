@@ -11,9 +11,9 @@
 <meta content="
        On networks providing IPv4-IPv6 translation (NAT64, RFC7915), hosts and other endpoints might need to know the IPv6 prefix used for translation (the NAT64 prefix).
 While RFC7050 defined a DNS64-based prefix discovery mechanism, more robust methods have since emerged.
-This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) except where those are unavailable. 
+This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) whenever available. 
     " name="description">
-<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="xml2rfc 3.28.1" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="DNS64" name="keyword">
 <meta content="PREF64" name="keyword">
@@ -21,18 +21,18 @@ This document provides updated guidelines for NAT64 prefix discovery, deprecatin
 <meta content="CLAT" name="keyword">
 <meta content="draft-ietf-v6ops-prefer8781-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.27.0
-    Python 3.12.9
+  xml2rfc 3.28.1
+    Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.5
-    lxml 5.3.0
-    platformdirs 4.3.6
+    Jinja2 3.1.6
+    lxml 5.3.1
+    platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
+    requests 2.32.4
+    setuptools 80.9.0
     wcwidth 0.2.13
 -->
 <link href="draft-ietf-v6ops-prefer8781.xml" rel="alternate" type="application/rfc+xml">
@@ -1052,11 +1052,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Prefer RFC8781</td>
-<td class="right">February 2025</td>
+<td class="right">June 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 29 August 2025</td>
+<td class="center">Expires 18 December 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-v6ops-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-25" class="published">25 February 2025</time>
+<time datetime="2025-06-16" class="published">16 June 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-29">29 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-12-18">18 December 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1097,7 +1097,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">On networks providing IPv4-IPv6 translation (NAT64, RFC7915), hosts and other endpoints might need to know the IPv6 prefix used for translation (the NAT64 prefix).
 While RFC7050 defined a DNS64-based prefix discovery mechanism, more robust methods have since emerged.
-This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) except where those are unavailable.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+This document provides updated guidelines for NAT64 prefix discovery, deprecating the RFC7050 approach in favor of modern alternatives (e.g., RFC8781) whenever available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1134,7 +1134,7 @@ This document provides updated guidelines for NAT64 prefix discovery, deprecatin
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 29 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 December 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1256,7 +1256,7 @@ Discovering the PREF64 enables endpoints to:<a href="#section-1-1" class="pilcro
           <p id="section-1-2.1.1">implement the customer-side translator (CLAT) functions of the 464XLAT architecture <span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>;<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-2.2">
-          <p id="section-1-2.2.1">translate the IPv4 literal to an IPv6 literals (Section 7.1 of [RFC8305]);<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-1-2.2.1">translate the IPv4 literal to an IPv6 literal (Section 7.1 of [RFC8305]);<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-2.3">
           <p id="section-1-2.3.1">perform local DNS64 (<span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>) functions.<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
@@ -1265,7 +1265,7 @@ Discovering the PREF64 enables endpoints to:<a href="#section-1-1" class="pilcro
 <p id="section-1-3">Dynamic PREF64 discovery is often essential, particularly for unmanaged or mobile endpoints, where static configuration is impractical.
 While <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> introduced the first DNS64-based mechanism for PREF64 discovery, subsequent methods have been developed to address its limitations.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">For instance, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> defines a Neighbor Discovery (<span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span>) option for Router Advertisements (RAs) to convey PREF64 information to hosts.
-This approach offers several advantages (Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>), including fate sharing  with other host network configuration parameterss.<a href="#section-1-4" class="pilcrow">¶</a></p>
+This approach offers several advantages (Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>), including fate sharing  with other host network configuration parameters.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">Due to fundamental shortcomings of the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism (<a href="#issues" class="auto internal xref">Section 3</a>), <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is the preferred solution for new deployments.
 Implementations should strive for consistent PREF64 acquisition methods.
 The DNS64-based mechanism of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> should be employed only when RA-based PREF64 delivery is unavailable, or as a fallback for legacy systems incapable of processing the PREF64 RA option.<a href="#section-1-5" class="pilcrow">¶</a></p>
