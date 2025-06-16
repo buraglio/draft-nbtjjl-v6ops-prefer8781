@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 10 November 2025                                      Microsoft
+Expires: 18 December 2025                                      Microsoft
                                                               J. Linkova
                                                                   Google
-                                                              9 May 2025
+                                                            16 June 2025
 
 
 Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 November 2025.
+   This Internet-Draft will expire on 18 December 2025.
 
 Copyright Notice
 
@@ -136,7 +136,8 @@ Table of Contents
 
 2.  Conventions and Definitions
 
-   CLAT: A customer-side translator (XLAT) that complies with [RFC7915].
+   CLAT: A customer-side translator (XLAT), defined in [RFC6877], that
+   complies with [RFC7915].
 
    DNS64: a mechanism for synthesizing AAAA records from A records,
    defined in [RFC6147].
