@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-10T01:51:27.849603+00:00",
+  "timestamp": "2025-06-17T01:51:18.759297+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -184,7 +184,7 @@
       "id": "I_kwDOMjLqms61_zzF",
       "title": "[WGLC] Tim Wicinski: replace 6145 with 7915",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -193,8 +193,8 @@
       "labels": [],
       "body": "I thought you must have reviewed an old version Tim, but alas: we managed to miss one :( thanks for catching this!",
       "createdAt": "2025-05-09T23:44:21Z",
-      "updatedAt": "2025-05-09T23:44:25Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-16T23:53:42Z",
+      "closedAt": "2025-06-16T23:53:42Z",
       "comments": []
     },
     {
@@ -202,7 +202,7 @@
       "id": "I_kwDOMjLqms61_04l",
       "title": "[WGLC] Tom Petch: editorial nits",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -211,8 +211,8 @@
       "labels": [],
       "body": "/where those are unavailable/where that is unavailable/\n/literal to an IPv6 literals/literal to an IPv6 literal/",
       "createdAt": "2025-05-09T23:48:34Z",
-      "updatedAt": "2025-05-09T23:48:36Z",
-      "closedAt": null,
+      "updatedAt": "2025-06-16T23:53:26Z",
+      "closedAt": "2025-06-16T23:53:26Z",
       "comments": []
     },
     {
@@ -223,11 +223,13 @@
       "state": "OPEN",
       "author": "moonshiner",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "mstojens"
+      ],
       "labels": [],
       "body": "# Introduction\n\ns/configuration parameterss./configuration parameters./",
       "createdAt": "2025-06-09T12:58:04Z",
-      "updatedAt": "2025-06-09T12:58:04Z",
+      "updatedAt": "2025-06-16T22:15:25Z",
       "closedAt": null,
       "comments": []
     }
@@ -801,24 +803,26 @@
       "id": "PR_kwDOMjLqms6VpwcQ",
       "title": "Replace 6145 with 7915",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #16 ",
       "createdAt": "2025-05-09T23:45:56Z",
-      "updatedAt": "2025-06-09T13:07:52Z",
+      "updatedAt": "2025-06-16T23:53:41Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "20e2830b1367e6e49f92bc78d593d6d0649138d2",
       "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "headRefName": "mstojens-no-more-6145",
-      "headRefOid": "5379ef5104714f067da3e1511c74ef3c63fbcf1e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "d28fd810d6e78f98aa2c6dc1e5d9ed4c6dc18019",
+      "closedAt": "2025-06-16T23:53:41Z",
+      "mergedAt": "2025-06-16T23:53:41Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "b5361856a42d24bf7d3dc9a2b8602e46d1d6993f"
+      },
       "comments": [
         {
           "author": "moonshiner",
@@ -835,25 +839,35 @@
       "id": "PR_kwDOMjLqms6Vp1w2",
       "title": "Nits from WGLC feedback",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/19",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mstojens",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #18 ",
       "createdAt": "2025-05-10T00:07:47Z",
-      "updatedAt": "2025-05-10T00:07:47Z",
+      "updatedAt": "2025-06-16T23:53:26Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "20e2830b1367e6e49f92bc78d593d6d0649138d2",
       "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "headRefName": "mstojens-editorials-from-tom",
-      "headRefOid": "9ab609084b036c89f382bdebb6a60f0017d32cca",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "56263f2a33d51a23e0b09ff67b8cfe75d1d9f494",
+      "closedAt": "2025-06-16T23:53:26Z",
+      "mergedAt": "2025-06-16T23:53:26Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "3d749f286bf31f91e046e80399ca85cc36db5599"
+      },
+      "comments": [
+        {
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closes #20 ",
+          "createdAt": "2025-06-16T22:15:14Z",
+          "updatedAt": "2025-06-16T22:15:14Z"
+        }
+      ],
       "reviews": []
     }
   ]
