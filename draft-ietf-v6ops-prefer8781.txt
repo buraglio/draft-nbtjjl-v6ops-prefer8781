@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 19 December 2025                                      Microsoft
+Expires: 26 December 2025                                      Microsoft
                                                               J. Linkova
                                                                   Google
-                                                            17 June 2025
+                                                            24 June 2025
 
 
 Prefer use of RFC8781 for Discovery of IPv6 Prefix Used for IPv6 Address
@@ -35,12 +35,12 @@ About This Document
    https://datatracker.ietf.org/doc/draft-ietf-v6ops-prefer8781/.
 
    Discussion of this document takes place on the v6ops Working Group
-   mailing list (mailto:dnsop@ietf.org), which is archived at
+   mailing list (mailto:v6ops@ietf.org), which is archived at
    https://datatracker.ietf.org/wg/v6ops/about/.  Subscribe at
-   https://www.ietf.org/mailman/listinfo/dnsop/.
+   https://www.ietf.org/mailman/listinfo/v6ops/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/buraglio/draft-nbtjjl-dnsop-prefer8781.
+   https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781.
 
 Status of This Memo
 
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 December 2025.
+   This Internet-Draft will expire on 26 December 2025.
 
 Copyright Notice
 
