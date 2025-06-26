@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-17T01:51:18.759297+00:00",
+  "timestamp": "2025-06-26T01:50:50.445215+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -232,6 +232,30 @@
       "updatedAt": "2025-06-16T22:15:25Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 21,
+      "id": "I_kwDOMjLqms68-XQe",
+      "title": "nit on WG",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/21",
+      "state": "OPEN",
+      "author": "moonshiner",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Current Text says\n\n   Discussion of this document takes place on the v6ops Working Group\n   mailing list (mailto:dnsop@ietf.org), which is archived at\n   https://datatracker.ietf.org/wg/v6ops/about/.  Subscribe at\n   https://www.ietf.org/mailman/listinfo/dnsop/.\n\nslight change may notr be important. \n\n   Discussion of this document takes place on the v6ops Working Group\n   mailing list (mailto:v6ops@ietf.org), which is archived at\n   https://datatracker.ietf.org/wg/v6ops/about/.  Subscribe at\n   https://www.ietf.org/mailman/listinfo/v6ops/.",
+      "createdAt": "2025-06-24T06:09:12Z",
+      "updatedAt": "2025-06-24T18:54:36Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "body": "This has been fixed\r\n\r\nOn Tue, Jun 24, 2025 at 1:09\u202fAM Tim Wicinski ***@***.***>\r\nwrote:\r\n\r\n> *moonshiner* created an issue (buraglio/draft-nbtjjl-v6ops-prefer8781#21)\r\n> <https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/21>\r\n>\r\n> Current Text says\r\n>\r\n> Discussion of this document takes place on the v6ops Working Group\r\n> mailing list ***@***.*** ***@***.***>), which is archived\r\n> at\r\n> https://datatracker.ietf.org/wg/v6ops/about/. Subscribe at\r\n> https://www.ietf.org/mailman/listinfo/dnsop/.\r\n>\r\n> slight change may notr be important.\r\n>\r\n> Discussion of this document takes place on the v6ops Working Group\r\n> mailing list ***@***.*** ***@***.***>), which is archived\r\n> at\r\n> https://datatracker.ietf.org/wg/v6ops/about/. Subscribe at\r\n> https://www.ietf.org/mailman/listinfo/v6ops/.\r\n>\r\n> \u2014\r\n> Reply to this email directly, view it on GitHub\r\n> <https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/21>, or\r\n> unsubscribe\r\n> <https://github.com/notifications/unsubscribe-auth/AAHZT6Q3CKGGKLWOXHG7GUT3FDTR5AVCNFSM6AAAAAB77IM7BKVHI2DSMVQWIX3LMV43ASLTON2WKOZTGE3TANBWGQ3TSOA>\r\n> .\r\n> You are receiving this because you are subscribed to this thread.Message\r\n> ID: ***@***.***>\r\n>\r\n",
+          "createdAt": "2025-06-24T18:54:36Z",
+          "updatedAt": "2025-06-24T18:54:36Z"
+        }
+      ]
     }
   ],
   "pulls": [
