@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 4 January 2026                                        Microsoft
+Expires: 5 January 2026                                        Microsoft
                                                               J. Linkova
                                                                   Google
-                                                             3 July 2025
+                                                             4 July 2025
 
 
    Recommendations for Discovering IPv6 Prefix Used for IPv6 Address
@@ -23,8 +23,9 @@ Abstract
    Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based
    prefix discovery mechanism, more robust methods have been developed
    since then.  This document provides guidelines for NAT64 prefix
-   discovery, recommending more deterministic alternatives like RFC8781
-   over RFC7050 when available.
+   discovery, recommending more deterministic alternatives like
+   obtaining the prefix from Router Advertisement option (RFC8781) over
+   RFC7050 when available.
 
 About This Document
 
@@ -58,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2026.
+   This Internet-Draft will expire on 5 January 2026.
 
 Copyright Notice
 
@@ -84,7 +85,7 @@ Table of Contents
      3.3.  Latency in Updates Propagation
      3.4.  Multihoming Implications
      3.5.  Security Implications
-       3.5.1.  Definition of Secure Shannel
+       3.5.1.  Definition of Secure Channel
        3.5.2.  Secure Channel Example of IPsec
        3.5.3.  Secure Channel Example of Link Layer Encryption
    4.  Recommendations for PREF64 Discovery
@@ -170,7 +171,8 @@ Table of Contents
    challenges, which make this approach less preferable than latest
    developed alternatives (such as PREF64 RA Option, [RFC8781]).  This
    section outlines the key issues, associated with [RFC7050], with a
-   focus on those not discussed in [RFC7050] or [RFC7051].
+   focus on those not discussed in [RFC7050] or in the analysis of
+   solutions for hosts to discover NAT64 prefix ([RFC7051]).
 
 3.1.  Dependency on Network-Provided Recursive Resolvers
 
@@ -265,7 +267,7 @@ Table of Contents
    a wider attack surface for IPv6 deployments, [RFC7050] has other
    security challenges worth noting to justify declaring it legacy.
 
-3.5.1.  Definition of Secure Shannel
+3.5.1.  Definition of Secure Channel
 
    [RFC7050] requires a node's communication channel with a DNS64 server
    to be a "secure channel" which it defines to mean "a communication
@@ -456,7 +458,7 @@ Table of Contents
 
 Acknowledgments
 
-   The authors would like to than the following people for their
+   The authors would like to thank the following people for their
    valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom
    Costello, Charles Eckel, Nick Heatley, Gabor Lencse and Peter
    Schmitt.

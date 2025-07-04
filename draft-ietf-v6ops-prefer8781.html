@@ -11,7 +11,7 @@
 <meta content='
        On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
 While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like RFC8781 over RFC7050 when available. 
+This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the prefix from Router Advertisement option (RFC8781) over RFC7050 when available. 
     ' name="description">
 <meta content="xml2rfc 3.29.0" name="generator">
 <meta content="IPv6" name="keyword">
@@ -1056,7 +1056,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 4 January 2026</td>
+<td class="center">Expires 5 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-v6ops-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-03" class="published">3 July 2025</time>
+<time datetime="2025-07-04" class="published">4 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-04">4 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-01-05">5 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1097,7 +1097,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
 While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like RFC8781 over RFC7050 when available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the prefix from Router Advertisement option (RFC8781) over RFC7050 when available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1134,7 +1134,7 @@ This document provides guidelines for NAT64 prefix discovery, recommending more 
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1188,7 +1188,7 @@ This document provides guidelines for NAT64 prefix discovery, recommending more 
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-security-implications" class="internal xref">Security Implications</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.1">
-                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="auto internal xref">3.5.1</a>.  <a href="#name-definition-of-secure-shanne" class="internal xref">Definition of Secure Shannel</a></p>
+                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="auto internal xref">3.5.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of Secure Channel</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.2">
                     <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="auto internal xref">3.5.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure Channel Example of IPsec</a></p>
@@ -1297,7 +1297,7 @@ appear in all capitals, as shown here.<a href="#section-2-6" class="pilcrow">¶<
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-existing-issues-with-rfc-70" class="section-name selfRef">Existing Issues with RFC 7050</a>
       </h2>
 <p id="section-3-1">DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>).
-This section outlines the key issues, associated with <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, with a focus on those not discussed in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> or <span>[<a href="#RFC7051" class="cite xref">RFC7051</a>]</span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
+This section outlines the key issues, associated with <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, with a focus on those not discussed in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> or in the analysis of solutions for hosts to discover NAT64 prefix (<span>[<a href="#RFC7051" class="cite xref">RFC7051</a>]</span>).<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="dependency-on-network-provided-recursive-resolvers">
 <section id="section-3.1">
         <h3 id="name-dependency-on-network-provi">
@@ -1369,8 +1369,8 @@ Consequently, the node might inadvertently select an incorrect source address fo
 In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
 <div id="secure-channel-def">
 <section id="section-3.5.1">
-          <h4 id="name-definition-of-secure-shanne">
-<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-definition-of-secure-shanne" class="section-name selfRef">Definition of Secure Shannel</a>
+          <h4 id="name-definition-of-secure-channe">
+<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of Secure Channel</a>
           </h4>
 <p id="section-3.5.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering."
 This need is redundant when another communication mechanism of IPv6-related configuration, specifically RAs, can already be defended against tampering, for example by enabling RA-Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.
@@ -1561,7 +1561,7 @@ Security considerations related to obtaining PREF64 information from RAs are dis
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">The authors would like to than the following people for their valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, Gabor Lencse and Peter Schmitt.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The authors would like to thank the following people for their valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, Gabor Lencse and Peter Schmitt.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
