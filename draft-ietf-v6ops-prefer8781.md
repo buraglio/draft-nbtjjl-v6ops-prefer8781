@@ -62,7 +62,7 @@ informative:
 
 On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
 While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the prefix from Router Advertisement option (RFC8781) over RFC7050 when available.
+This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the NAT64 prefix from Router Advertisement option (RFC8781) over RFC7050 when available.
 
 --- middle
 
@@ -80,9 +80,8 @@ Dynamic PREF64 discovery is useful to keep the NAT64 prefix configuration up-to-
 [RFC7050] introduces the first DNS64-based mechanism for PREF64 discovery based on [RFC7051] analysis.
 However, subsequent methods have been developed to address [RFC7050] limitations.
 
-
 For instance, [RFC8781] defines a Neighbor Discovery [RFC4861] option for Router Advertisements (RAs) to convey PREF64 information to hosts.
-This approach offers several advantages (Section 3 of [RFC8781]), including fate sharing  with other host network configuration parameters.
+This approach offers several advantages (Section 3 of [RFC8781]), including fate sharing with other host network configuration parameters.
 
 Due to fundamental shortcomings of the [RFC7050] mechanism ({{issues}}), [RFC8781] is the preferred solution for new deployments.
 Implementations should strive for consistent PREF64 acquisition methods.
@@ -106,7 +105,6 @@ SLAAC:  StateLess Address AutoConfiguration, [RFC4862]
 
 DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, [RFC8781]).
 This section outlines the key issues, associated with [RFC7050], with a focus on those not discussed in [RFC7050] or in the analysis of solutions for hosts to discover NAT64 prefix ([RFC7051]).
-
 
 ## Dependency on Network-Provided Recursive Resolvers
 
@@ -178,8 +176,8 @@ Operators deploying NAT64 SHOULD provide PREF64 information in Router Advertisem
 
 ### Mobile Network Considerations
 
-While [RFC8781] support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network envinronments often lacks abilities to include the PREF64 Option into RAs.
-Therefore, the immediate deployment and enablement of PREF64 by mobile operators  may not currently be feasible and the recommendations outlined in this document  are not presently applicable to mobile network operators.
+While [RFC8781] support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
+Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
 These environments are encouraged to incorporate [RFC8781] when made practical by infrastructure upgrades or software stack feature additions.
 
 ### Endpoints Implementation Recommendations
@@ -191,7 +189,7 @@ This recommendation to prefer the [RFC8781] mechanism over one defined in [RFC70
 ### Migration Considerations
 
 Transitioning from the [RFC7050] heuristic to using the [RFC8781] approach might require a period where both mechanisms coexist.
-The duration of such period and feasibilty of diiscontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support [RFC8781].
+The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support [RFC8781].
 
 Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of [RFC6147]).
 
