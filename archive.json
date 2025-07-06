@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-03T01:51:56.897580+00:00",
+  "timestamp": "2025-07-06T02:00:04.155512+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -262,15 +262,15 @@
       "id": "I_kwDOMjLqms6-a4Iz",
       "title": "[AD Review] Operational Considerations section",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Med's email:\n\n\"there are deployment implications, e.g., on the number of network nodes that are required to be upgraded vs. one single touch as in 7050. This impact and, given that millions of devices are using 7050 today, I do think that we need to discuss the implications in a dedicated Operational Considerations sections.\"",
       "createdAt": "2025-07-02T06:16:10Z",
-      "updatedAt": "2025-07-02T06:16:10Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-03T14:52:42Z",
+      "closedAt": "2025-07-03T14:52:42Z",
       "comments": []
     },
     {
@@ -285,7 +285,7 @@
       "labels": [],
       "body": "From Med's email:\n\n\"Some of the 7050 limitations are exacerbated when NSP used, but are less a concern when WKP. Not sure if you want to remind that in the document.\"",
       "createdAt": "2025-07-02T06:17:05Z",
-      "updatedAt": "2025-07-03T00:28:12Z",
+      "updatedAt": "2025-07-04T18:17:02Z",
       "closedAt": null,
       "comments": [
         {
@@ -294,6 +294,13 @@
           "body": "I assume this is for Section 3.1, Dependency on Network-provied resolvers. TBH I', not convinced it's the case. No matter what prefix is used - NSP or WKP - if the client is not using the network-provided resolver, it can not discover the prefix. \n\nI'll add a sentence that if a 3rd-oparty resolver used by the endpoint is also a DNS64 one, using the WKP, it would be just a coincidence that the client discovers the same prefix. However there is no guarantee that when the endoint moves to another network, that network provides NAT64 at all or if it does, the same prefix is used.",
           "createdAt": "2025-07-03T00:28:12Z",
           "updatedAt": "2025-07-03T00:28:12Z"
+        },
+        {
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "body": "+1",
+          "createdAt": "2025-07-04T18:17:02Z",
+          "updatedAt": "2025-07-04T18:17:02Z"
         }
       ]
     },
@@ -529,7 +536,7 @@
       "labels": [],
       "body": "- Additional reasons to deprecate:\r\n- using 3rd-party resolevrs\r\n- updating the PREF64 info\r\n- delays\r\n\r\nAlso adding more text into the INtro, removing the citation in the Abstract and adding myself as a co-author",
       "createdAt": "2024-08-27T16:37:03Z",
-      "updatedAt": "2024-08-28T17:56:16Z",
+      "updatedAt": "2025-07-03T07:25:32Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "ba1eae0834d4c4c35a94172288c7ccabb27073e3",
@@ -1008,6 +1015,251 @@
           "updatedAt": "2025-06-16T22:15:14Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDOMjLqms6dN5vs",
+      "title": "Ad review",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/28",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing Med's comments from https://github.com/boucadair/IETF-Drafts-Reviews/blob/master/2025/draft-ietf-v6ops-prefer8781-03-rev%20Med.pdf\r\n\r\nWorth mentioning explicitly:\r\n\r\n* Changes to Deployment Considerations:\r\n  *  Rephrased the mobile operators section\r\n   *  Moved \"Endpoints Implementations\" there so the next section can talk about migration path\r\n   *  Added migration considerations section  \r\n * Changed 'clients' and 'hosts' to 'endpoints' almost everywhere, ex. a few places when the current terminology makes more sense (e.g. RFC4861/SLAAC reference)\r\n \r\nA few things are NOT addressed, more specifically see my #27 (Tommy, leaving it to you) and my comment to #26 \r\n\r\nclose #22 #23 #24 #25 #26 ",
+      "createdAt": "2025-07-03T07:42:57Z",
+      "updatedAt": "2025-07-04T01:16:35Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "98e72a99746cf4ff00cd1f43bc8f0f33ecd2b0a7",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "ad-review",
+      "headRefOid": "a08ea81a21b1aa2b0225d6350a403923bcb1695a",
+      "closedAt": "2025-07-03T14:52:40Z",
+      "mergedAt": "2025-07-03T14:52:40Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "0ab3df178b1867186e3cbcbfcef50f16763669df"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6x2O8j",
+          "commit": {
+            "abbreviatedOid": "a08ea81"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-03T16:09:31Z",
+          "updatedAt": "2025-07-03T16:30:37Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "Since this is the first mention of 8781, I would add the title in front of it like you did with 7050 above (a great practice).",
+              "createdAt": "2025-07-03T16:09:31Z",
+              "updatedAt": "2025-07-03T16:30:37Z"
+            },
+            {
+              "originalPosition": 74,
+              "body": "Same addition of the RFC description here added in the abstract for 7050",
+              "createdAt": "2025-07-03T16:26:52Z",
+              "updatedAt": "2025-07-03T16:30:38Z"
+            },
+            {
+              "originalPosition": 86,
+              "body": "defining 7051",
+              "createdAt": "2025-07-03T16:27:23Z",
+              "updatedAt": "2025-07-03T16:30:38Z"
+            },
+            {
+              "originalPosition": 150,
+              "body": "s/Shannel/Channel/",
+              "createdAt": "2025-07-03T16:27:57Z",
+              "updatedAt": "2025-07-03T16:30:38Z"
+            },
+            {
+              "originalPosition": 218,
+              "body": "s/than/thank/",
+              "createdAt": "2025-07-03T16:28:29Z",
+              "updatedAt": "2025-07-03T16:30:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6x7Ujx",
+          "commit": {
+            "abbreviatedOid": "a08ea81"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-04T01:16:19Z",
+          "updatedAt": "2025-07-04T01:16:19Z",
+          "comments": [
+            {
+              "originalPosition": 86,
+              "body": "Done",
+              "createdAt": "2025-07-04T01:16:19Z",
+              "updatedAt": "2025-07-04T01:16:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6x7Uk8",
+          "commit": {
+            "abbreviatedOid": "a08ea81"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-04T01:16:21Z",
+          "updatedAt": "2025-07-04T01:16:21Z",
+          "comments": [
+            {
+              "originalPosition": 74,
+              "body": "The problem of RFC6052 is that its title is 'IPv6 Addressing of IPv4/IPv6 Translators' and it does define the translation algorith - so I'm struggling with adding a meaningful description w/o making the text awkward.\r\n\r\n",
+              "createdAt": "2025-07-04T01:16:21Z",
+              "updatedAt": "2025-07-04T01:16:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6x7UmV",
+          "commit": {
+            "abbreviatedOid": "a08ea81"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-04T01:16:24Z",
+          "updatedAt": "2025-07-04T01:16:24Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "I tried to add the title but it reads strange, so I just added a rephrased description of the title.",
+              "createdAt": "2025-07-04T01:16:24Z",
+              "updatedAt": "2025-07-04T01:16:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6x7U1Q",
+          "commit": {
+            "abbreviatedOid": "a08ea81"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-04T01:16:35Z",
+          "updatedAt": "2025-07-04T01:16:35Z",
+          "comments": [
+            {
+              "originalPosition": 218,
+              "body": "Done",
+              "createdAt": "2025-07-04T01:16:35Z",
+              "updatedAt": "2025-07-04T01:16:35Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOMjLqms6dWstv",
+      "title": "Addressing Tommy's comment to PR#28",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/29",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "furry13"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-04T01:15:42Z",
+      "updatedAt": "2025-07-04T18:19:31Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "0ab3df178b1867186e3cbcbfcef50f16763669df",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "ad-review",
+      "headRefOid": "930598249b36245deeb41d9ba944020f9766a35b",
+      "closedAt": "2025-07-04T18:19:31Z",
+      "mergedAt": "2025-07-04T18:19:31Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "829ffe121fb828771b4c7924d9f8e8ae0a24e928"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6yGfPh",
+          "commit": {
+            "abbreviatedOid": "9305982"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-04T18:19:00Z",
+          "updatedAt": "2025-07-04T18:19:01Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Suggest \"like obtaining the NAT64 prefix from Router Advertisement option\"",
+              "createdAt": "2025-07-04T18:19:01Z",
+              "updatedAt": "2025-07-04T18:19:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6yGfjA",
+          "commit": {
+            "abbreviatedOid": "9305982"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "CHANGES_REQUESTED",
+          "body": "Suggest \"like obtaining the prefix from Router Advertisement option\"",
+          "createdAt": "2025-07-04T18:19:22Z",
+          "updatedAt": "2025-07-04T18:19:22Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOMjLqms6de4DS",
+      "title": "Minor nits and spelling review.",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/30",
+      "state": "OPEN",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "furry13"
+      ],
+      "labels": [],
+      "body": "Minor once-over, found some spacing and spelling corrections and made one other suggestion to abstract",
+      "createdAt": "2025-07-04T18:30:15Z",
+      "updatedAt": "2025-07-04T18:30:15Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "829ffe121fb828771b4c7924d9f8e8ae0a24e928",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "buraglio-suggestions-07042025",
+      "headRefOid": "5f0c28b4cc12917a2ad2cfa35d364f5537ee50fc",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
