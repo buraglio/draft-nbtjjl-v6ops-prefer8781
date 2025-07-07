@@ -5,7 +5,7 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 8 January 2026                                        Microsoft
+Expires: 8 January 2026                                                 
                                                               J. Linkova
                                                                   Google
                                                              7 July 2025
@@ -471,7 +471,6 @@ Authors' Addresses
 
 
    Tommy Jensen
-   Microsoft
    Email: tojens.ietf@gmail.com
 
 
