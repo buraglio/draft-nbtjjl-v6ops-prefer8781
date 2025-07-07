@@ -11,7 +11,7 @@
 <meta content='
        On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
 While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the prefix from Router Advertisement option (RFC8781) over RFC7050 when available. 
+This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the NAT64 prefix from Router Advertisement option (RFC8781) over RFC7050 when available. 
     ' name="description">
 <meta content="xml2rfc 3.29.0" name="generator">
 <meta content="IPv6" name="keyword">
@@ -1056,7 +1056,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 5 January 2026</td>
+<td class="center">Expires 8 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-v6ops-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-04" class="published">4 July 2025</time>
+<time datetime="2025-07-07" class="published">7 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-05">5 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-01-08">8 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1097,7 +1097,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
 While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the prefix from Router Advertisement option (RFC8781) over RFC7050 when available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the NAT64 prefix from Router Advertisement option (RFC8781) over RFC7050 when available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1134,7 +1134,7 @@ This document provides guidelines for NAT64 prefix discovery, recommending more 
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1269,7 +1269,7 @@ Discovering the PREF64 enables endpoints to:<a href="#section-1-1" class="pilcro
 <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> introduces the first DNS64-based mechanism for PREF64 discovery based on <span>[<a href="#RFC7051" class="cite xref">RFC7051</a>]</span> analysis.
 However, subsequent methods have been developed to address <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">For instance, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> defines a Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> option for Router Advertisements (RAs) to convey PREF64 information to hosts.
-This approach offers several advantages (Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>), including fate sharing  with other host network configuration parameters.<a href="#section-1-4" class="pilcrow">¶</a></p>
+This approach offers several advantages (Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>), including fate sharing with other host network configuration parameters.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">Due to fundamental shortcomings of the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism (<a href="#issues" class="auto internal xref">Section 3</a>), <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is the preferred solution for new deployments.
 Implementations should strive for consistent PREF64 acquisition methods.
 The DNS64-based mechanism of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> should be employed only when RA-based PREF64 delivery is unavailable, or as a fallback for legacy systems incapable of processing the PREF64 RA Option.<a href="#section-1-5" class="pilcrow">¶</a></p>
@@ -1413,8 +1413,8 @@ Requiring nodes to implement two defense mechanisms when only one is necessary w
           <h4 id="name-mobile-network-consideratio">
 <a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-mobile-network-consideratio" class="section-name selfRef">Mobile Network Considerations</a>
           </h4>
-<p id="section-4.1.1-1">While <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network envinronments often lacks abilities to include the PREF64 Option into RAs.
-Therefore, the immediate deployment and enablement of PREF64 by mobile operators  may not currently be feasible and the recommendations outlined in this document  are not presently applicable to mobile network operators.
+<p id="section-4.1.1-1">While <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
+Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
 These environments are encouraged to incorporate <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> when made practical by infrastructure upgrades or software stack feature additions.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1434,7 +1434,7 @@ This recommendation to prefer the <span>[<a href="#RFC8781" class="cite xref">RF
 <a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-migration-considerations" class="section-name selfRef">Migration Considerations</a>
           </h4>
 <p id="section-4.1.3-1">Transitioning from the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> heuristic to using the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> approach might require a period where both mechanisms coexist.
-The duration of such period and feasibilty of diiscontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
+The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
 <p id="section-4.1.3-2">Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>).<a href="#section-4.1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>

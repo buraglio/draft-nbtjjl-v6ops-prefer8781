@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 5 January 2026                                        Microsoft
+Expires: 8 January 2026                                        Microsoft
                                                               J. Linkova
                                                                   Google
-                                                             4 July 2025
+                                                             7 July 2025
 
 
    Recommendations for Discovering IPv6 Prefix Used for IPv6 Address
@@ -24,8 +24,8 @@ Abstract
    prefix discovery mechanism, more robust methods have been developed
    since then.  This document provides guidelines for NAT64 prefix
    discovery, recommending more deterministic alternatives like
-   obtaining the prefix from Router Advertisement option (RFC8781) over
-   RFC7050 when available.
+   obtaining the NAT64 prefix from Router Advertisement option (RFC8781)
+   over RFC7050 when available.
 
 About This Document
 
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 January 2026.
+   This Internet-Draft will expire on 8 January 2026.
 
 Copyright Notice
 
@@ -320,7 +320,7 @@ Table of Contents
 
    While [RFC8781] support is widely integrated into modern operating
    systems on mobile endpoints, equipment deployed in mobile network
-   envinronments often lacks abilities to include the PREF64 Option into
+   environments often lacks abilities to include the PREF64 Option into
    RAs.  Therefore, the immediate deployment and enablement of PREF64 by
    mobile operators may not currently be feasible and the
    recommendations outlined in this document are not presently
@@ -341,7 +341,7 @@ Table of Contents
 
    Transitioning from the [RFC7050] heuristic to using the [RFC8781]
    approach might require a period where both mechanisms coexist.  The
-   duration of such period and feasibilty of diiscontinuing DNS64
+   duration of such period and feasibility of discontinuing DNS64
    support, relying solely on RA-based PREF64 signaling in a given
    network depends on the endpoint footprint, particularly the presence
    and number of endpoints running outdated operating systems, which do
