@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 8 January 2026                                                 
+Expires: 9 January 2026                                                 
                                                               J. Linkova
                                                                   Google
-                                                             7 July 2025
+                                                             8 July 2025
 
 
    Recommendations for Discovering IPv6 Prefix Used for IPv6 Address
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 January 2026.
+   This Internet-Draft will expire on 9 January 2026.
 
 Copyright Notice
 
@@ -78,7 +78,7 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Conventions and Definitions
+   2.  Terminology
    3.  Existing Issues with RFC 7050
      3.1.  Dependency on Network-Provided Recursive Resolvers
      3.2.  Network Stack Initialization Delay
@@ -110,12 +110,15 @@ Table of Contents
    Discovering the PREF64 enables endpoints to:
 
    *  Implement the customer-side translator (CLAT) function of the
-      464XLAT architecture [RFC6877];
+      464XLAT architecture [RFC6877].
 
    *  Translate IPv4 literals to IPv6 literals (Section 7.1 of
-      [RFC8305]);
+      [RFC8305]).
 
    *  Perform local DNS64 [RFC6147] functions.
+
+   *  Support applications relying on IPv4 address referral
+      (Section 3.2.2 of [RFC7225]).
 
    Dynamic PREF64 discovery is useful to keep the NAT64 prefix
    configuration up-to-date, particularly for unmanaged endpoints or
@@ -137,7 +140,7 @@ Table of Contents
    only when RA-based PREF64 delivery is unavailable, or as a fallback
    for legacy systems incapable of processing the PREF64 RA Option.
 
-2.  Conventions and Definitions
+2.  Terminology
 
    DNS64: a mechanism for synthesizing AAAA records from A records,
    defined in [RFC6147].
@@ -145,8 +148,11 @@ Table of Contents
    NAT64: a mechanism for translating IPv6 packets to IPv4 packets and
    vice versa.  The translation is done by translating the packet
    headers according to the IP/ICMP Translation Algorithm defined in
-   [RFC7915].  NAT64 translators can operate in stateless or stateful
-   mode ([RFC6144]).
+   [RFC7915].  NAT64 translators can operate in stateful ([RFC6144]) or
+   stateless mode.  This document uses "NAT64" as a generalized term for
+   a translator which uses the stateless IP/ICMP translation algorithm
+   defined in [RFC7915] and operates within a framework for IPv4/IPv6
+   translation described in [RFC6144].
 
    PREF64 (or Pref64::/n, or NAT64 prefix): An IPv6 prefix used for IPv6
    address synthesis and for network addresses and protocols translation
@@ -201,10 +207,11 @@ Table of Contents
    connectivity on IPv6-only networks.
 
    If both the network-provided DNS64 and the endpoint's resolver happen
-   to utilize the WKP, the endpoint might, by pure coincidence, use a
-   PREF64 that's valid for the current network.  However, if the
-   endpoint changes its network attachment, it can't detect if the new
-   network lacks NAT64 entirely or uses a different NSP.
+   to utilize the Well-Known Prefix (64:ff9b::/96, [RFC6052]), the
+   endpoint would end up using a PREF64 that's valid for the current
+   network.  However, if the endpoint changes its network attachment, it
+   can't detect if the new network lacks NAT64 entirely or uses a
+   network-specific NAT64 prefix (NSP, [RFC6144]).
 
 3.2.  Network Stack Initialization Delay
 
@@ -431,6 +438,11 @@ Table of Contents
               Solution Proposals for Hosts to Learn NAT64 Prefix",
               RFC 7051, DOI 10.17487/RFC7051, November 2013,
               <https://www.rfc-editor.org/rfc/rfc7051>.
+
+   [RFC7225]  Boucadair, M., "Discovering NAT64 IPv6 Prefixes Using the
+              Port Control Protocol (PCP)", RFC 7225,
+              DOI 10.17487/RFC7225, May 2014,
+              <https://www.rfc-editor.org/rfc/rfc7225>.
 
    [RFC7915]  Bao, C., Li, X., Baker, F., Anderson, T., and F. Gont,
               "IP/ICMP Translation Algorithm", RFC 7915,
