@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-06T02:00:04.155512+00:00",
+  "timestamp": "2025-07-08T01:52:39.321071+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -220,7 +220,7 @@
       "id": "I_kwDOMjLqms66k6__",
       "title": "Editorial Nit - spelling",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/20",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "moonshiner",
       "authorAssociation": "NONE",
       "assignees": [
@@ -229,9 +229,17 @@
       "labels": [],
       "body": "# Introduction\n\ns/configuration parameterss./configuration parameters./",
       "createdAt": "2025-06-09T12:58:04Z",
-      "updatedAt": "2025-06-16T22:15:25Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-07T01:55:02Z",
+      "closedAt": "2025-07-07T01:55:02Z",
+      "comments": [
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closed with #19 ",
+          "createdAt": "2025-07-07T01:54:51Z",
+          "updatedAt": "2025-07-07T01:54:51Z"
+        }
+      ]
     },
     {
       "number": 21,
@@ -278,15 +286,15 @@
       "id": "I_kwDOMjLqms6-a4l3",
       "title": "[AD Review] Difference in 7050 limitations for NSP vs WKP",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/23",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Med's email:\n\n\"Some of the 7050 limitations are exacerbated when NSP used, but are less a concern when WKP. Not sure if you want to remind that in the document.\"",
       "createdAt": "2025-07-02T06:17:05Z",
-      "updatedAt": "2025-07-04T18:17:02Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T01:53:54Z",
+      "closedAt": "2025-07-07T01:53:54Z",
       "comments": [
         {
           "author": "furry13",
@@ -301,6 +309,13 @@
           "body": "+1",
           "createdAt": "2025-07-04T18:17:02Z",
           "updatedAt": "2025-07-04T18:17:02Z"
+        },
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closed with #28 ",
+          "createdAt": "2025-07-07T01:53:54Z",
+          "updatedAt": "2025-07-07T01:53:54Z"
         }
       ]
     },
@@ -309,39 +324,55 @@
       "id": "I_kwDOMjLqms6-a5Nm",
       "title": "[AD Review] Clarify 'mobile endpoints'",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/24",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Med's email:\n\n_\"The document says that the recommendation does not target mobile networks, but uses mobile endpoints as an argument to motivate the need for dynamic discovery:\n\n \n\n   Dynamic PREF64 discovery is often essential, particularly for\n\n   unmanaged or mobile endpoints, where static configuration is\n\n   impractical.\n\n \n\n(I agree a mobile endpoint may not be connected to what is referred to as \u201cmobile networks\u201d in 4.1.1 but absent clarification this may be confusing and can be seen as internal inconsistency)\"_",
       "createdAt": "2025-07-02T06:18:08Z",
-      "updatedAt": "2025-07-02T06:18:08Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-07T01:55:24Z",
+      "closedAt": "2025-07-07T01:55:24Z",
+      "comments": [
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closed with #28 ",
+          "createdAt": "2025-07-07T01:55:24Z",
+          "updatedAt": "2025-07-07T01:55:24Z"
+        }
+      ]
     },
     {
       "number": 25,
       "id": "I_kwDOMjLqms6-a-y5",
       "title": "[AD Review] Difference in recommendations between 8781 and this draft",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/25",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Med's email:\n\n_\"Please note that RFC8781 already includes a preference recommendation vs 7050; some text to position the new reco vs that one would be helpful\"_",
       "createdAt": "2025-07-02T06:28:49Z",
-      "updatedAt": "2025-07-02T06:28:49Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-07T01:53:26Z",
+      "closedAt": "2025-07-07T01:53:26Z",
+      "comments": [
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closed with #28 ",
+          "createdAt": "2025-07-07T01:53:26Z",
+          "updatedAt": "2025-07-07T01:53:26Z"
+        }
+      ]
     },
     {
       "number": 26,
       "id": "I_kwDOMjLqms6-liR6",
       "title": "[AD Review] Address comments from the detailed review",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/26",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -350,8 +381,8 @@
       "labels": [],
       "body": "https://github.com/boucadair/IETF-Drafts-Reviews/blob/master/2025/draft-ietf-v6ops-prefer8781-03-rev%20Med.pdf",
       "createdAt": "2025-07-03T00:07:35Z",
-      "updatedAt": "2025-07-03T00:11:09Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T01:53:11Z",
+      "closedAt": "2025-07-07T01:53:11Z",
       "comments": [
         {
           "author": "furry13",
@@ -359,6 +390,13 @@
           "body": "Comments on comments I decided not to address so far:\n\n1. I think most references for RFC7915 are correct, as the text talks about the translation, not matter stateless or stateful. 6146 defines stateful NAT64 while most of the text is also applicable to devices performing stateless translation as per RFC7915. The document has been updated to avoid using the term 'NAT64' when RFC7915 is mentioned.\n2. Introduction: it was suggested to adde text about \"support application referrals with IPv4 literals\". I think we need more details/references to clarify the proposed text. It might be just my ignorance but I wasn't aware of that use case and when I googled 'applications referrals\" and ip addresses I couldn't find anything related.\n3. In Definition section, I'm not sure how to address a comment about 'generalized definition'.\n\nTo be continued..",
           "createdAt": "2025-07-03T00:10:59Z",
           "updatedAt": "2025-07-03T00:11:09Z"
+        },
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closed by #28 ",
+          "createdAt": "2025-07-07T01:53:11Z",
+          "updatedAt": "2025-07-07T01:53:11Z"
         }
       ]
     },
@@ -376,9 +414,17 @@
       "labels": [],
       "body": "Section 3.5.2 says:\n\n\"While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in [RFC9499] that would be more appropriately scoped to the applicable DNS traffic.\"\n\nMed's comment: \"I don't understand RFC9499 citation here\"\n\n\nTommy, any suggestions on how to clarify the text?",
       "createdAt": "2025-07-03T01:23:45Z",
-      "updatedAt": "2025-07-03T01:23:54Z",
+      "updatedAt": "2025-07-07T01:52:42Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Oops, this one still needs to be done.",
+          "createdAt": "2025-07-07T01:52:42Z",
+          "updatedAt": "2025-07-07T01:52:42Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1239,7 +1285,7 @@
       "id": "PR_kwDOMjLqms6de4DS",
       "title": "Minor nits and spelling review.",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/30",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "buraglio",
       "authorAssociation": "OWNER",
       "assignees": [
@@ -1248,19 +1294,63 @@
       "labels": [],
       "body": "Minor once-over, found some spacing and spelling corrections and made one other suggestion to abstract",
       "createdAt": "2025-07-04T18:30:15Z",
-      "updatedAt": "2025-07-04T18:30:15Z",
+      "updatedAt": "2025-07-07T00:13:21Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "829ffe121fb828771b4c7924d9f8e8ae0a24e928",
       "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "headRefName": "buraglio-suggestions-07042025",
       "headRefOid": "5f0c28b4cc12917a2ad2cfa35d364f5537ee50fc",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-07T00:13:21Z",
+      "mergedAt": "2025-07-07T00:13:21Z",
+      "mergedBy": "furry13",
+      "mergeCommit": {
+        "oid": "26e70eec7d19efee52d88e711d0aa82c2aff647f"
+      },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 31,
+      "id": "PR_kwDOMjLqms6dqjOa",
+      "title": "Updating Tommy's affiliation",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/31",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-07T00:21:02Z",
+      "updatedAt": "2025-07-07T00:48:01Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "26e70eec7d19efee52d88e711d0aa82c2aff647f",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "ad-review",
+      "headRefOid": "c74ca12cc3471d4a9306d1fbcd95e661ad103d2b",
+      "closedAt": "2025-07-07T00:48:01Z",
+      "mergedAt": "2025-07-07T00:48:01Z",
+      "mergedBy": "mstojens",
+      "mergeCommit": {
+        "oid": "5c162fd80d27d1f4f8485d00101023d6a572aee3"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6yVGIf",
+          "commit": {
+            "abbreviatedOid": "c74ca12"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-07T00:47:53Z",
+          "updatedAt": "2025-07-07T00:47:53Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
