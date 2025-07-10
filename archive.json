@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-08T01:52:39.321071+00:00",
+  "timestamp": "2025-07-10T01:53:59.901693+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -425,6 +425,24 @@
           "updatedAt": "2025-07-07T01:52:42Z"
         }
       ]
+    },
+    {
+      "number": 33,
+      "id": "I_kwDOMjLqms6_aSUO",
+      "title": "DO we need a text about RFC1918 translation?",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/issues/33",
+      "state": "OPEN",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "Tommy's comment:\n\n\"another consideration is that the WKP doesn't support non-global IPv4 destinations, whereas discovery might enable that (the network might advertise the WKP, but there's zero chance of a NSP without discovery). Is this worth adding a line for? If so I'll suggest text.\"\n\n",
+      "createdAt": "2025-07-08T07:14:56Z",
+      "updatedAt": "2025-07-08T07:14:56Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -1349,6 +1367,135 @@
           "createdAt": "2025-07-07T00:47:53Z",
           "updatedAt": "2025-07-07T00:47:53Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "id": "PR_kwDOMjLqms6d2vZp",
+      "title": "Addressing other Med's comments",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/32",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "- Explaining WKP/NSP, removing \"by coincidence\"\r\n- Expanding NAT64 definition and renaming the section to \"Terminology\"\r\n- Adding a reference to RFC7225 and application referrals to the Introduction",
+      "createdAt": "2025-07-08T02:38:41Z",
+      "updatedAt": "2025-07-08T07:15:26Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "5c162fd80d27d1f4f8485d00101023d6a572aee3",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "rev05",
+      "headRefOid": "0297747c645d5c4266a3790d65386d03a91e97b7",
+      "closedAt": "2025-07-08T07:15:18Z",
+      "mergedAt": "2025-07-08T07:15:18Z",
+      "mergedBy": "furry13",
+      "mergeCommit": {
+        "oid": "0433520c34b671cef8afff6e5de717662b9452bc"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms6yldAS",
+          "commit": {
+            "abbreviatedOid": "6c10cd8"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "LGTM, feel free to merge pending one change request.",
+          "createdAt": "2025-07-08T06:31:24Z",
+          "updatedAt": "2025-07-08T06:34:24Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nThis document uses \"NAT64\" as a generalized term for a translator which uses the stateless IP/ICMP translation algorithm defined in [RFC7915] and operates within a framework for IPv4/IPv6 translation described in [RFC6144].\r\n```",
+              "createdAt": "2025-07-08T06:31:24Z",
+              "updatedAt": "2025-07-08T06:34:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6ylivQ",
+          "commit": {
+            "abbreviatedOid": "6c10cd8"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-08T06:41:27Z",
+          "updatedAt": "2025-07-08T06:41:27Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "```suggestion\r\nIf both the network-provided DNS64 and the endpoint's resolver happen to utilize the Well-Known Prefix (64:ff9b::/96, [RFC6052]), the endpoint would end up using a PREF64 that's valid for the current network.\r\n```\r\n\r\nWait, I actually do think this should be changed somehow. \"discover\" implies a discovery process, whereas this is about the endpoint using the WKP *without* doing any prefix discovery. I see why we might want to change the original phrasing, but the original phrasing is more accurate (minus the acronym ambiguity).",
+              "createdAt": "2025-07-08T06:41:27Z",
+              "updatedAt": "2025-07-08T06:41:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6ylmiB",
+          "commit": {
+            "abbreviatedOid": "6c10cd8"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-08T06:46:05Z",
+          "updatedAt": "2025-07-08T06:46:05Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Since this is about explaining why prefix discovery is a good thing, another consideration is that the WKP doesn't support non-global IPv4 destinations, whereas discovery might enable that (the network might advertise the WKP, but there's zero chance of a NSP without discovery). Is this worth adding a line for? If so I'll suggest text.",
+              "createdAt": "2025-07-08T06:46:05Z",
+              "updatedAt": "2025-07-08T06:46:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6yl7I7",
+          "commit": {
+            "abbreviatedOid": "6c10cd8"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-08T07:14:10Z",
+          "updatedAt": "2025-07-08T07:14:10Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "I'm not sure I fully comprehend the proposal, so let me create an issue so we can follow up on this in Madrid ;)",
+              "createdAt": "2025-07-08T07:14:10Z",
+              "updatedAt": "2025-07-08T07:14:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms6yl8Jd",
+          "commit": {
+            "abbreviatedOid": "6c10cd8"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-08T07:15:26Z",
+          "updatedAt": "2025-07-08T07:15:26Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "Sounds good!",
+              "createdAt": "2025-07-08T07:15:26Z",
+              "updatedAt": "2025-07-08T07:15:26Z"
+            }
+          ]
         }
       ]
     }
