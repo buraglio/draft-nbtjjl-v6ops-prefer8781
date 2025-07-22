@@ -92,8 +92,7 @@ The DNS64-based mechanism of [RFC7050] should be employed only when RA-based PRE
 
 DNS64: a mechanism for synthesizing AAAA records from A records, defined in [RFC6147].
 
-NAT64: a mechanism for translating IPv6 packets to IPv4 packets and vice versa.  The translation is done by translating the packet headers according to the IP/ICMP Translation Algorithm defined in [RFC7915]. NAT64 translators can operate in stateful ([RFC6144]) or stateless mode.
-This document uses "NAT64" as a generalized term for a translator which uses the stateless IP/ICMP translation algorithm defined in [RFC7915] and operates within a framework for IPv4/IPv6 translation described in [RFC6144].
+NAT64: Network Address and Protocol Translation from IPv6 clients to IPv4 servers as defined in [RFC6146].
 
 PREF64 (or Pref64::/n, or NAT64 prefix): An IPv6 prefix used for IPv6 address synthesis and for network addresses and protocols translation from IPv6 clients to IPv4 servers using the algorithm defined in [RFC6052].
 
@@ -103,9 +102,9 @@ SLAAC:  StateLess Address AutoConfiguration, [RFC4862]
 
 {::boilerplate bcp14-tagged}
 
-# Existing Issues with RFC 7050 {#issues}
+# Existing Issues with RFC7050 {#issues}
 
-DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, [RFC8781]).
+DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than the latest developed alternatives (such as PREF64 RA Option, [RFC8781]).
 This section outlines the key issues, associated with [RFC7050], with a focus on those not discussed in [RFC7050] or in the analysis of solutions for hosts to discover NAT64 prefix ([RFC7051]).
 
 ## Dependency on Network-Provided Recursive Resolvers
@@ -176,12 +175,6 @@ The other example given by [RFC7050] that would allow a communication channel wi
 
 Operators deploying NAT64 SHOULD provide PREF64 information in Router Advertisements per [RFC8781].
 
-### Mobile Network Considerations
-
-While [RFC8781] support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
-Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
-These environments are encouraged to incorporate [RFC8781] when made practical by infrastructure upgrades or software stack feature additions.
-
 ### Endpoints Implementation Recommendations
 
 Endpoints SHOULD attempt to obtain PREF64 information from RAs per [RFC8781] instead of using [RFC7050] method.
@@ -194,6 +187,12 @@ Transitioning from the [RFC7050] heuristic to using the [RFC8781] approach might
 The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support [RFC8781].
 
 Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of [RFC6147]).
+
+## Mobile Network Considerations
+
+While [RFC8781] support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
+Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible, and the recommendations outlined in this document are not presently applicable to mobile network operators.
+These environments are encouraged to incorporate [RFC8781] when made practical by infrastructure upgrades or software stack feature additions.
 
 # Security Considerations
 
