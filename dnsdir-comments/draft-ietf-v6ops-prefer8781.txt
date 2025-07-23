@@ -75,20 +75,20 @@ Table of Contents
 
    1.  Introduction
    2.  Terminology
-   3.  Existing Issues with RFC 7050
-     3.1.  Dependency on Network-Provided Recursive Resolvers
-     3.2.  Network Stack Initialization Delay
-     3.3.  Latency in Updates Propagation
-     3.4.  Multihoming Implications
-     3.5.  Security Implications
-       3.5.1.  Definition of Secure Channel
-       3.5.2.  Secure Channel Example of IPsec
-       3.5.3.  Secure Channel Example of Link Layer Encryption
-   4.  Recommendations for PREF64 Discovery
-     4.1.  Deployment Recommendations
-       4.1.1.  Mobile Network Considerations
-       4.1.2.  Endpoints Implementation Recommendations
-       4.1.3.  Migration Considerations
+   3.  Recommendations for PREF64 Discovery
+     3.1.  General Deployment Recommendations
+     3.2.  Mobile Network Considerations
+     3.3.  Endpoints Implementation Recommendations
+     3.4.  Migration Considerations
+   4.  Existing Issues with RFC 7050
+     4.1.  Dependency on Network-Provided Recursive Resolvers
+     4.2.  Network Stack Initialization Delay
+     4.3.  Latency in Updates Propagation
+     4.4.  Multihoming Implications
+     4.5.  Security Implications
+       4.5.1.  Definition of Secure Channel
+       4.5.2.  Secure Channel Example of IPsec
+       4.5.3.  Secure Channel Example of Link Layer Encryption
    5.  Security Considerations
    6.  IANA Considerations
    7.  References
@@ -130,7 +130,7 @@ Table of Contents
    configuration parameters.
 
    Due to fundamental shortcomings of the [RFC7050] mechanism
-   (Section 3), [RFC8781] is the preferred solution for new deployments.
+   (Section 4), [RFC8781] is the preferred solution for new deployments.
    Implementations should strive for consistent PREF64 acquisition
    methods.  The DNS64-based mechanism of [RFC7050] should be employed
    only when RA-based PREF64 delivery is unavailable, or as a fallback
@@ -167,7 +167,49 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Existing Issues with RFC 7050
+3.  Recommendations for PREF64 Discovery
+
+3.1.  General Deployment Recommendations
+
+   Operators deploying NAT64 SHOULD provide PREF64 information in Router
+   Advertisements per [RFC8781].
+
+3.2.  Mobile Network Considerations
+
+   While [RFC8781] support is widely integrated into modern operating
+   systems on mobile endpoints, equipment deployed in mobile network
+   environments often lacks abilities to include the PREF64 Option into
+   RAs.  Therefore, the immediate deployment and enablement of PREF64 by
+   mobile operators may not currently be feasible and the
+   recommendations outlined in this document are not presently
+   applicable to mobile network operators.  These environments are
+   encouraged to incorporate [RFC8781] when made practical by
+   infrastructure upgrades or software stack feature additions.
+
+3.3.  Endpoints Implementation Recommendations
+
+   Endpoints SHOULD attempt to obtain PREF64 information from RAs per
+   [RFC8781] instead of using [RFC7050] method.  In the absence of the
+   PREF64 information in RAs, an endpoint MAY choose to fall back to the
+   mechanism defined in RFC7050.  This recommendation to prefer the
+   [RFC8781] mechanism over one defined in [RFC7050] is consistent with
+   Section 5.1 of [RFC8781].
+
+3.4.  Migration Considerations
+
+   Transitioning from the [RFC7050] heuristic to using the [RFC8781]
+   approach might require a period where both mechanisms coexist.  The
+   duration of such period and feasibility of discontinuing DNS64
+   support, relying solely on RA-based PREF64 signaling in a given
+   network depends on the endpoint footprint, particularly the presence
+   and number of endpoints running outdated operating systems, which do
+   not support [RFC8781].
+
+   Migrating away from DNS64-based discovery also reduces dependency on
+   DNS64 in general, thereby eliminating DNSSEC and DNS64
+   incompatibility concerns (Section 6.2 of [RFC6147]).
+
+4.  Existing Issues with RFC 7050
 
    DNS-based method of discovering the NAT64 prefix introduces some
    challenges, which make this approach less preferable than latest
@@ -176,7 +218,7 @@ Table of Contents
    focus on those not discussed in [RFC7050] or in the analysis of
    solutions for hosts to discover NAT64 prefix ([RFC7051]).
 
-3.1.  Dependency on Network-Provided Recursive Resolvers
+4.1.  Dependency on Network-Provided Recursive Resolvers
 
    Fundamentally, the presence of the NAT64 and the exact value of the
    prefix used for the translation are network-specific attributes.
@@ -209,7 +251,7 @@ Table of Contents
    can't detect if the new network lacks NAT64 entirely or uses a
    network-specific NAT64 prefix (NSP, [RFC6144]).
 
-3.2.  Network Stack Initialization Delay
+4.2.  Network Stack Initialization Delay
 
    When using SLAAC, an IPv6 host typically requires a single RA to
    acquire its network configuration.  For IPv6-only endpoints, timely
@@ -220,7 +262,7 @@ Table of Contents
    [RFC7050] does not bundle PREF64 information with other network
    configuration parameters.
 
-3.3.  Latency in Updates Propagation
+4.3.  Latency in Updates Propagation
 
    Section 3 of [RFC7050] states: "The node SHALL cache the replies it
    receives during the Pref64::/n discovery procedure, and it SHOULD
@@ -245,7 +287,7 @@ Table of Contents
       it might not be possible without interrupting the network
       connectivity for the affected nodes.
 
-3.4.  Multihoming Implications
+4.4.  Multihoming Implications
 
    Section 3 of [RFC7050] requires a node to examine all received AAAA
    resource records to discover one or more PREF64s and to utilize all
@@ -263,14 +305,14 @@ Table of Contents
    select an incorrect source address for a given PREF64 and/or send
    traffic to the incorrect uplink.
 
-3.5.  Security Implications
+4.5.  Security Implications
 
    As discussed in Section 7 of [RFC7050], the DNS-based PREF64
    discovery is prone to DNS spoofing attacks.  In addition to creating
    a wider attack surface for IPv6 deployments, [RFC7050] has other
    security challenges worth noting to justify declaring it legacy.
 
-3.5.1.  Definition of Secure Channel
+4.5.1.  Definition of Secure Channel
 
    [RFC7050] requires a node's communication channel with a DNS64 server
    to be a "secure channel" which it defines to mean "a communication
@@ -283,7 +325,7 @@ Table of Contents
    necessary when [RFC8781] is used in place of [RFC7050] creates
    unnecessary risk.
 
-3.5.2.  Secure Channel Example of IPsec
+4.5.2.  Secure Channel Example of IPsec
 
    One of the two examples that [RFC7050] defines to qualify a
    communication channel with a DNS64 server is the use of an "IPsec-
@@ -298,7 +340,7 @@ Table of Contents
    know in advance that the DNS64 server supported the encryption
    mechanism.
 
-3.5.3.  Secure Channel Example of Link Layer Encryption
+4.5.3.  Secure Channel Example of Link Layer Encryption
 
    The other example given by [RFC7050] that would allow a communication
    channel with a DNS64 server to qualify as a "secure channel" is the
@@ -311,48 +353,6 @@ Table of Contents
    containing the translation prefix.  This seems to be at odds with the
    definition of "secure channel" as explained in Section 2.2 of
    [RFC7050].
-
-4.  Recommendations for PREF64 Discovery
-
-4.1.  Deployment Recommendations
-
-   Operators deploying NAT64 SHOULD provide PREF64 information in Router
-   Advertisements per [RFC8781].
-
-4.1.1.  Mobile Network Considerations
-
-   While [RFC8781] support is widely integrated into modern operating
-   systems on mobile endpoints, equipment deployed in mobile network
-   environments often lacks abilities to include the PREF64 Option into
-   RAs.  Therefore, the immediate deployment and enablement of PREF64 by
-   mobile operators may not currently be feasible and the
-   recommendations outlined in this document are not presently
-   applicable to mobile network operators.  These environments are
-   encouraged to incorporate [RFC8781] when made practical by
-   infrastructure upgrades or software stack feature additions.
-
-4.1.2.  Endpoints Implementation Recommendations
-
-   Endpoints SHOULD attempt to obtain PREF64 information from RAs per
-   [RFC8781] instead of using [RFC7050] method.  In the absence of the
-   PREF64 information in RAs, an endpoint MAY choose to fall back to the
-   mechanism defined in RFC7050.  This recommendation to prefer the
-   [RFC8781] mechanism over one defined in [RFC7050] is consistent with
-   Section 5.1 of [RFC8781].
-
-4.1.3.  Migration Considerations
-
-   Transitioning from the [RFC7050] heuristic to using the [RFC8781]
-   approach might require a period where both mechanisms coexist.  The
-   duration of such period and feasibility of discontinuing DNS64
-   support, relying solely on RA-based PREF64 signaling in a given
-   network depends on the endpoint footprint, particularly the presence
-   and number of endpoints running outdated operating systems, which do
-   not support [RFC8781].
-
-   Migrating away from DNS64-based discovery also reduces dependency on
-   DNS64 in general, thereby eliminating DNSSEC and DNS64
-   incompatibility concerns (Section 6.2 of [RFC6147]).
 
 5.  Security Considerations
 
