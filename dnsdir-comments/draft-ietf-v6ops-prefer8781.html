@@ -1168,16 +1168,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-recommendations-for-pref64-" class="internal xref">Recommendations for PREF64 Discovery</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-general-deployment-recommen" class="internal xref">General Deployment Recommendations</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-deployment-recommendations-" class="internal xref">Deployment Recommendations for Endpoints</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-mobile-network-consideratio" class="internal xref">Mobile Network Considerations</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-deployment-recommendations-f" class="internal xref">Deployment Recommendations for Operators</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-mobile-network-consideratio" class="internal xref">Mobile Network Considerations</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-endpoints-implementation-re" class="internal xref">Endpoints Implementation Recommendations</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-migration-considerations" class="internal xref">Migration Considerations</a></p>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-migration-considerations" class="internal xref">Migration Considerations</a></p>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1293,42 +1295,42 @@ appear in all capitals, as shown here.<a href="#section-2-6" class="pilcrow">¶<
       <h2 id="name-recommendations-for-pref64-">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-recommendations-for-pref64-" class="section-name selfRef">Recommendations for PREF64 Discovery</a>
       </h2>
-<div id="general-deployment-recommendations">
+<div id="deployment-recommendations-for-endpoints">
 <section id="section-3.1">
-        <h3 id="name-general-deployment-recommen">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-general-deployment-recommen" class="section-name selfRef">General Deployment Recommendations</a>
+        <h3 id="name-deployment-recommendations-">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-deployment-recommendations-" class="section-name selfRef">Deployment Recommendations for Endpoints</a>
         </h3>
-<p id="section-3.1-1">Operators deploying NAT64 <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="mobile-network-considerations">
-<section id="section-3.2">
-        <h3 id="name-mobile-network-consideratio">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-mobile-network-consideratio" class="section-name selfRef">Mobile Network Considerations</a>
-        </h3>
-<p id="section-3.2-1">While <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
-Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
-These environments are encouraged to incorporate <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> when made practical by infrastructure upgrades or software stack feature additions.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="endpoints-implementation-recommendations">
-<section id="section-3.3">
-        <h3 id="name-endpoints-implementation-re">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-endpoints-implementation-re" class="section-name selfRef">Endpoints Implementation Recommendations</a>
-        </h3>
-<p id="section-3.3-1">Endpoints <span class="bcp14">SHOULD</span> attempt to obtain PREF64 information from RAs per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
+<p id="section-3.1-1">Endpoints <span class="bcp14">SHOULD</span> attempt to obtain PREF64 information from RAs per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
 In the absence of the PREF64 information in RAs, an endpoint <span class="bcp14">MAY</span> choose to fall back to the mechanism defined in RFC7050.
-This recommendation to prefer the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> mechanism over one defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is consistent with Section 5.1 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+This recommendation to prefer the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> mechanism over one defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is consistent with Section 5.1 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="deployment-recommendations-for-operators">
+<section id="section-3.2">
+        <h3 id="name-deployment-recommendations-f">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-deployment-recommendations-f" class="section-name selfRef">Deployment Recommendations for Operators</a>
+        </h3>
+<p id="section-3.2-1">Operators deploying NAT64 <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<div id="mobile-network-considerations">
+<section id="section-3.2.1">
+          <h4 id="name-mobile-network-consideratio">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-mobile-network-consideratio" class="section-name selfRef">Mobile Network Considerations</a>
+          </h4>
+<p id="section-3.2.1-1">While <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
+Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
+These environments are encouraged to incorporate <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> when made practical by infrastructure upgrades or software stack feature additions.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="migration-considerations">
-<section id="section-3.4">
-        <h3 id="name-migration-considerations">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-migration-considerations" class="section-name selfRef">Migration Considerations</a>
-        </h3>
-<p id="section-3.4-1">Transitioning from the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> heuristic to using the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> approach might require a period where both mechanisms coexist.
-The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.4-2">Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>).<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<section id="section-3.2.2">
+          <h4 id="name-migration-considerations">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-migration-considerations" class="section-name selfRef">Migration Considerations</a>
+          </h4>
+<p id="section-3.2.2-1">Transitioning from the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> heuristic to using the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> approach might require a period where both mechanisms coexist.
+The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-2">Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>).<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 </section>

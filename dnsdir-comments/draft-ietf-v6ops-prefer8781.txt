@@ -76,10 +76,10 @@ Table of Contents
    1.  Introduction
    2.  Terminology
    3.  Recommendations for PREF64 Discovery
-     3.1.  General Deployment Recommendations
-     3.2.  Mobile Network Considerations
-     3.3.  Endpoints Implementation Recommendations
-     3.4.  Migration Considerations
+     3.1.  Deployment Recommendations for Endpoints
+     3.2.  Deployment Recommendations for Operators
+       3.2.1.  Mobile Network Considerations
+       3.2.2.  Migration Considerations
    4.  Existing Issues with RFC7050
      4.1.  Dependency on Network-Provided Recursive Resolvers
      4.2.  Network Stack Initialization Delay
@@ -170,12 +170,21 @@ Table of Contents
 
 3.  Recommendations for PREF64 Discovery
 
-3.1.  General Deployment Recommendations
+3.1.  Deployment Recommendations for Endpoints
+
+   Endpoints SHOULD attempt to obtain PREF64 information from RAs per
+   [RFC8781] instead of using [RFC7050] method.  In the absence of the
+   PREF64 information in RAs, an endpoint MAY choose to fall back to the
+   mechanism defined in RFC7050.  This recommendation to prefer the
+   [RFC8781] mechanism over one defined in [RFC7050] is consistent with
+   Section 5.1 of [RFC8781].
+
+3.2.  Deployment Recommendations for Operators
 
    Operators deploying NAT64 SHOULD provide PREF64 information in Router
    Advertisements per [RFC8781].
 
-3.2.  Mobile Network Considerations
+3.2.1.  Mobile Network Considerations
 
    While [RFC8781] support is widely integrated into modern operating
    systems on mobile endpoints, equipment deployed in mobile network
@@ -187,16 +196,7 @@ Table of Contents
    encouraged to incorporate [RFC8781] when made practical by
    infrastructure upgrades or software stack feature additions.
 
-3.3.  Endpoints Implementation Recommendations
-
-   Endpoints SHOULD attempt to obtain PREF64 information from RAs per
-   [RFC8781] instead of using [RFC7050] method.  In the absence of the
-   PREF64 information in RAs, an endpoint MAY choose to fall back to the
-   mechanism defined in RFC7050.  This recommendation to prefer the
-   [RFC8781] mechanism over one defined in [RFC7050] is consistent with
-   Section 5.1 of [RFC8781].
-
-3.4.  Migration Considerations
+3.2.2.  Migration Considerations
 
    Transitioning from the [RFC7050] heuristic to using the [RFC8781]
    approach might require a period where both mechanisms coexist.  The
