@@ -8,11 +8,9 @@
 <meta content="Nick Buraglio" name="author">
 <meta content="Tommy Jensen" name="author">
 <meta content="Jen Linkova" name="author">
-<meta content='
-       On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
-While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the NAT64 prefix from Router Advertisement option (RFC8781) over RFC7050 when available. 
-    ' name="description">
+<meta content="
+       On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints need to know the IPv6 prefix(es) used for translation (the NAT64 prefix). This document provides guidelines for NAT64 prefix discovery, specifically recommending obtaining the NAT64 prefix from Router Advertisement option (RFC8781) when available. 
+    " name="description">
 <meta content="xml2rfc 3.30.0" name="generator">
 <meta content="IPv6" name="keyword">
 <meta content="DNS64" name="keyword">
@@ -1094,9 +1092,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Recommendations for Discovering IPv6 Prefix Used for IPv6 Address Synthesis</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints might need to know the IPv6 prefix(es) used for translation (the NAT64 prefix).
-While "Discovery of the IPv6 Prefix Used for IPv6 Address Synthesis" (RFC7050) defines a DNS64-based prefix discovery mechanism, more robust methods have been developed since then.
-This document provides guidelines for NAT64 prefix discovery, recommending more deterministic alternatives like obtaining the NAT64 prefix from Router Advertisement option (RFC8781) over RFC7050 when available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints need to know the IPv6 prefix(es) used for translation (the NAT64 prefix). This document provides guidelines for NAT64 prefix discovery, specifically recommending obtaining the NAT64 prefix from Router Advertisement option (RFC8781) when available.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1169,50 +1165,50 @@ This document provides guidelines for NAT64 prefix discovery, recommending more 
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-existing-issues-with-rfc705" class="internal xref">Existing Issues with RFC7050</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-recommendations-for-pref64-" class="internal xref">Recommendations for PREF64 Discovery</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-dependency-on-network-provi" class="internal xref">Dependency on Network-Provided Recursive Resolvers</a></p>
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-deployment-recommendations-" class="internal xref">Deployment Recommendations for Endpoints</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-network-stack-initializatio" class="internal xref">Network Stack Initialization Delay</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-latency-in-updates-propagat" class="internal xref">Latency in Updates Propagation</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-multihoming-implications" class="internal xref">Multihoming Implications</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="auto internal xref">3.5</a>.  <a href="#name-security-implications" class="internal xref">Security Implications</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-deployment-recommendations-f" class="internal xref">Deployment Recommendations for Operators</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.1">
-                    <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="auto internal xref">3.5.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of Secure Channel</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
+                    <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-mobile-network-consideratio" class="internal xref">Mobile Network Considerations</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.2">
-                    <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="auto internal xref">3.5.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure Channel Example of IPsec</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.5.2.3">
-                    <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="auto internal xref">3.5.3</a>.  <a href="#name-secure-channel-example-of-l" class="internal xref">Secure Channel Example of Link Layer Encryption</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.2">
+                    <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="auto internal xref">3.2.2</a>.  <a href="#name-migration-considerations" class="internal xref">Migration Considerations</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-recommendations-for-pref64-" class="internal xref">Recommendations for PREF64 Discovery</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-existing-issues-with-rfc705" class="internal xref">Existing Issues with RFC7050</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-deployment-recommendations-" class="internal xref">Deployment Recommendations for Endpoints</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-dependency-on-network-provi" class="internal xref">Dependency on Network-Provided Recursive Resolvers</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-deployment-recommendations-f" class="internal xref">Deployment Recommendations for Operators</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-mobile-network-consideratio" class="internal xref">Mobile Network Considerations</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-network-stack-initializatio" class="internal xref">Network Stack Initialization Delay</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
-                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-migration-considerations" class="internal xref">Migration Considerations</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-latency-in-updates-propagat" class="internal xref">Latency in Updates Propagation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-multihoming-implications" class="internal xref">Multihoming Implications</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5">
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="auto internal xref">4.5</a>.  <a href="#name-security-implications" class="internal xref">Security Implications</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.1">
+                    <p id="section-toc.1-1.4.2.5.2.1.1"><a href="#section-4.5.1" class="auto internal xref">4.5.1</a>.  <a href="#name-definition-of-secure-channe" class="internal xref">Definition of Secure Channel</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.2">
+                    <p id="section-toc.1-1.4.2.5.2.2.1"><a href="#section-4.5.2" class="auto internal xref">4.5.2</a>.  <a href="#name-secure-channel-example-of-i" class="internal xref">Secure Channel Example of IPsec</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.5.2.3">
+                    <p id="section-toc.1-1.4.2.5.2.3.1"><a href="#section-4.5.3" class="auto internal xref">4.5.3</a>.  <a href="#name-secure-channel-example-of-l" class="internal xref">Secure Channel Example of Link Layer Encryption</a></p>
 </li>
                 </ul>
 </li>
@@ -1272,7 +1268,7 @@ Discovering the PREF64 enables endpoints to:<a href="#section-1-1" class="pilcro
 However, subsequent methods have been developed to address <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> limitations.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">For instance, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> defines a Neighbor Discovery <span>[<a href="#RFC4861" class="cite xref">RFC4861</a>]</span> option for Router Advertisements (RAs) to convey PREF64 information to hosts.
 This approach offers several advantages (Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>), including fate sharing with other host network configuration parameters.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5">Due to fundamental shortcomings of the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism (<a href="#issues" class="auto internal xref">Section 3</a>), <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is the preferred solution for new deployments.
+<p id="section-1-5">Due to fundamental shortcomings of the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> mechanism (<a href="#issues" class="auto internal xref">Section 4</a>), <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is the preferred solution for new deployments.
 Implementations should strive for consistent PREF64 acquisition methods.
 The DNS64-based mechanism of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> should be employed only when RA-based PREF64 delivery is unavailable, or as a fallback for legacy systems incapable of processing the PREF64 RA Option.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
@@ -1294,151 +1290,151 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="issues">
+<div id="recommendations-for-pref64-discovery">
 <section id="section-3">
-      <h2 id="name-existing-issues-with-rfc705">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-existing-issues-with-rfc705" class="section-name selfRef">Existing Issues with RFC7050</a>
+      <h2 id="name-recommendations-for-pref64-">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-recommendations-for-pref64-" class="section-name selfRef">Recommendations for PREF64 Discovery</a>
       </h2>
-<p id="section-3-1">DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>).
-This section outlines the key issues, associated with <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, with a focus on those not discussed in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> or in the analysis of solutions for hosts to discover NAT64 prefix (<span>[<a href="#RFC7051" class="cite xref">RFC7051</a>]</span>).<a href="#section-3-1" class="pilcrow">¶</a></p>
-<div id="dependency-on-network-provided-recursive-resolvers">
+<div id="deployment-recommendations-for-endpoints">
 <section id="section-3.1">
-        <h3 id="name-dependency-on-network-provi">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-dependency-on-network-provi" class="section-name selfRef">Dependency on Network-Provided Recursive Resolvers</a>
+        <h3 id="name-deployment-recommendations-">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-deployment-recommendations-" class="section-name selfRef">Deployment Recommendations for Endpoints</a>
         </h3>
-<p id="section-3.1-1">Fundamentally, the presence of the NAT64 and the exact value of the prefix used for the translation are network-specific attributes.
+<p id="section-3.1-1">Endpoints <span class="bcp14">SHOULD</span> attempt to obtain PREF64 information from RAs per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
+In the absence of the PREF64 information in RAs, an endpoint <span class="bcp14">MAY</span> choose to fall back to the mechanism defined in RFC7050.
+This recommendation to prefer the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> mechanism over one defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is consistent with Section 5.1 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="deployment-recommendations-for-operators">
+<section id="section-3.2">
+        <h3 id="name-deployment-recommendations-f">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-deployment-recommendations-f" class="section-name selfRef">Deployment Recommendations for Operators</a>
+        </h3>
+<p id="section-3.2-1">Operators deploying NAT64 <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<div id="mobile-network-considerations">
+<section id="section-3.2.1">
+          <h4 id="name-mobile-network-consideratio">
+<a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-mobile-network-consideratio" class="section-name selfRef">Mobile Network Considerations</a>
+          </h4>
+<p id="section-3.2.1-1">While <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
+Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
+These environments are encouraged to incorporate <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> when made practical by infrastructure upgrades or software stack feature additions.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="migration-considerations">
+<section id="section-3.2.2">
+          <h4 id="name-migration-considerations">
+<a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-migration-considerations" class="section-name selfRef">Migration Considerations</a>
+          </h4>
+<p id="section-3.2.2-1">Transitioning from the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> heuristic to using the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> approach might require a period where both mechanisms coexist.
+The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-2">Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>).<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="issues">
+<section id="section-4">
+      <h2 id="name-existing-issues-with-rfc705">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-existing-issues-with-rfc705" class="section-name selfRef">Existing Issues with RFC7050</a>
+      </h2>
+<p id="section-4-1">DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>).
+This section outlines the key issues, associated with <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, with a focus on those not discussed in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> or in the analysis of solutions for hosts to discover NAT64 prefix (<span>[<a href="#RFC7051" class="cite xref">RFC7051</a>]</span>).<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="dependency-on-network-provided-recursive-resolvers">
+<section id="section-4.1">
+        <h3 id="name-dependency-on-network-provi">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-dependency-on-network-provi" class="section-name selfRef">Dependency on Network-Provided Recursive Resolvers</a>
+        </h3>
+<p id="section-4.1-1">Fundamentally, the presence of the NAT64 and the exact value of the prefix used for the translation are network-specific attributes.
 Therefore, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires the endpoint discovering the prefix to use the DNS64 resolvers provided by the network.
 If the device or an application is configured to use other recursive resolvers or runs a local recursive resolver, the corresponding name resolution APIs and libraries are required to recognize 'ipv4only.arpa.' as a special name and give it special treatment.
 This issue and remediation approach are discussed in <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span>.
 However, it has been observed that very few <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> implementations support <span>[<a href="#RFC8880" class="cite xref">RFC8880</a>]</span> requirements for special treatment of 'ipv4only.arpa.'.
-As a result, configuring such systems and applications to use resolvers other than the one provided by the network breaks the PREF64 discovery, leading to degraded user experience.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">VPN applications may override the endpoint's DNS configuration, for example, by configuring enterprise DNS servers as the node's recursive resolvers and forcing all name resolution through the VPN.
+As a result, configuring such systems and applications to use resolvers other than the one provided by the network breaks the PREF64 discovery, leading to degraded user experience.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-2">VPN applications may override the endpoint's DNS configuration, for example, by configuring enterprise DNS servers as the node's recursive resolvers and forcing all name resolution through the VPN.
 These enterprise DNS servers typically lack DNS64 functionality and therefore cannot provide information about the PREF64 used within the local network.
-Consequently, this prevents the endpoint from discovering the necessary PREF64, negatively impacting its connectivity on IPv6-only networks.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
-<p id="section-3.1-3">If both the network-provided DNS64 and the endpoint's resolver happen to utilize the Well-Known Prefix (64:ff9b::/96, <span>[<a href="#RFC6052" class="cite xref">RFC6052</a>]</span>), the endpoint would end up using a PREF64 that's valid for the current network.
-However, if the endpoint changes its network attachment, it can't detect if the new network lacks NAT64 entirely or uses a network-specific NAT64 prefix (NSP, <span>[<a href="#RFC6144" class="cite xref">RFC6144</a>]</span>).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+Consequently, this prevents the endpoint from discovering the necessary PREF64, negatively impacting its connectivity on IPv6-only networks.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.1-3">If both the network-provided DNS64 and the endpoint's resolver happen to utilize the Well-Known Prefix (64:ff9b::/96, <span>[<a href="#RFC6052" class="cite xref">RFC6052</a>]</span>), the endpoint would end up using a PREF64 that's valid for the current network.
+However, if the endpoint changes its network attachment, it can't detect if the new network lacks NAT64 entirely or uses a network-specific NAT64 prefix (NSP, <span>[<a href="#RFC6144" class="cite xref">RFC6144</a>]</span>).<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-stack-initialization-delay">
-<section id="section-3.2">
+<section id="section-4.2">
         <h3 id="name-network-stack-initializatio">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-network-stack-initializatio" class="section-name selfRef">Network Stack Initialization Delay</a>
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-network-stack-initializatio" class="section-name selfRef">Network Stack Initialization Delay</a>
         </h3>
-<p id="section-3.2-1">When using SLAAC, an IPv6 host typically requires a single RA to acquire its network configuration.
+<p id="section-4.2-1">When using SLAAC, an IPv6 host typically requires a single RA to acquire its network configuration.
 For IPv6-only endpoints, timely PREF64 discovery is critical, particularly for those performing local DNS64 or NAT64 functions, such as CLAT (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
 Until a PREF64 is obtained, the endpoint's IPv4-only applications and communication to IPv4-only destinations are impaired.
-The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> does not bundle PREF64 information with other network configuration parameters.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> does not bundle PREF64 information with other network configuration parameters.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="latency-in-updates-propagation">
-<section id="section-3.3">
+<section id="section-4.3">
         <h3 id="name-latency-in-updates-propagat">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-latency-in-updates-propagat" class="section-name selfRef">Latency in Updates Propagation</a>
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-latency-in-updates-propagat" class="section-name selfRef">Latency in Updates Propagation</a>
         </h3>
-<p id="section-3.3-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> states: "The node <span class="bcp14">SHALL</span> cache the replies it receives during the Pref64::/n discovery procedure, and it <span class="bcp14">SHOULD</span> repeat the discovery process ten seconds before the TTL of the Well-Known Name's synthetic AAAA resource record expires."
+<p id="section-4.3-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> states: "The node <span class="bcp14">SHALL</span> cache the replies it receives during the Pref64::/n discovery procedure, and it <span class="bcp14">SHOULD</span> repeat the discovery process ten seconds before the TTL of the Well-Known Name's synthetic AAAA resource record expires."
 As a result, once a PREF64 is discovered, it will be used until the TTL expired, or until the node disconnects from the network.
 There is no mechanism for an operator to force the PREF64 rediscovery on the node without disconnecting the node from the network.
 If the operator needs to change the PREF64 value used in the network, they need to proactively reduce the TTL value returned by the DNS64 server.
-This method has two significant drawbacks:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+This method has two significant drawbacks:<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-3.3-2.1">
-            <p id="section-3.3-2.1.1">Many networks utilize external DNS64 servers and therefore have no control over the TTL value, if the PREF64 needs to be changed or withdrawn.<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.3-2.1">
+            <p id="section-4.3-2.1.1">Many networks utilize external DNS64 servers and therefore have no control over the TTL value, if the PREF64 needs to be changed or withdrawn.<a href="#section-4.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-3.3-2.2">
-            <p id="section-3.3-2.2.1">The PREF64 changes need to be planned and executed at least TTL seconds in advance. If the operator needs to notify nodes that a particular prefix must not be used (e.g. during a network outage or if the nodes learnt a rogue PREF64 as a result of an attack), it might not be possible without interrupting the network connectivity for the affected nodes.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.3-2.2">
+            <p id="section-4.3-2.2.1">The PREF64 changes need to be planned and executed at least TTL seconds in advance. If the operator needs to notify nodes that a particular prefix must not be used (e.g. during a network outage or if the nodes learnt a rogue PREF64 as a result of an attack), it might not be possible without interrupting the network connectivity for the affected nodes.<a href="#section-4.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
 </div>
 <div id="multihoming-implications">
-<section id="section-3.4">
+<section id="section-4.4">
         <h3 id="name-multihoming-implications">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-multihoming-implications" class="section-name selfRef">Multihoming Implications</a>
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-multihoming-implications" class="section-name selfRef">Multihoming Implications</a>
         </h3>
-<p id="section-3.4-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node to examine all received AAAA resource records to discover one or more PREF64s and to utilize all learned prefixes.
+<p id="section-4.4-1">Section 3 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node to examine all received AAAA resource records to discover one or more PREF64s and to utilize all learned prefixes.
 However, this approach presents challenges in some multihomed topologies where different DNS64 servers belonging to different ISPs might return different PREF64s.
 In such cases, it is crucial that traffic destined for synthesized addresses is sent to the correct NAT64 and the source address selected for those flows belongs to the prefix from that ISP's address space.
 In other words, the node needs to associate each discovered PREF64 with upstream information, including the IPv6 prefix and default gateway.
 Currently, there is no reliable way for a node to map a DNS64 response (and the prefix learned from it) to a specific upstream in a multihoming scenario.
-Consequently, the node might inadvertently select an incorrect source address for a given PREF64 and/or send traffic to the incorrect uplink.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+Consequently, the node might inadvertently select an incorrect source address for a given PREF64 and/or send traffic to the incorrect uplink.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-implications">
-<section id="section-3.5">
+<section id="section-4.5">
         <h3 id="name-security-implications">
-<a href="#section-3.5" class="section-number selfRef">3.5. </a><a href="#name-security-implications" class="section-name selfRef">Security Implications</a>
+<a href="#section-4.5" class="section-number selfRef">4.5. </a><a href="#name-security-implications" class="section-name selfRef">Security Implications</a>
         </h3>
-<p id="section-3.5-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attacks.
-In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-3.5-1" class="pilcrow">¶</a></p>
+<p id="section-4.5-1">As discussed in Section 7 of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, the DNS-based PREF64 discovery is prone to DNS spoofing attacks.
+In addition to creating a wider attack surface for IPv6 deployments, <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> has other security challenges worth noting to justify declaring it legacy.<a href="#section-4.5-1" class="pilcrow">¶</a></p>
 <div id="secure-channel-def">
-<section id="section-3.5.1">
+<section id="section-4.5.1">
           <h4 id="name-definition-of-secure-channe">
-<a href="#section-3.5.1" class="section-number selfRef">3.5.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of Secure Channel</a>
+<a href="#section-4.5.1" class="section-number selfRef">4.5.1. </a><a href="#name-definition-of-secure-channe" class="section-name selfRef">Definition of Secure Channel</a>
           </h4>
-<p id="section-3.5.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering."
+<p id="section-4.5.1-1"><span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> requires a node's communication channel with a DNS64 server to be a "secure channel" which it defines to mean "a communication channel a node has between itself and a DNS64 server protecting DNS protocol-related messages from interception and tampering."
 This need is redundant when another communication mechanism of IPv6-related configuration, specifically RAs, can already be defended against tampering, for example by enabling RA-Guard <span>[<a href="#RFC6105" class="cite xref">RFC6105</a>]</span>.
-Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
+Requiring nodes to implement two defense mechanisms when only one is necessary when <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> is used in place of <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> creates unnecessary risk.<a href="#section-4.5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-ipsec">
-<section id="section-3.5.2">
+<section id="section-4.5.2">
           <h4 id="name-secure-channel-example-of-i">
-<a href="#section-3.5.2" class="section-number selfRef">3.5.2. </a><a href="#name-secure-channel-example-of-i" class="section-name selfRef">Secure Channel Example of IPsec</a>
+<a href="#section-4.5.2" class="section-number selfRef">4.5.2. </a><a href="#name-secure-channel-example-of-i" class="section-name selfRef">Secure Channel Example of IPsec</a>
           </h4>
-<p id="section-3.5.2-1">One of the two examples that <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> defines to qualify a communication channel with a DNS64 server is the use of an "IPsec-based virtual private network (VPN) tunnel". As of the time of this writing, this is not supported as a practice by any common operating system DNS client. While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in <span>[<a href="#RFC9499" class="cite xref">RFC9499</a>]</span> that would be more appropriately scoped to the applicable DNS traffic. These are also compatible with encrypted DNS advertisement by the network using Discovery of Network-designated Resolvers <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> that would ensure the clients know in advance that the DNS64 server supported the encryption mechanism.<a href="#section-3.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.5.2-1">One of the two examples that <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> defines to qualify a communication channel with a DNS64 server is the use of an "IPsec-based virtual private network (VPN) tunnel". As of the time of this writing, this is not supported as a practice by any common operating system DNS client. While they could, there have also since been multiple mechanisms defined for performing DNS-specific encryption such as those defined in <span>[<a href="#RFC9499" class="cite xref">RFC9499</a>]</span> that would be more appropriately scoped to the applicable DNS traffic. These are also compatible with encrypted DNS advertisement by the network using Discovery of Network-designated Resolvers <span>[<a href="#RFC9463" class="cite xref">RFC9463</a>]</span> that would ensure the clients know in advance that the DNS64 server supported the encryption mechanism.<a href="#section-4.5.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secure-channel-example-of-link-layer-encryption">
-<section id="section-3.5.3">
+<section id="section-4.5.3">
           <h4 id="name-secure-channel-example-of-l">
-<a href="#section-3.5.3" class="section-number selfRef">3.5.3. </a><a href="#name-secure-channel-example-of-l" class="section-name selfRef">Secure Channel Example of Link Layer Encryption</a>
+<a href="#section-4.5.3" class="section-number selfRef">4.5.3. </a><a href="#name-secure-channel-example-of-l" class="section-name selfRef">Secure Channel Example of Link Layer Encryption</a>
           </h4>
-<p id="section-3.5.3-1">The other example given by <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> that would allow a communication channel with a DNS64 server to qualify as a "secure channel" is the use of a "link layer utilizing data encryption technologies". As of the time of this writing, most common link layer implementations use data encryption already with no extra effort needed on the part of network nodes. While this appears to be a trivial way to satisfy this requirement, it also renders the requirement meaningless since any node along the path can still read the higher-layer DNS traffic containing the translation prefix. This seems to be at odds with the definition of "secure channel" as explained in <span><a href="https://rfc-editor.org/rfc/rfc7050#section-2.2" class="relref">Section 2.2</a> of [<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-3.5.3-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-</section>
-</div>
-<div id="recommendations-for-pref64-discovery">
-<section id="section-4">
-      <h2 id="name-recommendations-for-pref64-">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-recommendations-for-pref64-" class="section-name selfRef">Recommendations for PREF64 Discovery</a>
-      </h2>
-<div id="deployment-recommendations-for-endpoints">
-<section id="section-4.1">
-        <h3 id="name-deployment-recommendations-">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-deployment-recommendations-" class="section-name selfRef">Deployment Recommendations for Endpoints</a>
-        </h3>
-<p id="section-4.1-1">Endpoints <span class="bcp14">SHOULD</span> attempt to obtain PREF64 information from RAs per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> instead of using <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> method.
-In the absence of the PREF64 information in RAs, an endpoint <span class="bcp14">MAY</span> choose to fall back to the mechanism defined in RFC7050.
-This recommendation to prefer the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> mechanism over one defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> is consistent with Section 5.1 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="deployment-recommendations-for-operators">
-<section id="section-4.2">
-        <h3 id="name-deployment-recommendations-f">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-deployment-recommendations-f" class="section-name selfRef">Deployment Recommendations for Operators</a>
-        </h3>
-<p id="section-4.2-1">Operators deploying NAT64 <span class="bcp14">SHOULD</span> provide PREF64 information in Router Advertisements per <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<div id="mobile-network-considerations">
-<section id="section-4.2.1">
-          <h4 id="name-mobile-network-consideratio">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-mobile-network-consideratio" class="section-name selfRef">Mobile Network Considerations</a>
-          </h4>
-<p id="section-4.2.1-1">While <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> support is widely integrated into modern operating systems on mobile endpoints, equipment deployed in mobile network environments often lacks abilities to include the PREF64 Option into RAs.
-Therefore, the immediate deployment and enablement of PREF64 by mobile operators may not currently be feasible and the recommendations outlined in this document are not presently applicable to mobile network operators.
-These environments are encouraged to incorporate <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> when made practical by infrastructure upgrades or software stack feature additions.<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="migration-considerations">
-<section id="section-4.2.2">
-          <h4 id="name-migration-considerations">
-<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-migration-considerations" class="section-name selfRef">Migration Considerations</a>
-          </h4>
-<p id="section-4.2.2-1">Transitioning from the <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> heuristic to using the <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> approach might require a period where both mechanisms coexist.
-The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.2-2">Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of <span>[<a href="#RFC6147" class="cite xref">RFC6147</a>]</span>).<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.5.3-1">The other example given by <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> that would allow a communication channel with a DNS64 server to qualify as a "secure channel" is the use of a "link layer utilizing data encryption technologies". As of the time of this writing, most common link layer implementations use data encryption already with no extra effort needed on the part of network nodes. While this appears to be a trivial way to satisfy this requirement, it also renders the requirement meaningless since any node along the path can still read the higher-layer DNS traffic containing the translation prefix. This seems to be at odds with the definition of "secure channel" as explained in <span><a href="https://rfc-editor.org/rfc/rfc7050#section-2.2" class="relref">Section 2.2</a> of [<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>.<a href="#section-4.5.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
