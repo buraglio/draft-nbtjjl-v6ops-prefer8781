@@ -80,7 +80,7 @@ Table of Contents
      3.2.  Mobile Network Considerations
      3.3.  Endpoints Implementation Recommendations
      3.4.  Migration Considerations
-   4.  Existing Issues with RFC 7050
+   4.  Existing Issues with RFC7050
      4.1.  Dependency on Network-Provided Recursive Resolvers
      4.2.  Network Stack Initialization Delay
      4.3.  Latency in Updates Propagation
@@ -209,7 +209,7 @@ Table of Contents
    DNS64 in general, thereby eliminating DNSSEC and DNS64
    incompatibility concerns (Section 6.2 of [RFC6147]).
 
-4.  Existing Issues with RFC 7050
+4.  Existing Issues with RFC7050
 
    DNS-based method of discovering the NAT64 prefix introduces some
    challenges, which make this approach less preferable than latest
