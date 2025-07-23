@@ -469,8 +469,8 @@ Acknowledgments
 
    The authors would like to thank the following people for their
    valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom
-   Costello, Charles Eckel, Nick Heatley, Gabor Lencse and Peter
-   Schmitt.
+   Costello, Charles Eckel, Nick Heatley, Gabor Lencse, Ted Lemon, Peter
+   Schmitt, Chongfeng Xie.
 
 Authors' Addresses
 
