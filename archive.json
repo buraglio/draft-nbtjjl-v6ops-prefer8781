@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-10T01:53:59.901693+00:00",
+  "timestamp": "2025-07-24T01:58:16.417363+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -1498,6 +1498,183 @@
           ]
         }
       ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOMjLqms6gEgkF",
+      "title": "Addressed opsdir comments 1, 3 and 4. I don't agree with 3, so we pro\u2026",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/34",
+      "state": "CLOSED",
+      "author": "buraglio",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "furry13",
+        "mstojens"
+      ],
+      "labels": [],
+      "body": "\u2026bably need to discuss.",
+      "createdAt": "2025-07-22T13:14:15Z",
+      "updatedAt": "2025-07-23T13:01:09Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "0433520c34b671cef8afff6e5de717662b9452bc",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "opsdir-nits-edits-nb",
+      "headRefOid": "28c3f619bb38327c5699a775fe7328197233a8ac",
+      "closedAt": "2025-07-23T13:01:09Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "And yes, I do not agree with comment #3 either, so let's address everything else and we can reply",
+          "createdAt": "2025-07-23T09:51:28Z",
+          "updatedAt": "2025-07-23T09:51:28Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms61lvRw",
+          "commit": {
+            "abbreviatedOid": "28c3f61"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-23T09:50:42Z",
+          "updatedAt": "2025-07-23T09:50:42Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "I read the review comment differently. I believe the suggestion was to move the Endpoints Implementation Recommendations section out of the Deployment Recommendations section, while you have moved the Mobile network section instead.",
+              "createdAt": "2025-07-23T09:50:42Z",
+              "updatedAt": "2025-07-23T09:50:42Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "id": "PR_kwDOMjLqms6gQtMh",
+      "title": "Addressing Ops review",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/35",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Not addressing comment #3",
+      "createdAt": "2025-07-23T12:40:13Z",
+      "updatedAt": "2025-07-23T12:58:29Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "0433520c34b671cef8afff6e5de717662b9452bc",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "ietf123",
+      "headRefOid": "98068bdb7cec2a455b81486aabb5d1e7b2052f2f",
+      "closedAt": "2025-07-23T12:58:29Z",
+      "mergedAt": "2025-07-23T12:58:29Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "d197d7b207478417df1f520a82033e4aca193b72"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms61oUzB",
+          "commit": {
+            "abbreviatedOid": "9c50e62"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-23T12:42:51Z",
+          "updatedAt": "2025-07-23T12:43:01Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\r\n## Deployment Recommendations for Endpoints\r\n```",
+              "createdAt": "2025-07-23T12:42:51Z",
+              "updatedAt": "2025-07-23T12:43:01Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "id": "PR_kwDOMjLqms6gQ8eg",
+      "title": "Addressing DNSDIR editorial comments",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/36",
+      "state": "MERGED",
+      "author": "mstojens",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-23T13:00:02Z",
+      "updatedAt": "2025-07-23T13:23:07Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "d197d7b207478417df1f520a82033e4aca193b72",
+      "headRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "headRefName": "dnsdir-comments",
+      "headRefOid": "0372280214749693688c2d790b3b7b8eaba4e98f",
+      "closedAt": "2025-07-23T13:23:07Z",
+      "mergedAt": "2025-07-23T13:23:07Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "ae938b709e5b71746ccbc5fea2e42a25fe0365a8"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms61osD2",
+          "commit": {
+            "abbreviatedOid": "357136d"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM. thanks!",
+          "createdAt": "2025-07-23T13:02:55Z",
+          "updatedAt": "2025-07-23T13:02:55Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "id": "PR_kwDOMjLqms6gRk9P",
+      "title": "Updating ACK section",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/37",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-23T13:51:45Z",
+      "updatedAt": "2025-07-23T14:03:00Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "ae938b709e5b71746ccbc5fea2e42a25fe0365a8",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "main",
+      "headRefOid": "d12b53caf54d3f5bf93cfc0f12c0c1b527f3e644",
+      "closedAt": "2025-07-23T14:03:00Z",
+      "mergedAt": "2025-07-23T14:03:00Z",
+      "mergedBy": "furry13",
+      "mergeCommit": {
+        "oid": "5ed6c4be6e49fa7a499f2f3ae94681a4a5957316"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
