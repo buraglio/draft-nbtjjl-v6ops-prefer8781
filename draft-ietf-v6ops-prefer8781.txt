@@ -5,10 +5,10 @@
 v6ops                                                        N. Buraglio
 Internet-Draft                                   Energy Sciences Network
 Intended status: Informational                                 T. Jensen
-Expires: 24 January 2026                                                
+Expires: 4 February 2026                                                
                                                               J. Linkova
                                                                   Google
-                                                            23 July 2025
+                                                           3 August 2025
 
 
    Recommendations for Discovering IPv6 Prefix Used for IPv6 Address
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 January 2026.
+   This Internet-Draft will expire on 4 February 2026.
 
 Copyright Notice
 
@@ -219,6 +219,9 @@ Table of Contents
    focus on those not discussed in [RFC7050] or in the analysis of
    solutions for hosts to discover NAT64 prefix ([RFC7051]).
 
+   Signalling PREF64 in RA option addresses all issues outlined in this
+   section (see Section 3 of [RFC8781] for details).
+
 4.1.  Dependency on Network-Provided Recursive Resolvers
 
    Fundamentally, the presence of the NAT64 and the exact value of the
@@ -252,6 +255,9 @@ Table of Contents
    can't detect if the new network lacks NAT64 entirely or uses a
    network-specific NAT64 prefix (NSP, [RFC6144]).
 
+   Signalling PREF64 in RA option decouples the PREF64 discovery from
+   the host's DNS resolvers configuration.
+
 4.2.  Network Stack Initialization Delay
 
    When using SLAAC, an IPv6 host typically requires a single RA to
@@ -261,7 +267,13 @@ Table of Contents
    is obtained, the endpoint's IPv4-only applications and communication
    to IPv4-only destinations are impaired.  The mechanism defined in
    [RFC7050] does not bundle PREF64 information with other network
-   configuration parameters.
+   configuration parameters, and requires at least one round-trip time
+   (to send a DNS request and receive a response) after the network
+   stack configuration is completed.
+
+   Advertising PREF64 in RA, on the other hand, elminates the period
+   when the host obtains IPv6 addresses and default routers, but no
+   PREF64.
 
 4.3.  Latency in Updates Propagation
 
@@ -288,6 +300,9 @@ Table of Contents
       it might not be possible without interrupting the network
       connectivity for the affected nodes.
 
+   Mechanism defined in [RFC8781] allows to notify hosts about PREF64
+   changes immidiately, by sending an RA with updated information.
+
 4.4.  Multihoming Implications
 
    Section 3 of [RFC7050] requires a node to examine all received AAAA
@@ -305,6 +320,11 @@ Table of Contents
    multihoming scenario.  Consequently, the node might inadvertently
    select an incorrect source address for a given PREF64 and/or send
    traffic to the incorrect uplink.
+
+   Advertising PREF64 in RAs allows hosts to track which PREF64 was
+   advertised by which router and use that information to select the
+   correct nexthop.  Section 8 of [I-D.ietf-v6ops-claton] discusses this
+   scenario in more details.
 
 4.5.  Security Implications
 
@@ -391,6 +411,13 @@ Table of Contents
 
 7.2.  Informative References
 
+   [I-D.ietf-v6ops-claton]
+              Linkova, J. and T. Jensen, "464XLAT Customer-side
+              Translator (CLAT): Node Recommendations", Work in
+              Progress, Internet-Draft, draft-ietf-v6ops-claton-06, 25
+              July 2025, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-v6ops-claton-06>.
+
    [RFC4861]  Narten, T., Nordmark, E., Simpson, W., and H. Soliman,
               "Neighbor Discovery for IP version 6 (IPv6)", RFC 4861,
               DOI 10.17487/RFC4861, September 2007,
@@ -469,8 +496,8 @@ Acknowledgments
 
    The authors would like to thank the following people for their
    valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom
-   Costello, Charles Eckel, Nick Heatley, Gabor Lencse, Ted Lemon, Peter
-   Schmitt, Chongfeng Xie.
+   Costello, Charles Eckel, Nick Heatley, Gabor Lencse, Ted Lemon, David
+   Lou, Peter Schmitt, Chongfeng Xie.
 
 Authors' Addresses
 

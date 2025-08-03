@@ -1050,11 +1050,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Prefer RFC8781</td>
-<td class="right">July 2025</td>
+<td class="right">August 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Buraglio, et al.</td>
-<td class="center">Expires 24 January 2026</td>
+<td class="center">Expires 4 February 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-v6ops-prefer8781-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-23" class="published">23 July 2025</time>
+<time datetime="2025-08-03" class="published">3 August 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-24">24 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-02-04">4 February 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1129,7 +1129,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 February 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1342,6 +1342,7 @@ The duration of such period and feasibility of discontinuing DNS64 support, rely
       </h2>
 <p id="section-4-1">DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span>).
 This section outlines the key issues, associated with <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span>, with a focus on those not discussed in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> or in the analysis of solutions for hosts to discover NAT64 prefix (<span>[<a href="#RFC7051" class="cite xref">RFC7051</a>]</span>).<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">Signalling PREF64 in RA option addresses all issues outlined in this section (see Section 3 of <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> for details).<a href="#section-4-2" class="pilcrow">¶</a></p>
 <div id="dependency-on-network-provided-recursive-resolvers">
 <section id="section-4.1">
         <h3 id="name-dependency-on-network-provi">
@@ -1358,6 +1359,7 @@ These enterprise DNS servers typically lack DNS64 functionality and therefore ca
 Consequently, this prevents the endpoint from discovering the necessary PREF64, negatively impacting its connectivity on IPv6-only networks.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
 <p id="section-4.1-3">If both the network-provided DNS64 and the endpoint's resolver happen to utilize the Well-Known Prefix (64:ff9b::/96, <span>[<a href="#RFC6052" class="cite xref">RFC6052</a>]</span>), the endpoint would end up using a PREF64 that's valid for the current network.
 However, if the endpoint changes its network attachment, it can't detect if the new network lacks NAT64 entirely or uses a network-specific NAT64 prefix (NSP, <span>[<a href="#RFC6144" class="cite xref">RFC6144</a>]</span>).<a href="#section-4.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-4">Signalling PREF64 in RA option decouples the PREF64 discovery from the host's DNS resolvers configuration.<a href="#section-4.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-stack-initialization-delay">
@@ -1368,7 +1370,8 @@ However, if the endpoint changes its network attachment, it can't detect if the 
 <p id="section-4.2-1">When using SLAAC, an IPv6 host typically requires a single RA to acquire its network configuration.
 For IPv6-only endpoints, timely PREF64 discovery is critical, particularly for those performing local DNS64 or NAT64 functions, such as CLAT (<span>[<a href="#RFC6877" class="cite xref">RFC6877</a>]</span>).
 Until a PREF64 is obtained, the endpoint's IPv4-only applications and communication to IPv4-only destinations are impaired.
-The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> does not bundle PREF64 information with other network configuration parameters.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+The mechanism defined in <span>[<a href="#RFC7050" class="cite xref">RFC7050</a>]</span> does not bundle PREF64 information with other network configuration parameters, and requires at least one round-trip time (to send a DNS request and receive a response) after the network stack configuration is completed.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-2">Advertising PREF64 in RA, on the other hand, elminates the period when the host obtains IPv6 addresses and default routers, but no PREF64.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="latency-in-updates-propagation">
@@ -1389,6 +1392,7 @@ This method has two significant drawbacks:<a href="#section-4.3-1" class="pilcro
             <p id="section-4.3-2.2.1">The PREF64 changes need to be planned and executed at least TTL seconds in advance. If the operator needs to notify nodes that a particular prefix must not be used (e.g. during a network outage or if the nodes learnt a rogue PREF64 as a result of an attack), it might not be possible without interrupting the network connectivity for the affected nodes.<a href="#section-4.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
+<p id="section-4.3-3">Mechanism defined in <span>[<a href="#RFC8781" class="cite xref">RFC8781</a>]</span> allows to notify hosts about PREF64 changes immidiately, by sending an RA with updated information.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multihoming-implications">
@@ -1402,6 +1406,8 @@ In such cases, it is crucial that traffic destined for synthesized addresses is 
 In other words, the node needs to associate each discovered PREF64 with upstream information, including the IPv6 prefix and default gateway.
 Currently, there is no reliable way for a node to map a DNS64 response (and the prefix learned from it) to a specific upstream in a multihoming scenario.
 Consequently, the node might inadvertently select an incorrect source address for a given PREF64 and/or send traffic to the incorrect uplink.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-2">Advertising PREF64 in RAs allows hosts to track which PREF64 was advertised by which router and use that information to select the correct nexthop.
+Section 8 of <span>[<a href="#I-D.ietf-v6ops-claton" class="cite xref">I-D.ietf-v6ops-claton</a>]</span> discusses this scenario in more details.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-implications">
@@ -1494,6 +1500,10 @@ Security considerations related to obtaining PREF64 information from RAs are dis
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="I-D.ietf-v6ops-claton">[I-D.ietf-v6ops-claton]</dt>
+        <dd>
+<span class="refAuthor">Linkova, J.</span> and <span class="refAuthor">T. Jensen</span>, <span class="refTitle">"464XLAT Customer-side Translator (CLAT): Node Recommendations"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-v6ops-claton-06</span>, <time datetime="2025-07-25" class="refDate">25 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-v6ops-claton-06">https://datatracker.ietf.org/doc/html/draft-ietf-v6ops-claton-06</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC4861">[RFC4861]</dt>
         <dd>
 <span class="refAuthor">Narten, T.</span>, <span class="refAuthor">Nordmark, E.</span>, <span class="refAuthor">Simpson, W.</span>, and <span class="refAuthor">H. Soliman</span>, <span class="refTitle">"Neighbor Discovery for IP version 6 (IPv6)"</span>, <span class="seriesInfo">RFC 4861</span>, <span class="seriesInfo">DOI 10.17487/RFC4861</span>, <time datetime="2007-09" class="refDate">September 2007</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4861">https://www.rfc-editor.org/rfc/rfc4861</a>&gt;</span>. </dd>
@@ -1564,7 +1574,7 @@ Security considerations related to obtaining PREF64 information from RAs are dis
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">The authors would like to thank the following people for their valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, Gabor Lencse, Ted Lemon, Peter Schmitt, Chongfeng Xie.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The authors would like to thank the following people for their valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, Gabor Lencse, Ted Lemon, David Lou, Peter Schmitt, Chongfeng Xie.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
