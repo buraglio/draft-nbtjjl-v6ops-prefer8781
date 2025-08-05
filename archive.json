@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-24T01:58:16.417363+00:00",
+  "timestamp": "2025-08-05T02:03:57.077850+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -1675,6 +1675,48 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 38,
+      "id": "PR_kwDOMjLqms6h5SgL",
+      "title": "David Lou's comments",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/38",
+      "state": "MERGED",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Int-dir review: adding more text about how RFC8781 addresses issues with RFC7050",
+      "createdAt": "2025-08-03T16:44:09Z",
+      "updatedAt": "2025-08-03T23:40:20Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "5ed6c4be6e49fa7a499f2f3ae94681a4a5957316",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "int-dir",
+      "headRefOid": "d5eaae33dfaad16d3a49e18b746f20d0b4872b34",
+      "closedAt": "2025-08-03T23:40:20Z",
+      "mergedAt": "2025-08-03T23:40:20Z",
+      "mergedBy": "buraglio",
+      "mergeCommit": {
+        "oid": "8eda38e5a65d1ac91f569cb425303354fc7104bf"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms63udz0",
+          "commit": {
+            "abbreviatedOid": "d5eaae3"
+          },
+          "author": "buraglio",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Good additions",
+          "createdAt": "2025-08-03T23:40:14Z",
+          "updatedAt": "2025-08-03T23:40:14Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
