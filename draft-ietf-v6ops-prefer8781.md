@@ -61,7 +61,7 @@ informative:
 
 --- abstract
 
-On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints need to know the IPv6 prefix(es) used for translation (the NAT64 prefix). This document provides guidelines for NAT64 prefix discovery, specifically recommending obtaining the NAT64 prefix from Router Advertisement option (RFC8781) when available.
+On networks providing IPv4-IPv6 translation (RFC7915), hosts and other endpoints need to know the IPv6 prefix(es) used for translation (the NAT64 prefix, RFC6052). This document provides guidelines for NAT64 prefix discovery, specifically recommending obtaining the NAT64 prefix from Router Advertisement option (RFC8781) when available.
 
 --- middle
 
@@ -112,7 +112,7 @@ This recommendation to prefer the [RFC8781] mechanism over one defined in [RFC70
 
 ## Deployment Recommendations for Operators
 
-Operators deploying NAT64 SHOULD provide PREF64 information in Router Advertisements per [RFC8781].
+Network operators deploying NAT64 SHOULD provide PREF64 information in Router Advertisements per [RFC8781].
 
 ### Mobile Network Considerations
 
@@ -122,14 +122,15 @@ These environments are encouraged to incorporate [RFC8781] when made practical b
 
 ### Migration Considerations
 
-Transitioning from the [RFC7050] heuristic to using the [RFC8781] approach might require a period where both mechanisms coexist.
-The duration of such period and feasibility of discontinuing DNS64 support, relying solely on RA-based PREF64 signaling in a given network depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support [RFC8781].
+Transitioning from the [RFC7050] heuristic to using the [RFC8781] approach might require a period of time where both mechanisms coexist.
+How long this may take depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support [RFC8781].
+Operators are advised to take those factors into account prior to removing support for the [RFC7050] heuristic, noting that it is still safe to add support for the [RFC8781] approach since endpoints that support it will always prefer it over [RFC7050] if they follow RFC requirements.
 
 Migrating away from DNS64-based discovery also reduces dependency on DNS64 in general, thereby eliminating DNSSEC and DNS64 incompatibility concerns (Section 6.2 of [RFC6147]).
 
 # Existing Issues with RFC7050 {#issues}
 
-DNS-based method of discovering the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, [RFC8781]).
+DNS-based discovery the NAT64 prefix introduces some challenges, which make this approach less preferable than latest developed alternatives (such as PREF64 RA Option, [RFC8781]).
 This section outlines the key issues, associated with [RFC7050], with a focus on those not discussed in [RFC7050] or in the analysis of solutions for hosts to discover NAT64 prefix ([RFC7051]).
 
 Signalling PREF64 in RA option addresses all issues outlined in this section (see Section 3 of [RFC8781] for details).
@@ -145,7 +146,7 @@ As a result, configuring such systems and applications to use resolvers other th
 
 VPN applications may override the endpoint's DNS configuration, for example, by configuring enterprise DNS servers as the node's recursive resolvers and forcing all name resolution through the VPN.
 These enterprise DNS servers typically lack DNS64 functionality and therefore cannot provide information about the PREF64 used within the local network.
-Consequently, this prevents the endpoint from discovering the necessary PREF64, negatively impacting its connectivity on IPv6-only networks.
+If the VPN is configured in so-called "split tunneling" mode (when only a subset of network traffic is routed into the VPN tunnel), endpoints may not discover the necessary PREF64, which negatively impacts their connectivity on IPv6-only networks.
 
 If both the network-provided DNS64 and the endpoint's resolver happen to utilize the Well-Known Prefix (64:ff9b::/96, [RFC6052]), the endpoint would end up using a PREF64 that's valid for the current network.
 However, if the endpoint changes its network attachment, it can't detect if the new network lacks NAT64 entirely or uses a network-specific NAT64 prefix (NSP, [RFC6144]).
@@ -189,7 +190,7 @@ Section 8 of [I-D.ietf-v6ops-claton] discusses this scenario in more details.
 ## Security Implications
 
 As discussed in Section 7 of [RFC7050], the DNS-based PREF64 discovery is prone to DNS spoofing attacks.
-In addition to creating a wider attack surface for IPv6 deployments, [RFC7050] has other security challenges worth noting to justify declaring it legacy.
+In addition to creating a wider attack surface for IPv6 deployments, [RFC7050] has other security challenges, which are discussed below.
 
 ### Definition of Secure Channel {#secure-channel-def}
 
@@ -219,4 +220,4 @@ This document does not introduce any IANA considerations.
 # Acknowledgments
 {:numbered="false"}
 
-The authors would like to thank the following people for their valuable contributions: Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Nick Heatley, Gabor Lencse, Ted Lemon, David Lou, Peter Schmitt, Chongfeng Xie.
+The authors would like to thank the following people for their valuable contributions: Mike Bishop, Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Susan Hares, Nick Heatley, Gabor Lencse, Ted Lemon, David Lou, Peter Schmitt, Éric Vyncke, Chongfeng Xie.
