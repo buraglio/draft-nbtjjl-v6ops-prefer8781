@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-05T02:03:57.077850+00:00",
+  "timestamp": "2025-08-07T02:02:32.814624+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -1715,6 +1715,119 @@
           "createdAt": "2025-08-03T23:40:14Z",
           "updatedAt": "2025-08-03T23:40:14Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOMjLqms6iaL7Q",
+      "title": "Pre-telechat review comments",
+      "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/39",
+      "state": "OPEN",
+      "author": "furry13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addressing Eric Vyncke's (INT AD)  and Sue's (GENART) comments ",
+      "createdAt": "2025-08-06T15:14:20Z",
+      "updatedAt": "2025-08-07T00:38:12Z",
+      "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
+      "baseRefName": "main",
+      "baseRefOid": "8eda38e5a65d1ac91f569cb425303354fc7104bf",
+      "headRepository": "furry13/draft-buraglio-deprecate7050",
+      "headRefName": "int-ad-review",
+      "headRefOid": "4b689dae9282699e59468c6e879987c858ca067f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMjLqms64Zpsj",
+          "commit": {
+            "abbreviatedOid": "7cd96d8"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2025-08-06T18:20:14Z",
+          "updatedAt": "2025-08-06T22:11:10Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "```suggestion\r\nTransitioning from the [RFC7050] heuristic to using the [RFC8781] approach might require a period of time where both mechanisms coexist.\r\nHow long this may take depends on the endpoint footprint, particularly the presence and number of endpoints running outdated operating systems, which do not support [RFC8781].\r\nOperators are advised to take those factors into account prior to removing support for the [RFC7050] heuristic, noting that it is still safe to add support for the [RFC8781] approach since endpoints that support it will always prefer it over [RFC7050] if they follow RFC requirements.\r\n```\r\n\r\nAfter reading Sue's review, I feel like more clarity was needed. What do you think of this?",
+              "createdAt": "2025-08-06T22:09:40Z",
+              "updatedAt": "2025-08-06T22:11:10Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\nIf the VPN is configured in so-called \"split tunneling\" mode (when only a subset of network traffic is routed into the VPN tunnel), endpoints may not discover the necessary PREF64, which negatively impacts their connectivity on IPv6-only networks.\r\n```\r\n\r\nLegibility rephrase",
+              "createdAt": "2025-08-06T22:10:53Z",
+              "updatedAt": "2025-08-06T22:11:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms64cfEz",
+          "commit": {
+            "abbreviatedOid": "fa4cd91"
+          },
+          "author": "mstojens",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-06T22:12:17Z",
+          "updatedAt": "2025-08-06T22:12:17Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\nThe authors would like to thank the following people for their valuable contributions: Mike Bishop, Mohamed Boucadair, Lorenzo Colitti, Tom Costello, Charles Eckel, Susan Hares, Nick Heatley, Gabor Lencse, Ted Lemon, David Lou, Peter Schmitt, \u00c9ric Vyncke, Chongfeng Xie.\r\n```",
+              "createdAt": "2025-08-06T22:12:17Z",
+              "updatedAt": "2025-08-06T22:12:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms64criV",
+          "commit": {
+            "abbreviatedOid": "fa4cd91"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-06T22:45:19Z",
+          "updatedAt": "2025-08-06T22:45:19Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "Are you sure you can have non-ascii characters? I recall spending an hour trying to find out why I can't render the draft, just to discover I copied someone's name into the Ack section from the email, and it contained non-ASCII...",
+              "createdAt": "2025-08-06T22:45:19Z",
+              "updatedAt": "2025-08-06T22:45:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms64dYnF",
+          "commit": {
+            "abbreviatedOid": "fa4cd91"
+          },
+          "author": "furry13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-07T00:38:07Z",
+          "updatedAt": "2025-08-07T00:38:07Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "OK, if it works, let's do it ;)",
+              "createdAt": "2025-08-07T00:38:07Z",
+              "updatedAt": "2025-08-07T00:38:07Z"
+            }
+          ]
         }
       ]
     }
