@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-07T02:02:32.814624+00:00",
+  "timestamp": "2025-08-10T02:05:36.642551+00:00",
   "repo": "buraglio/draft-nbtjjl-v6ops-prefer8781",
   "labels": [
     {
@@ -1723,24 +1723,26 @@
       "id": "PR_kwDOMjLqms6iaL7Q",
       "title": "Pre-telechat review comments",
       "url": "https://github.com/buraglio/draft-nbtjjl-v6ops-prefer8781/pull/39",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "furry13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Addressing Eric Vyncke's (INT AD)  and Sue's (GENART) comments ",
       "createdAt": "2025-08-06T15:14:20Z",
-      "updatedAt": "2025-08-07T00:38:12Z",
+      "updatedAt": "2025-08-07T10:35:14Z",
       "baseRepository": "buraglio/draft-nbtjjl-v6ops-prefer8781",
       "baseRefName": "main",
       "baseRefOid": "8eda38e5a65d1ac91f569cb425303354fc7104bf",
       "headRepository": "furry13/draft-buraglio-deprecate7050",
       "headRefName": "int-ad-review",
       "headRefOid": "4b689dae9282699e59468c6e879987c858ca067f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-08-07T10:35:14Z",
+      "mergedAt": "2025-08-07T10:35:14Z",
+      "mergedBy": "furry13",
+      "mergeCommit": {
+        "oid": "df56bfd1f9dae6184d2cc667c42f18fedec1e3e2"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1748,7 +1750,7 @@
           "commit": {
             "abbreviatedOid": "7cd96d8"
           },
-          "author": "mstojens",
+          "author": "tojens-ietf",
           "authorAssociation": "COLLABORATOR",
           "state": "CHANGES_REQUESTED",
           "body": "",
@@ -1774,7 +1776,7 @@
           "commit": {
             "abbreviatedOid": "fa4cd91"
           },
-          "author": "mstojens",
+          "author": "tojens-ietf",
           "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
@@ -1828,6 +1830,19 @@
               "updatedAt": "2025-08-07T00:38:07Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOMjLqms64gIq1",
+          "commit": {
+            "abbreviatedOid": "4b689da"
+          },
+          "author": "tojens-ietf",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM, thanks for going through my feedback!",
+          "createdAt": "2025-08-07T05:56:42Z",
+          "updatedAt": "2025-08-07T05:56:42Z",
+          "comments": []
         }
       ]
     }
